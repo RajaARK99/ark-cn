@@ -1,0 +1,34 @@
+---
+id: 2
+title: "Installation"
+description: "Install @ark-ui/react using the Ark UI React getting-started guide, and use the shadcn/ui installation docs to wire Tailwind, tokens, path aliases, and copy-paste components."
+url: "/installation"
+---
+
+Ark CN is a **shadcn-style** component collection: you **own the source** in your repo (no opaque UI package), style with **Tailwind**, and compose **Ark UI** for behavior and accessibility. Use the two references below together—Ark for primitives, shadcn for the broader “add to an existing app” workflow and design language.
+
+## Ark UI (required behavior layer)
+
+Ark UI is the **headless** library behind these components. Install it in any React app that will use the same primitives:
+
+<PackageInstall pkg="@ark-ui/react" />
+
+Use the official guide for prerequisites, package install, adding a first component (compound `Root` / part APIs), and styling with `data-scope` / `data-part`:
+
+- **[Getting started (React) — Ark UI](https://ark-ui.com/react/docs/overview/getting-started)**
+
+From that page, the important ideas are: **no default styles** (you supply Tailwind or CSS), **accessible patterns and keyboard support** out of the box, and **per-component imports** (for example `@ark-ui/react/slider`). Styling details continue in Ark’s **[Styling components](https://ark-ui.com/react/docs/guides/styling)** guide.
+
+## shadcn/ui (reference: setup and mental model)
+
+shadcn/ui is **not** a runtime dependency of Ark CN, but it is the **reference model** for “copy components into `src/components/ui`, wire Tailwind, use `cva` / `cn`.” When you greenfield or migrate an app, their installation docs cover **CLI init**, **framework-specific paths** (including Vite and TanStack Start), and **existing project** steps:
+
+- **[Installation — shadcn/ui](https://ui.shadcn.com/docs/installation)**
+
+What to take from that page for an Ark CN–style stack:
+
+- **Tailwind + design tokens** — Align global CSS and theme variables with how you want primitives to look.
+- **Path aliases and component folder** — Keep a single place for owned UI (here: `src/components/ui/`).
+- **“Existing project”** — If you are not using their CLI end-to-end, still follow the manual pieces that match your bundler (Vite, Start, etc.) so class merging, Tailwind content paths, and TypeScript resolve cleanly.
+
+Individual shadcn components are **React Aria / Radix**-oriented; Ark CN swaps that layer for **Ark UI** while keeping the same **ownership and composition** story as shadcn.

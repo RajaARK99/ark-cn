@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ark-cn",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "A shadcn-style accordion component built with Ark UI primitives.",
+      "dependencies": ["@ark-ui/react", "tw-animate-css", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/ui/accordion.tsx",
+          "type": "registry:ui",
+          "target": "src/components/ui/accordion.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes accordion-open-x": {
+          "from": {
+            "width": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "width": "var(--width)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes accordion-close-x": {
+          "from": {
+            "width": "var(--width)",
+            "opacity": "1"
+          },
+          "to": {
+            "width": "0",
+            "opacity": "0"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+---
+description: Use Bun for package management and arrow functions for all functions in TS/TSX
+alwaysApply: true
+---
+
+# Bun and arrow-function style
+
+## Package manager
+
+- Treat **Bun** as this repo’s package manager: install, run scripts, and add/remove packages with `bun` / `bunx` (e.g. `bun install`, `bun run dev`, `bun add <pkg>`).
+- Do not introduce npm/yarn/pnpm-specific commands unless the user explicitly asks.
+
+## Arrow functions
+
+- Prefer **arrow functions** for all function declarations in TypeScript and TSX, including helpers, React components, and exports.
+- Use `const name = (...) => { ... }` or `const name = (...) => (...)` instead of `function name(...) { ... }`.
+- Use `export const Name = (...) => ...` instead of `export function Name(...)`.
+- **Exception:** Keep `function` only when required by the runtime or framework (e.g. generators `function*`, or APIs that rely on hoisted declarations). If in doubt, use arrow functions.
+
+```tsx
+// Prefer
+const add = (a: number, b: number) => a + b;
+export const Page = () => <main />;
+
+// Avoid
+function add(a: number, b: number) {
+  return a + b;
+}
+export function Page() {
+  return <main />;
+}
+```

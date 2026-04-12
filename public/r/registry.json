@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ark-cn",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "A shadcn-style accordion component built with Ark UI primitives.",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "src/components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

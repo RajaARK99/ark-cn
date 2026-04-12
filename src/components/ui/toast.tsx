@@ -1,0 +1,215 @@
+"use client";
+
+import { Portal } from "@ark-ui/react/portal";
+import {
+  createToaster,
+  Toaster,
+  Toast as ToastPrimitive,
+} from "@ark-ui/react/toast";
+import {
+  CircleAlertIcon,
+  CircleCheckIcon,
+  InfoIcon,
+  LoaderIcon,
+  TriangleAlertIcon,
+  XIcon,
+} from "lucide-react";
+import type { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
+
+export type ToastProps = ToastPrimitive.RootProps;
+export type ToastTitleProps = ToastPrimitive.TitleProps;
+export type ToastDescriptionProps = ToastPrimitive.DescriptionProps;
+export type ToastActionTriggerProps = ToastPrimitive.ActionTriggerProps;
+export type ToastCloseTriggerProps = ToastPrimitive.CloseTriggerProps;
+export type ToastProviderProps = Omit<
+  ComponentProps<typeof Toaster>,
+  "toaster" | "children"
+>;
+export type AnchoredToastProviderProps = Omit<
+  ComponentProps<typeof Toaster>,
+  "toaster" | "children"
+>;
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  success: CircleCheckIcon,
+  error: CircleAlertIcon,
+  warning: TriangleAlertIcon,
+  info: InfoIcon,
+  loading: LoaderIcon,
+};
+
+const ICON_COLOR_MAP: Record<string, string> = {
+  success: "text-success-foreground",
+  error: "text-destructive",
+  warning: "text-warning-foreground",
+  info: "text-info-foreground",
+  loading: "text-muted-foreground",
+};
+
+export const ToastRoot = ({ className, ...props }: ToastProps) => (
+  <ToastPrimitive.Root
+    className={cn(
+      "group pointer-events-auto relative flex w-full flex-col gap-1 overflow-hidden rounded-lg border border-border/80 bg-popover p-4 pe-10 text-popover-foreground shadow-lg",
+      "transition-[opacity,transform] duration-200 ease-out",
+      "data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:zoom-in-95",
+      "data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95",
+      "data-[placement^=top]:data-[state=open]:slide-in-from-bottom-2 data-[placement^=bottom]:data-[state=open]:slide-in-from-top-2",
+      "data-[placement^=top]:data-[state=closed]:slide-out-to-bottom-2 data-[placement^=bottom]:data-[state=closed]:slide-out-to-top-2",
+      className,
+    )}
+    data-slot="toast"
+    {...props}
+  />
+);
+
+export const ToastTitle = ({ className, ...props }: ToastTitleProps) => (
+  <ToastPrimitive.Title
+    className={cn("flex items-center gap-2 font-semibold text-sm", className)}
+    data-slot="toast-title"
+    {...props}
+  />
+);
+
+export const ToastDescription = ({
+  className,
+  ...props
+}: ToastDescriptionProps) => (
+  <ToastPrimitive.Description
+    className={cn("text-muted-foreground text-sm", className)}
+    data-slot="toast-description"
+    {...props}
+  />
+);
+
+export const ToastActionTrigger = ({
+  className,
+  ...props
+}: ToastActionTriggerProps) => (
+  <ToastPrimitive.ActionTrigger
+    className={cn(
+      "mt-1 inline-flex h-7 shrink-0 cursor-pointer items-center justify-center rounded-md border border-border/80 bg-transparent px-3 font-medium text-xs transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 disabled:pointer-events-none disabled:opacity-50",
+      className,
+    )}
+    data-slot="toast-action"
+    {...props}
+  />
+);
+
+export const ToastCloseTrigger = ({
+  className,
+  ...props
+}: ToastCloseTriggerProps) => (
+  <ToastPrimitive.CloseTrigger
+    className={cn(
+      "absolute top-2 right-2 cursor-pointer rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring group-hover:opacity-100",
+      className,
+    )}
+    data-slot="toast-close"
+    {...props}
+  >
+    <XIcon className="size-4" />
+  </ToastPrimitive.CloseTrigger>
+);
+
+export const ToastIndicator = ({
+  type,
+  className,
+}: {
+  type?: string;
+  className?: string;
+}) => {
+  if (!type || !(type in ICON_MAP)) return null;
+  const Icon = ICON_MAP[type];
+  return (
+    <Icon
+      className={cn(
+        "size-4 shrink-0",
+        ICON_COLOR_MAP[type] ?? "text-muted-foreground",
+        type === "loading" && "animate-spin",
+        className,
+      )}
+    />
+  );
+};
+
+// ─── Stacked Toaster (global) ───────────────────────────────────────────────
+
+export const toaster = createToaster({
+  placement: "bottom-end",
+  overlap: true,
+  gap: 16,
+  max: 5,
+});
+
+export const ToastProvider = ({ className, ...props }: ToastProviderProps) => (
+  <Portal>
+    <Toaster
+      toaster={toaster}
+      className={cn(
+        "fixed! z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:top-auto sm:right-0 sm:bottom-0 sm:flex-col md:max-w-105",
+        className,
+      )}
+      data-slot="toast-provider"
+      {...props}
+    >
+      {(toast) => (
+        <ToastRoot key={toast.id}>
+          <ToastTitle>
+            <ToastIndicator type={toast.type} />
+            {toast.title}
+          </ToastTitle>
+          {toast.description && (
+            <ToastDescription>{toast.description}</ToastDescription>
+          )}
+          {toast.action && (
+            <ToastActionTrigger>{toast.action.label}</ToastActionTrigger>
+          )}
+          <ToastCloseTrigger />
+        </ToastRoot>
+      )}
+    </Toaster>
+  </Portal>
+);
+
+// ─── Anchored Toaster ───────────────────────────────────────────────────────
+
+export const anchoredToaster = createToaster({
+  placement: "top",
+  overlap: true,
+  gap: 8,
+  max: 1,
+  duration: 2000,
+});
+
+export const AnchoredToastProvider = ({
+  className,
+  ...props
+}: AnchoredToastProviderProps) => (
+  <Portal>
+    <Toaster
+      toaster={anchoredToaster}
+      className={cn("fixed! z-100", className)}
+      data-slot="anchored-toast-provider"
+      {...props}
+    >
+      {(toast) => (
+        <ToastPrimitive.Root
+          key={toast.id}
+          className="pointer-events-auto rounded-md border border-border/80 bg-popover px-3 py-2 text-popover-foreground shadow-md transition-[opacity,transform] duration-200 ease-out data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95 data-[placement^=top]:data-[state=open]:slide-in-from-bottom-2 data-[placement^=bottom]:data-[state=open]:slide-in-from-top-2 data-[placement^=top]:data-[state=closed]:slide-out-to-bottom-2 data-[placement^=bottom]:data-[state=closed]:slide-out-to-top-2"
+          data-slot="anchored-toast"
+        >
+          <ToastPrimitive.Title className="font-medium text-xs">
+            {toast.title}
+          </ToastPrimitive.Title>
+        </ToastPrimitive.Root>
+      )}
+    </Toaster>
+  </Portal>
+);
+
+// ─── Context & re-exports ───────────────────────────────────────────────────
+
+export const ToastContext = ToastPrimitive.Context;
+
+export { createToaster, Toaster } from "@ark-ui/react/toast";

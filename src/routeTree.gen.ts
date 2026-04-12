@@ -8,59 +8,102 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as IndexRouteImport } from "./routes/index"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as DocsLayoutRouteImport } from './routes/_docsLayout'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as DocsLayoutDocsSplatRouteImport } from './routes/_docsLayout/docs/$'
 
-const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+const DocsLayoutRoute = DocsLayoutRouteImport.update({
+  id: '/_docsLayout',
   getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsLayoutDocsSplatRoute = DocsLayoutDocsSplatRouteImport.update({
+  id: '/docs/$',
+  path: '/docs/$',
+  getParentRoute: () => DocsLayoutRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/docs/$': typeof DocsLayoutDocsSplatRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/docs/$': typeof DocsLayoutDocsSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/_docsLayout': typeof DocsLayoutRouteWithChildren
+  '/_docsLayout/docs/$': typeof DocsLayoutDocsSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/"
+  fullPaths: '/' | '/docs/$'
   fileRoutesByTo: FileRoutesByTo
-  to: "/"
-  id: "__root__" | "/"
+  to: '/' | '/docs/$'
+  id: '__root__' | '/' | '/_docsLayout' | '/_docsLayout/docs/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DocsLayoutRoute: typeof DocsLayoutRouteWithChildren
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/_docsLayout': {
+      id: '/_docsLayout'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof DocsLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_docsLayout/docs/$': {
+      id: '/_docsLayout/docs/$'
+      path: '/docs/$'
+      fullPath: '/docs/$'
+      preLoaderRoute: typeof DocsLayoutDocsSplatRouteImport
+      parentRoute: typeof DocsLayoutRoute
     }
   }
 }
 
+interface DocsLayoutRouteChildren {
+  DocsLayoutDocsSplatRoute: typeof DocsLayoutDocsSplatRoute
+}
+
+const DocsLayoutRouteChildren: DocsLayoutRouteChildren = {
+  DocsLayoutDocsSplatRoute: DocsLayoutDocsSplatRoute,
+}
+
+const DocsLayoutRouteWithChildren = DocsLayoutRoute._addFileChildren(
+  DocsLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DocsLayoutRoute: DocsLayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { createStart } from "@tanstack/react-start"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>

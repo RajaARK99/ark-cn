@@ -1,0 +1,109 @@
+"use client";
+
+import {
+  SegmentGroup as SegmentGroupPrimitive,
+  useSegmentGroup,
+  useSegmentGroupContext,
+} from "@ark-ui/react/segment-group";
+import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+
+export { useSegmentGroup, useSegmentGroupContext };
+
+export type TabsVariant = "default" | "underline";
+
+export const SegmentGroupRoot = ({
+  orientation = "horizontal",
+  variant = "default",
+  className,
+  ...props
+}: SegmentGroupPrimitive.RootProps & { variant?: TabsVariant }) => (
+  <SegmentGroupPrimitive.Root
+    data-slot="segment-group"
+    orientation={orientation}
+    data-variant={variant}
+    className={cn("group", className)}
+    {...props}
+  />
+);
+
+export const SegmentGroup = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div
+      className={cn(
+        "relative z-0 flex w-fit items-center justify-center gap-x-0.5 text-muted-foreground",
+        "group-data-[orientation=vertical]:flex-col",
+        "group-data-[variant=default]:rounded-lg group-data-[variant=default]:bg-muted group-data-[variant=default]:p-0.5 group-data-[variant=default]:text-muted-foreground/72",
+        "group-data-[orientation=vertical]:px-1 group-data-[orientation=horizontal]:py-1 *:data-[slot=tabs-tab]:hover:bg-accent",
+        "group-data-invalid:border-destructive/36 group-data-invalid:focus-visible:ring-[3px] group-data-invalid:focus-visible:ring-destructive/20 dark:group-data-invalid:border-destructive/50 dark:group-data-invalid:focus-visible:ring-destructive/40",
+        className,
+      )}
+      data-slot="segment-group-item"
+    >
+      {children}
+      <SegmentGroupPrimitive.Indicator
+        className={cn(
+          "absolute bottom-0 group-data-[variant=default]:top-(--top) group-data-[orientation=vertical]:group-data-[variant=underline]:left-[calc(var(--left)/2)] left-(--left) group-data-[orientation=horizontal]:right-(--left) h-(--height) w-(--width) transition-[width,height,left,top] duration-200 ease-in-out",
+          "group-data-[variant=underline]:z-10 group-data-[variant=underline]:bg-primary group-data-[variant=underline]:group-data-[orientation=horizontal]:h-0.5 group-data-[variant=underline]:data-[orientation=vertical]:w-0.5 group-data-[variant=underline]:data-[orientation=vertical]:-translate-x-px group-data-[variant=underline]:data-[orientation=horizontal]:translate-y-px",
+          "group-data-[variant=default]:-z-1 group-data-[variant=default]:rounded-md group-data-[variant=default]:bg-background group-data-[variant=default]:shadow-sm/5 group-data-[variant=default]:dark:bg-input",
+        )}
+        data-slot="segment-group-indicator"
+      />
+    </div>
+  );
+};
+
+export const Segment = ({
+  className,
+  children,
+  ...props
+}: SegmentGroupPrimitive.ItemProps) => {
+  return (
+    <SegmentGroupPrimitive.Item
+      className={cn(
+        "relative flex min-h-9 shrink-0 grow cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md border border-transparent px-[calc(--spacing(2.5)-1px)] font-medium text-base outline-none transition-[color,background-color,box-shadow] hover:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring data-disabled:pointer-events-none data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-[state=checked]:text-foreground data-disabled:opacity-64 sm:h-8 sm:text-sm [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:-mx-0.5 [&_svg]:shrink-0",
+        className,
+      )}
+      data-slot="segment-group-item"
+      {...props}
+    >
+      {typeof children === "string" ? (
+        <SegmentGroupPrimitive.ItemText>
+          {children}
+        </SegmentGroupPrimitive.ItemText>
+      ) : (
+        children
+      )}
+      <SegmentGroupPrimitive.ItemControl className={"hidden"} />
+      <SegmentGroupPrimitive.ItemHiddenInput />
+    </SegmentGroupPrimitive.Item>
+  );
+};
+
+export const SegmentGroupRootProvider = ({
+  children,
+  className,
+  variant = "default",
+  ...props
+}: SegmentGroupPrimitive.RootProviderProps & { variant?: TabsVariant }) => {
+  return (
+    <SegmentGroupPrimitive.RootProvider
+      className={cn("group", className)}
+      data-variant={variant}
+      {...props}
+    >
+      {children}
+    </SegmentGroupPrimitive.RootProvider>
+  );
+};
+export const SegmentGroupContext = ({
+  ...props
+}: SegmentGroupPrimitive.ContextProps) => {
+  return <SegmentGroupPrimitive.Context {...props} />;
+};
