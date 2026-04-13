@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const AccordionExample = () => {
+const AccordionDemo = () => {
   return (
     <Accordion
       collapsible
@@ -37,4 +37,4 @@ const AccordionExample = () => {
   );
 };
 
-export default AccordionExample;
+export default AccordionDemo;

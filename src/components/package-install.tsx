@@ -1,5 +1,3 @@
-"use client";
-
 import { TerminalIcon } from "lucide-react";
 import { useState } from "react";
 import {
@@ -16,7 +14,25 @@ type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
 const MANAGERS: PackageManager[] = ["npm", "pnpm", "yarn", "bun"];
 
-function installLine(pm: PackageManager, pkg: string, dev: boolean): string {
+function installLine(
+  pm: PackageManager,
+  pkg: string,
+  dev: boolean,
+  shadcn: boolean,
+): string {
+  if (shadcn) {
+    switch (pm) {
+      case "pnpm":
+        return `pnpm dlx shadcn@latest add ${pkg}`;
+      case "npm":
+        return `npx shadcn@latest add ${pkg}`;
+      case "yarn":
+        return `yarn dlx shadcn@latest add ${pkg}`;
+      case "bun":
+        return `bunx --bun shadcn@latest add ${pkg}`;
+    }
+  }
+
   if (dev) {
     switch (pm) {
       case "pnpm":
@@ -47,16 +63,18 @@ export type PackageInstallProps = {
   /** Install as dev dependency. */
   dev?: boolean;
   className?: string;
+  shadcn?: boolean;
 };
 
 const PackageInstall = ({
   pkg,
   dev = false,
   className,
+  shadcn = false,
 }: PackageInstallProps) => {
   const [pm, setPm] = useState<PackageManager>("npm");
   const trimmed = pkg.trim();
-  const line = installLine(pm, trimmed, dev);
+  const line = installLine(pm, trimmed, dev, shadcn);
 
   return (
     <div

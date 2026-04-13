@@ -1,0 +1,79 @@
+---
+id: 51
+title: "Slider"
+description: "A shadcn-style slider component built with Ark UI primitives."
+url: "/component/slider"
+referenceLink: "https://ark-ui.com/docs/components/slider"
+---
+
+
+<ComponentPreview name="slider-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/slider" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="slider" title="components/ui/slider.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Slider from "@/components/ui/slider"
+```
+
+Read exported parts in `src/components/ui/slider.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="slider-basic" />
+
+### Context
+
+<ComponentPreview name="slider-context" />
+
+<ComponentPreview name="slider-demo" />
+
+### Form
+
+<ComponentPreview name="slider-form" />
+
+### Root Provider
+
+<ComponentPreview name="slider-root-provider" />
+
+### Step
+
+<ComponentPreview name="slider-step" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/slider) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/slider#accessibility) for clarification.

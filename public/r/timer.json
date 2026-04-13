@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timer",
+  "title": "Timer",
+  "description": "A shadcn-style timer component built with Ark UI primitives.",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/timer.tsx",
+      "content": "\"use client\";\n\nimport {\n  Timer as TimerPrimitive,\n  useTimer,\n  useTimerContext,\n} from \"@ark-ui/react/timer\";\nimport { cn } from \"@/lib/utils\";\n\nexport type TimerProps = TimerPrimitive.RootProps;\n\nexport const Timer = ({ className, ...props }: TimerProps) => (\n  <TimerPrimitive.Root\n    className={cn(\"flex flex-col gap-4\", className)}\n    data-slot=\"timer\"\n    {...props}\n  />\n);\n\nexport type TimerAreaProps = TimerPrimitive.AreaProps;\n\nexport const TimerArea = ({ className, ...props }: TimerAreaProps) => (\n  <TimerPrimitive.Area\n    className={cn(\"flex items-center gap-2\", className)}\n    data-slot=\"timer-area\"\n    {...props}\n  />\n);\n\nexport type TimerItemProps = TimerPrimitive.ItemProps;\n\nexport const TimerItem = ({ className, ...props }: TimerItemProps) => (\n  <TimerPrimitive.Item\n    className={cn(\n      \"min-w-[2ch] text-center font-mono text-2xl font-semibold\",\n      className,\n    )}\n    data-slot=\"timer-item\"\n    {...props}\n  />\n);\n\nexport type TimerSeparatorProps = TimerPrimitive.SeparatorProps;\n\nexport const TimerSeparator = ({\n  className,\n  ...props\n}: TimerSeparatorProps) => (\n  <TimerPrimitive.Separator\n    className={cn(\"text-xl text-muted-foreground\", className)}\n    data-slot=\"timer-separator\"\n    {...props}\n  />\n);\n\nexport type TimerControlProps = TimerPrimitive.ControlProps;\n\nexport const TimerControl = ({ className, ...props }: TimerControlProps) => (\n  <TimerPrimitive.Control\n    className={cn(\"flex flex-wrap items-center gap-2\", className)}\n    data-slot=\"timer-control\"\n    {...props}\n  />\n);\n\nexport type TimerActionTriggerProps = TimerPrimitive.ActionTriggerProps;\n\nexport const TimerActionTrigger = ({\n  className,\n  ...props\n}: TimerActionTriggerProps) => (\n  <TimerPrimitive.ActionTrigger\n    className={cn(className)}\n    data-slot=\"timer-action-trigger\"\n    {...props}\n  />\n);\n\nexport const TimerContext = TimerPrimitive.Context;\n\nexport const TimerRootProvider = (props: TimerPrimitive.RootProviderProps) => (\n  <TimerPrimitive.RootProvider data-slot=\"timer-root-provider\" {...props} />\n);\n\nexport { useTimer, useTimerContext };\n",
+      "type": "registry:ui",
+      "target": "src/components/ui/timer.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

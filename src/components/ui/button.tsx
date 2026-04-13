@@ -79,6 +79,6 @@ const Button = ({
       )}
     </ark.button>
   );
-}
+};
 
 export { Button, buttonVariants };

@@ -1,0 +1,86 @@
+---
+id: 17
+title: "Color Picker"
+description: "A shadcn-style color picker component built with Ark UI primitives."
+url: "/component/color-picker"
+referenceLink: "https://ark-ui.com/docs/components/color-picker"
+---
+
+
+<ComponentPreview name="color-picker-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/color-picker" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="color-picker" title="components/ui/color-picker.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ColorPicker from "@/components/ui/color-picker"
+```
+
+Read exported parts in `src/components/ui/color-picker.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="color-picker-basic" />
+
+### Controlled
+
+<ComponentPreview name="color-picker-controlled" />
+
+### Open Controlled
+
+<ComponentPreview name="color-picker-open-controlled" />
+
+### Slider Only
+
+<ComponentPreview name="color-picker-slider-only" />
+
+### Swatch Only
+
+<ComponentPreview name="color-picker-swatch-only" />
+
+### Swatches
+
+<ComponentPreview name="color-picker-swatches" />
+
+### Value Swatch
+
+<ComponentPreview name="color-picker-value-swatch" />
+
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/color-picker) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/color-picker#accessibility) for clarification.

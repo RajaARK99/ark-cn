@@ -22,7 +22,7 @@ const RouteComponent = () => {
         <DocProvider>
           <div className="flex flex-1 max-w-400 mx-auto w-full">
             <DocsSidebar className="min-[1600px]:border-l" />
-            <SidebarInset className="bg-muted/40">
+            <SidebarInset className="bg-muted/40 rounded-2xl">
               <Outlet />
             </SidebarInset>
             <DocsTOC className="min-[1600px]:border-r" />

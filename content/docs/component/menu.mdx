@@ -1,0 +1,79 @@
+---
+id: 33
+title: "Menu"
+description: "A shadcn-style menu component built with Ark UI primitives."
+url: "/component/menu"
+referenceLink: "https://ark-ui.com/docs/components/menu"
+---
+
+
+<ComponentPreview name="menu-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/menu" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="menu" title="components/ui/menu.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Menu from "@/components/ui/menu"
+```
+
+Read exported parts in `src/components/ui/menu.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="menu-basic" />
+
+### Context Hook
+
+<ComponentPreview name="menu-context-hook" />
+
+### Context Menu
+
+<ComponentPreview name="menu-context-menu" />
+
+### Controlled
+
+<ComponentPreview name="menu-controlled" />
+
+<ComponentPreview name="menu-demo" />
+
+### Root Provider
+
+<ComponentPreview name="menu-root-provider" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/menu) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/menu#accessibility) for clarification.

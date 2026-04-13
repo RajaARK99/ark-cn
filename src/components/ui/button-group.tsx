@@ -3,8 +3,8 @@
 import { ark } from "@ark-ui/react/factory";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Separator } from "./separator";
 
 export const groupVariants = cva(
   "flex w-fit *:focus-visible:z-1 has-[>[data-slot=group]]:gap-2 *:has-focus-visible:z-1 in-data-invalid:*:data-slot:not-data-[slot=separator]:border-destructive/36 in-data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-[3px] in-data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-destructive/20 dark:in-data-invalid:*:data-slot:not-data-[slot=separator]:border-destructive/50 dark:in-data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-destructive/40 data-invalid:*:data-slot:not-data-[slot=separator]:border-destructive/36 data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-[3px] data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-destructive/20 dark:data-invalid:*:data-slot:not-data-[slot=separator]:border-destructive/50 dark:data-invalid:*:data-slot:not-data-[slot=separator]:focus-visible:ring-destructive/40 in-data-invalid:*:data-[slot=separator]:bg-destructive/30 in-data-invalid:*:data-[slot=separator]:before:bg-destructive/25 dark:in-data-invalid:*:data-[slot=separator]:bg-destructive/40 dark:in-data-invalid:*:data-[slot=separator]:before:bg-destructive/35 data-invalid:*:data-[slot=separator]:bg-destructive/30 data-invalid:*:data-[slot=separator]:before:bg-destructive/25 dark:data-invalid:*:data-[slot=separator]:bg-destructive/40 dark:data-invalid:*:data-[slot=separator]:before:bg-destructive/35 dark:*:[[data-slot=separator]:has(~button:hover):not(:has(~[data-slot=separator]~[data-slot]:hover)),[data-slot=separator]:has(~[data-slot][data-pressed]):not(:has(~[data-slot=separator]~[data-slot][data-pressed]))]:before:bg-input/64 dark:in-data-invalid:*:[[data-slot=separator]:has(~button:hover):not(:has(~[data-slot=separator]~[data-slot]:hover)),[data-slot=separator]:has(~[data-slot][data-pressed]):not(:has(~[data-slot=separator]~[data-slot][data-pressed]))]:before:bg-destructive/45 dark:data-invalid:*:[[data-slot=separator]:has(~button:hover):not(:has(~[data-slot=separator]~[data-slot]:hover)),[data-slot=separator]:has(~[data-slot][data-pressed]):not(:has(~[data-slot=separator]~[data-slot][data-pressed]))]:before:bg-destructive/45 dark:*:[button:hover~[data-slot=separator]:not([data-slot]:hover~[data-slot=separator]~[data-slot=separator]),[data-slot][data-pressed]~[data-slot=separator]:not([data-slot][data-pressed]~[data-slot=separator]~[data-slot=separator])]:before:bg-input/64 dark:in-data-invalid:*:[button:hover~[data-slot=separator]:not([data-slot]:hover~[data-slot=separator]~[data-slot=separator]),[data-slot][data-pressed]~[data-slot=separator]:not([data-slot][data-pressed]~[data-slot=separator]~[data-slot=separator])]:before:bg-destructive/45 dark:data-invalid:*:[button:hover~[data-slot=separator]:not([data-slot]:hover~[data-slot=separator]~[data-slot=separator]),[data-slot][data-pressed]~[data-slot=separator]:not([data-slot][data-pressed]~[data-slot=separator]~[data-slot=separator])]:before:bg-destructive/45",
@@ -23,7 +23,7 @@ export const groupVariants = cva(
   },
 );
 
-export const Group = ({
+export const ButtonGroup = ({
   className,
   orientation,
   children,
@@ -49,7 +49,7 @@ export const Group = ({
   );
 };
 
-export const GroupText = ({
+export const ButtonGroupText = ({
   className,
   ...props
 }: ComponentProps<typeof ark.div>) => {
@@ -65,7 +65,7 @@ export const GroupText = ({
   );
 };
 
-export const GroupSeparator = ({
+export const ButtonGroupSeparator = ({
   className,
   orientation = "vertical",
   ...props
@@ -75,17 +75,11 @@ export const GroupSeparator = ({
   return (
     <Separator
       className={cn(
-        "pointer-events-none relative z-2 bg-input before:absolute before:inset-0 has-[+[data-slot=input-control]:focus-within,+[data-slot=input-group]:focus-within,+[data-slot=select-trigger]:focus-visible+*,+[data-slot=number-field]:focus-within]:translate-x-px has-[+[data-slot=input-control]:focus-within,+[data-slot=input-group]:focus-within,+[data-slot=select-trigger]:focus-visible+*,+[data-slot=number-field]:focus-within]:bg-ring dark:before:bg-input/32 [[data-slot=input-control]:focus-within+&,[data-slot=input-group]:focus-within+&,[data-slot=select-trigger]:focus-visible+*+&,[data-slot=number-field]:focus-within+&,[data-slot=number-field]:focus-within+input+&]:bg-ring [[data-slot=input-control]:focus-within+&,[data-slot=input-group]:focus-within+&,[data-slot=select-trigger]:focus-visible+*+&,[data-slot=number-field]:focus-within+input+&]:-translate-x-px",
+        "pointer-events-none relative z-2 self-stretch bg-input before:absolute before:inset-0 has-[+[data-slot=input-control]:focus-within,+[data-slot=input-group]:focus-within,+[data-slot=select-trigger]:focus-visible+*,+[data-slot=number-field]:focus-within]:translate-x-px has-[+[data-slot=input-control]:focus-within,+[data-slot=input-group]:focus-within,+[data-slot=select-trigger]:focus-visible+*,+[data-slot=number-field]:focus-within]:bg-ring dark:before:bg-input/32 [[data-slot=input-control]:focus-within+&,[data-slot=input-group]:focus-within+&,[data-slot=select-trigger]:focus-visible+*+&,[data-slot=number-field]:focus-within+&,[data-slot=number-field]:focus-within+input+&]:bg-ring [[data-slot=input-control]:focus-within+&,[data-slot=input-group]:focus-within+&,[data-slot=select-trigger]:focus-visible+*+&,[data-slot=number-field]:focus-within+input+&]:-translate-x-px",
         className,
       )}
       orientation={orientation}
       {...props}
     />
   );
-};
-
-export {
-  Group as ButtonGroup,
-  GroupSeparator as ButtonGroupSeparator,
-  GroupText as ButtonGroupText,
 };

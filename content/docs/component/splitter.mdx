@@ -1,0 +1,79 @@
+---
+id: 53
+title: "Splitter"
+description: "A shadcn-style splitter component built with Ark UI primitives."
+url: "/component/splitter"
+referenceLink: "https://ark-ui.com/docs/components/splitter"
+---
+
+
+<ComponentPreview name="splitter-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/splitter" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="splitter" title="components/ui/splitter.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Splitter from "@/components/ui/splitter"
+```
+
+Read exported parts in `src/components/ui/splitter.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="splitter-basic" />
+
+### Context
+
+<ComponentPreview name="splitter-context" />
+
+<ComponentPreview name="splitter-demo" />
+
+### Multiple Panels
+
+<ComponentPreview name="splitter-multiple-panels" />
+
+### Root Provider
+
+<ComponentPreview name="splitter-root-provider" />
+
+### Vertical
+
+<ComponentPreview name="splitter-vertical" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/splitter) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/splitter#accessibility) for clarification.

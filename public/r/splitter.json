@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "splitter",
+  "title": "Splitter",
+  "description": "A shadcn-style splitter component built with Ark UI primitives.",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/splitter.tsx",
+      "content": "\"use client\";\n\nimport { Splitter as SplitterPrimitive } from \"@ark-ui/react/splitter\";\nimport { cn } from \"@/lib/utils\";\n\nexport type SplitterProps = SplitterPrimitive.RootProps;\n\nexport const Splitter = ({ className, ...props }: SplitterProps) => (\n  <SplitterPrimitive.Root\n    className={cn(\n      \"flex min-h-0 min-w-0 overflow-hidden rounded-xl border border-border bg-card text-card-foreground\",\n      \"data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col\",\n      className,\n    )}\n    data-slot=\"splitter\"\n    {...props}\n  />\n);\n\nexport type SplitterPanelProps = SplitterPrimitive.PanelProps;\n\nexport const SplitterPanel = ({ className, ...props }: SplitterPanelProps) => (\n  <SplitterPrimitive.Panel\n    className={cn(\"min-h-0 min-w-0 overflow-auto\", className)}\n    data-slot=\"splitter-panel\"\n    {...props}\n  />\n);\n\nexport type SplitterResizeTriggerIndicatorProps =\n  SplitterPrimitive.ResizeTriggerIndicatorProps;\n\nexport const SplitterResizeTriggerIndicator = ({\n  className,\n  ...props\n}: SplitterResizeTriggerIndicatorProps) => (\n  <SplitterPrimitive.ResizeTriggerIndicator\n    className={cn(\n      \"rounded-full bg-muted-foreground/45\",\n      \"data-[orientation=horizontal]:h-8 data-[orientation=horizontal]:w-1\",\n      \"data-[orientation=vertical]:h-1 data-[orientation=vertical]:w-8\",\n      className,\n    )}\n    data-slot=\"splitter-handle-indicator\"\n    {...props}\n  />\n);\n\nexport type SplitterResizeTriggerProps =\n  SplitterPrimitive.ResizeTriggerProps & {\n    withHandle?: boolean;\n    indicatorClassName?: string;\n  };\n\nexport const SplitterResizeTrigger = ({\n  className,\n  withHandle,\n  indicatorClassName,\n  children,\n  ...props\n}: SplitterResizeTriggerProps) => (\n  <SplitterPrimitive.ResizeTrigger\n    className={cn(\n      \"group/resize relative shrink-0 bg-border/60 outline-none transition-colors\",\n      \"hover:bg-border focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background\",\n      \"data-[orientation=horizontal]:w-px data-[orientation=vertical]:h-px\",\n      \"data-[orientation=horizontal]:px-px data-[orientation=vertical]:py-px\",\n      \"data-disabled:pointer-events-none data-disabled:opacity-64\",\n      className,\n    )}\n    data-slot=\"splitter-handle\"\n    {...props}\n  >\n    {withHandle ? (\n      <span className=\"pointer-events-none absolute inset-0 group-data-[orientation=horizontal]/resize:-translate-x-1/2 group-data-[orientation=vertical]/resize:-translate-y-1/2  grid place-items-center\">\n        <SplitterResizeTriggerIndicator className={indicatorClassName} />\n      </span>\n    ) : null}\n    {children}\n  </SplitterPrimitive.ResizeTrigger>\n);\n\nexport const SplitterContext = SplitterPrimitive.Context;\n\nexport type {\n  UseSplitterProps,\n  UseSplitterReturn,\n} from \"@ark-ui/react/splitter\";\nexport {\n  SplitterRootProvider,\n  useSplitter,\n  useSplitterContext,\n} from \"@ark-ui/react/splitter\";\n",
+      "type": "registry:ui",
+      "target": "src/components/ui/splitter.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,92 @@
+---
+id: 7
+title: "Angle Slider"
+description: "A shadcn-style angle slider component built with Ark UI primitives."
+url: "/component/angle-slider"
+referenceLink: "https://ark-ui.com/docs/components/angle-slider"
+---
+
+<ComponentPreview name="angle-slider-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/angle-slider" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="angle-slider" title="components/ui/angle-slider.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as AngleSlider from "@/components/ui/angle-slider"
+```
+
+Read exported parts in `src/components/ui/angle-slider.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Ring
+
+<ComponentPreview name="angle-slider-demo" />
+
+### Labeled
+
+<ComponentPreview name="angle-slider-labeled" />
+
+### Rotation
+
+<ComponentPreview name="angle-slider-rotation" />
+
+### Split
+
+<ComponentPreview name="angle-slider-split" />
+
+### Ticks
+
+<ComponentPreview name="angle-slider-ticks" />
+
+### Controlled
+
+<ComponentPreview name="angle-slider-controlled" />
+
+### Small Size
+
+<ComponentPreview name="angle-slider-small" />
+
+### Large Size
+
+<ComponentPreview name="angle-slider-large" />
+
+### Disabled
+
+<ComponentPreview name="angle-slider-disabled" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/angle-slider) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/angle-slider#accessibility) for clarification.

@@ -21,11 +21,13 @@ export const exampleRawModules = import.meta.glob(
 const slugFromPath = (path: string) => {
   const m = path.match(/\/([^/]+)\.tsx$/);
   return m?.[1]?.toLowerCase() ?? "";
-}
+};
 
-export const resolveExamplePaths = (name: string): {
+export const resolveExamplePaths = (
+  name: string,
+): {
   componentPath: string;
-  rawPath: string;  
+  rawPath: string;
 } | null => {
   const slug =
     name
@@ -46,4 +48,4 @@ export const resolveExamplePaths = (name: string): {
     return null;
   }
   return { componentPath, rawPath };
-}
+};

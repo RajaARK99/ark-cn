@@ -7,7 +7,7 @@ import {
   usePinInputContext,
 } from "@ark-ui/react/pin-input";
 import { type ComponentProps, Fragment } from "react";
-import { ButtonGroup, GroupSeparator } from "@/components/ui/button-group";
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
 import { cn } from "@/lib/utils";
 
 export { usePinInput, usePinInputContext };
@@ -160,7 +160,7 @@ export const PinInputSlots = ({
                   const idx = j + i * separatorBetweenCount;
                   return (
                     <Fragment key={idx}>
-                      {j > 0 ? <GroupSeparator /> : null}
+                      {j > 0 ? <ButtonGroupSeparator /> : null}
                       {cell(idx)}
                     </Fragment>
                   );
@@ -177,7 +177,7 @@ export const PinInputSlots = ({
         <ButtonGroup>
           {Array.from({ length: count }, (_, i) => (
             <Fragment key={i}>
-              {i > 0 ? <GroupSeparator /> : null}
+              {i > 0 ? <ButtonGroupSeparator /> : null}
               {cell(i)}
             </Fragment>
           ))}

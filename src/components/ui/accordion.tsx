@@ -70,8 +70,9 @@ export const AccordionTrigger = ({
 export const AccordionPanel = ({
   className,
   children,
+  containerClassName,
   ...props
-}: AccordionPrimitive.ItemContentProps) => {
+}: AccordionPrimitive.ItemContentProps & { containerClassName?: string }) => {
   return (
     <AccordionPrimitive.ItemContent
       className={cn(
@@ -80,7 +81,7 @@ export const AccordionPanel = ({
       )}
       {...props}
     >
-      <div className={cn("px-2 pt-0 pb-4 leading-normal", className)}>
+      <div className={cn("px-2 pt-0 pb-4 leading-normal", containerClassName)}>
         {children}
       </div>
     </AccordionPrimitive.ItemContent>
@@ -88,6 +89,7 @@ export const AccordionPanel = ({
 };
 
 export const AccordionContext = AccordionPrimitive.Context;
+
 export const AccordionProvider = ({
   children,
   className,
@@ -102,4 +104,5 @@ export const AccordionProvider = ({
     </AccordionPrimitive.RootProvider>
   );
 };
+
 export { useAccordion };

@@ -15,6 +15,7 @@ const RouteComponent = () => {
       headings={section.headings}
       nextPage={nextPage}
       previousPage={previousPage}
+      referenceLink={section.referenceLink ?? null}
     />
   );
 };

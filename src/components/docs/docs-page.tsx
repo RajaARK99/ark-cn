@@ -3,7 +3,14 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import ComponentPreview from "@/components/component-preview";
+import ComponentSource from "@/components/component-source";
+import { DocStep, DocSteps } from "@/components/docs/doc-install-steps";
+import { DataAttributesTable } from "@/components/docs/docs-data-attributes-table";
+import { KeyboardShortcutsTable } from "@/components/docs/docs-keyboard-shortcuts-table";
+import { DocPropsTable } from "@/components/docs/docs-props-table";
+import { AccordionDocSupplement } from "@/components/docs/presets/accordion-doc-supplement";
 import PackageInstall from "@/components/package-install";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { type DocsHeading, getDocURl } from "@/lib/docs";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -20,6 +27,7 @@ type DocsPageProps = {
   headings: DocsHeading[];
   nextPage: DocSection | null;
   previousPage: DocSection | null;
+  referenceLink: string | null;
 };
 
 const DocsPage = ({
@@ -30,6 +38,7 @@ const DocsPage = ({
   headings,
   nextPage,
   previousPage,
+  referenceLink,
 }: DocsPageProps) => {
   const { setHeadings } = useDoc();
   const location = useLocation();
@@ -54,6 +63,19 @@ const DocsPage = ({
             {title}
           </h1>
           <div className="flex shrink-0 items-center gap-2">
+            {referenceLink && (
+              <a
+                href={referenceLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({
+                  variant: "secondary",
+                })}
+              >
+                API <ArrowRightIcon className="w-4 h-4" />
+                <span className="sr-only">Reference</span>
+              </a>
+            )}
             <DocCopyPage page={rawContent} url={pageUrl} />
             {previousPage || nextPage ? (
               <>
@@ -94,7 +116,23 @@ const DocsPage = ({
       <div className="docs-mdx-prose prose dark:prose-invert flex-1 max-w-none prose-pre:bg-transparent prose-pre:p-0 prose-pre:my-0">
         <MDXContent
           code={mdx}
-          components={{ ComponentPreview, PackageInstall }}
+          components={{
+            ComponentPreview,
+            ComponentSource,
+            PackageInstall,
+            Tabs,
+            TabsContent,
+            TabsList,
+            TabsTrigger,
+            DocSteps,
+            DocStep,
+            Steps: DocSteps,
+            Step: DocStep,
+            KeyboardShortcutsTable,
+            DataAttributesTable,
+            DocPropsTable,
+            AccordionDocSupplement,
+          }}
         />
       </div>
       {nextPage || previousPage ? (

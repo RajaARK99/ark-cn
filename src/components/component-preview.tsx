@@ -1,7 +1,5 @@
-"use client";
-
-import { useEffect, useMemo, useState } from "react";
-import { codeToHtml } from "shiki/bundle/web";
+import { useMemo, useState } from "react";
+import { DocsShikiCode } from "@/components/docs/docs-shiki-code";
 import {
   ClipboardIndicator,
   ClipboardRoot,
@@ -13,59 +11,30 @@ import {
   exampleRawModules,
   resolveExamplePaths,
 } from "@/lib/component-example-modules";
-import { DOCS_CODE_THEMES } from "@/lib/docs-code-theme";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 
-const previewPanelClass =
-  "flex h-80 w-full justify-center overflow-y-auto border border-border rounded-lg p-5 max-sm:px-6";
+const previewPanelBase =
+  "flex h-80 w-full overflow-y-auto border border-border rounded-lg p-5 max-sm:px-6 justify-center items-center";
 
 const codePanelClass =
   "flex h-80 w-full flex-col overflow-y-auto border border-border rounded-lg p-4 bg-muted relative";
 
-const ComponentPreviewHighlightedCode = ({ source, lang = "tsx", className }: { source: string, lang?: string, className?: string }) => {
-  const [html, setHtml] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    void codeToHtml(source, {
-      lang,
-      themes: {
-        light: DOCS_CODE_THEMES.light,
-        dark: DOCS_CODE_THEMES.dark,
-      },
-    }).then((out) => {
-      if (!cancelled) {
-        setHtml(out);
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [source]);
-
-  return (
-    <div
-      className={cn(
-        "component-preview-code min-h-0 flex-1 font-mono text-[13px] leading-relaxed",
-        "[&_pre.shiki]:m-0! [&_pre.shiki]:bg-transparent! [&_pre.shiki]:p-0! [&_pre.shiki]:text-[13px] [&_pre.shiki]:border-none!",
-        "[&_code]:font-mono",
-        className,
-      )}
-    >
-      {html ? (
-        <div
-          // Example sources are trusted local files; Shiki output is deterministic HTML.
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      ) : (
-        <pre className="m-0 whitespace-pre-wrap wrap-break-word p-0 text-muted-foreground">
-          <code>{source}</code>
-        </pre>
-      )}
-    </div>
-  );
-}
+const ComponentPreviewHighlightedCode = ({
+  source,
+  lang = "tsx",
+  className,
+}: {
+  source: string;
+  lang?: string;
+  className?: string;
+}) => (
+  <DocsShikiCode
+    source={source}
+    lang={lang}
+    className={cn("component-preview-code min-h-0 flex-1", className)}
+  />
+);
 
 export type ComponentPreviewProps = {
   /** Basename of `src/components/example/<name>.tsx` (no extension), e.g. `"accordion"`. */
@@ -77,6 +46,8 @@ export type ComponentPreviewProps = {
   code?: string;
   /** When true, only the Preview panel is shown (no Code tab). */
   hideCode?: boolean;
+  previewClassName?: string;
+  codeClassName?: string;
 };
 
 const ComponentPreview = ({
@@ -85,6 +56,8 @@ const ComponentPreview = ({
   preview,
   code,
   hideCode = false,
+  previewClassName,
+  codeClassName,
 }: ComponentPreviewProps) => {
   const [tab, setTab] = useState("preview");
 
@@ -144,7 +117,7 @@ const ComponentPreview = ({
         data-slot="component-preview"
       >
         <div
-          className={cn(previewPanelClass, "bg-muted/20")}
+          className={cn(previewPanelBase, "bg-muted/20", previewClassName)}
           data-slot="component-preview-live"
         >
           {live}
@@ -169,11 +142,11 @@ const ComponentPreview = ({
         </TabsList>
         <TabsContent
           value="preview"
-          className={cn(previewPanelClass, "bg-muted/20")}
+          className={cn(previewPanelBase, "bg-muted/20", previewClassName)}
         >
           {live}
         </TabsContent>
-        <TabsContent value="code" className={codePanelClass}>
+        <TabsContent value="code" className={cn(codePanelClass, codeClassName)}>
           <ClipboardRoot value={raw}>
             <ClipboardTrigger
               className={buttonVariants({

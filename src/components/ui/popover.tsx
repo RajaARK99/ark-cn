@@ -38,54 +38,51 @@ export const PopoverPopup = ({
   ...contentProps
 }: PopoverPopupProps) => {
   const inner = (
-    <PopoverPrimitive.Positioner
-      className={cn(!disablePortal && "z-50", positionerClassName)}
-      data-slot="popover-positioner"
+    <PopoverPrimitive.Content
+      className={cn(
+        "relative z-[calc(50+var(--layer-index,0))] w-[min(20rem,var(--available-width,20rem))] max-w-[min(20rem,var(--available-width,20rem))] rounded-xl border border-border/80 bg-popover p-4 text-popover-foreground shadow-md outline-none ring-1 ring-border/20",
+        "origin-(--transform-origin) transition-opacity duration-150 data-[state=closed]:opacity-0 data-[state=open]:opacity-100",
+        className,
+      )}
+      data-slot="popover-content"
+      {...contentProps}
     >
-      <PopoverPrimitive.Content
-        className={cn(
-          "relative z-[calc(50+var(--layer-index,0))] w-[min(20rem,var(--available-width,20rem))] max-w-[min(20rem,var(--available-width,20rem))] rounded-xl border border-border/80 bg-popover p-4 text-popover-foreground shadow-md outline-none ring-1 ring-border/20",
-          "origin-(--transform-origin) transition-opacity duration-150 data-[state=closed]:opacity-0 data-[state=open]:opacity-100",
-          className,
-        )}
-        data-slot="popover-content"
-        {...contentProps}
-      >
-        {showArrow ? (
-          <PopoverPrimitive.Arrow
-            className={cn(
-              "[--arrow-background:var(--popover)] [--arrow-size:10px] [--arrow-shadow-color:var(--border)]",
-              arrowClassName,
-            )}
-            data-slot="popover-arrow"
-          >
-            <PopoverPrimitive.ArrowTip
-              className={cn(
-                "border-border border-t border-l",
-                arrowTipClassName,
-              )}
-              data-slot="popover-arrow-tip"
-            />
-          </PopoverPrimitive.Arrow>
-        ) : null}
-        {children}
-      </PopoverPrimitive.Content>
-    </PopoverPrimitive.Positioner>
+      {children}
+
+      {showArrow ? (
+        <PopoverPrimitive.Arrow
+          className={cn(
+            "[--arrow-background:var(--popover)] [--arrow-size:10px] [--arrow-shadow-color:var(--border)]",
+            arrowClassName,
+          )}
+          data-slot="popover-arrow"
+        >
+          <PopoverPrimitive.ArrowTip
+            className={cn("border-border border-t border-l", arrowTipClassName)}
+            data-slot="popover-arrow-tip"
+          />
+        </PopoverPrimitive.Arrow>
+      ) : null}
+    </PopoverPrimitive.Content>
   );
-  return disablePortal ? inner : <Portal>{inner}</Portal>;
+  return disablePortal ? (
+    inner
+  ) : (
+    <Portal>
+      <PopoverPrimitive.Positioner
+        className={cn(!disablePortal && "z-50", positionerClassName)}
+        data-slot="popover-positioner"
+      >
+        {inner}
+      </PopoverPrimitive.Positioner>
+    </Portal>
+  );
 };
 
 export type PopoverTriggerProps = PopoverPrimitive.TriggerProps;
 
-export const PopoverTrigger = ({
-  className,
-  ...props
-}: PopoverTriggerProps) => (
-  <PopoverPrimitive.Trigger
-    className={cn(className)}
-    data-slot="popover-trigger"
-    {...props}
-  />
+export const PopoverTrigger = ({ ...props }: PopoverTriggerProps) => (
+  <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
 );
 
 export type PopoverAnchorProps = PopoverPrimitive.AnchorProps;

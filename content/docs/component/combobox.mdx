@@ -1,0 +1,93 @@
+---
+id: 18
+title: "Combobox"
+description: "A shadcn-style combobox component built with Ark UI primitives."
+url: "/component/combobox"
+referenceLink: "https://ark-ui.com/docs/components/combobox"
+---
+
+
+<ComponentPreview name="combobox-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/combobox" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="combobox" title="components/ui/combobox.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Combobox from "@/components/ui/combobox"
+```
+
+Read exported parts in `src/components/ui/combobox.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="combobox-basic" />
+
+### Clear
+
+<ComponentPreview name="combobox-clear" />
+
+### Grouped
+
+<ComponentPreview name="combobox-grouped" />
+
+### Multiple Selection
+
+<ComponentPreview name="combobox-multiple" />
+
+### Sizes
+
+<ComponentPreview name="combobox-sizes" />
+
+### With Label
+
+<ComponentPreview name="combobox-with-label" />
+
+### Auto Highlight
+
+<ComponentPreview name="combobox-auto-highlight" />
+
+### Disabled
+
+<ComponentPreview name="combobox-disabled" />
+
+### Select Button
+
+<ComponentPreview name="select-combobox-select-button" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/combobox) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/combobox#accessibility) for clarification.

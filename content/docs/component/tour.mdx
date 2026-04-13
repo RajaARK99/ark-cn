@@ -1,0 +1,79 @@
+---
+id: 65
+title: "Tour"
+description: "A shadcn-style tour component built with Ark UI primitives."
+url: "/component/tour"
+referenceLink: "https://ark-ui.com/docs/components/tour"
+---
+
+
+<ComponentPreview name="tour-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/tour" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="tour" title="components/ui/tour.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Tour from "@/components/ui/tour"
+```
+
+Read exported parts in `src/components/ui/tour.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Async
+
+<ComponentPreview name="tour-async" />
+
+### Basic
+
+<ComponentPreview name="tour-basic" />
+
+<ComponentPreview name="tour-demo" />
+
+### Events
+
+<ComponentPreview name="tour-events" />
+
+### Mixed Types
+
+<ComponentPreview name="tour-mixed-types" />
+
+### Skip
+
+<ComponentPreview name="tour-skip" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/tour) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/tour#accessibility) for clarification.

@@ -1,0 +1,79 @@
+---
+id: 60
+title: "Timer"
+description: "A shadcn-style timer component built with Ark UI primitives."
+url: "/component/timer"
+referenceLink: "https://ark-ui.com/docs/components/timer"
+---
+
+
+<ComponentPreview name="timer-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/timer" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="timer" title="components/ui/timer.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Timer from "@/components/ui/timer"
+```
+
+Read exported parts in `src/components/ui/timer.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="timer-basic" />
+
+<ComponentPreview name="timer-demo" />
+
+### Events
+
+<ComponentPreview name="timer-events" />
+
+### Interval
+
+<ComponentPreview name="timer-interval" />
+
+### Pomodoro
+
+<ComponentPreview name="timer-pomodoro" />
+
+### Root Provider
+
+<ComponentPreview name="timer-root-provider" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/timer) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/timer#accessibility) for clarification.

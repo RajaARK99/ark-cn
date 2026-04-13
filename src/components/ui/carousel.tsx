@@ -31,10 +31,12 @@ export const CarouselPrevious = ({
   className,
   variant = "outline",
   size = "icon-sm",
+  anchorButtons = false,
   ...props
 }: CarouselPrimitive.PrevTriggerProps & {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   size?: VariantProps<typeof buttonVariants>["size"];
+  anchorButtons?: boolean;
 }) => {
   return (
     <CarouselPrimitive.PrevTrigger {...props} asChild>
@@ -42,13 +44,17 @@ export const CarouselPrevious = ({
         variant={variant}
         size={size}
         className={cn(
-          "absolute touch-manipulation rounded-full",
-          "data-[orientation='horizontal']:top-1/2 data-[orientation='horizontal']:-left-12 data-[orientation='horizontal']:-translate-y-1/2",
-          "data-[orientation='vertical']:-top-12 data-[orientation='vertical']:left-1/2 data-[orientation='vertical']:-translate-x-1/2 data-[orientation='vertical']:rotate-90",
+          "data-[orientation='vertical']:rotate-90",
+          anchorButtons &&
+            "absolute touch-manipulation rounded-full before:absolute before:inset-0 before:rounded-full",
+          anchorButtons &&
+            "data-[orientation='horizontal']:top-1/2 data-[orientation='horizontal']:-left-12 data-[orientation='horizontal']:-translate-y-1/2",
+          anchorButtons &&
+            "data-[orientation='vertical']:-top-12 data-[orientation='vertical']:left-1/2 data-[orientation='vertical']:-translate-x-1/2 ",
           className,
         )}
       >
-        <ChevronLeftIcon className="" />
+        <ChevronLeftIcon />
         <span className="sr-only">Previous sli de</span>
       </Button>
     </CarouselPrimitive.PrevTrigger>
@@ -59,10 +65,12 @@ export const CarouselNext = ({
   className,
   variant = "outline",
   size = "icon-sm",
+  anchorButtons = false,
   ...props
 }: CarouselPrimitive.NextTriggerProps & {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   size?: VariantProps<typeof buttonVariants>["size"];
+  anchorButtons?: boolean;
 }) => {
   return (
     <CarouselPrimitive.NextTrigger {...props} asChild>
@@ -71,13 +79,17 @@ export const CarouselNext = ({
         variant={variant}
         size={size}
         className={cn(
-          "absolute touch-manipulation rounded-full",
-          "data-[orientation='horizontal']:top-1/2 data-[orientation='horizontal']:-right-12 data-[orientation='horizontal']:-translate-y-1/2",
-          "data-[orientation='vertical']:-bottom-12 data-[orientation='vertical']:left-1/2 data-[orientation='vertical']:-translate-x-1/2 data-[orientation='vertical']:rotate-90",
+          "data-[orientation='vertical']:rotate-90",
+          anchorButtons &&
+            "absolute touch-manipulation rounded-full before:content-[''] before:absolute before:inset-0 before:rounded-full",
+          anchorButtons &&
+            "data-[orientation='horizontal']:top-1/2 data-[orientation='horizontal']:-right-12 data-[orientation='horizontal']:-translate-y-1/2",
+          anchorButtons &&
+            "data-[orientation='vertical']:-bottom-12 data-[orientation='vertical']:left-1/2 data-[orientation='vertical']:-translate-x-1/2 ",
           className,
         )}
       >
-        <ChevronRightIcon className="" />
+        <ChevronRightIcon />
         <span className="sr-only">Next slide</span>
       </Button>
     </CarouselPrimitive.NextTrigger>
@@ -85,9 +97,15 @@ export const CarouselNext = ({
 };
 
 export const CarouselContent = ({
+  className,
   ...props
 }: CarouselPrimitive.ItemGroupProps) => {
-  return <CarouselPrimitive.ItemGroup className="w-full h-full" {...props} />;
+  return (
+    <CarouselPrimitive.ItemGroup
+      className={cn("w-full h-full", className)}
+      {...props}
+    />
+  );
 };
 
 export const CarouselItem = ({

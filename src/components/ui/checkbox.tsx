@@ -64,4 +64,11 @@ export const CheckboxLabel = ({
   />
 );
 
+export const CheckboxGroup = ({
+  className,
+  ...props
+}: CheckboxPrimitive.GroupProps) => {
+  return <CheckboxPrimitive.Group className={cn(className)} {...props} />;
+};
+
 export const CheckboxContext = CheckboxPrimitive.Context;

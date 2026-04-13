@@ -1,0 +1,67 @@
+---
+id: 59
+title: "Textarea"
+description: "A shadcn-style textarea component built with Ark UI primitives."
+url: "/component/textarea"
+referenceLink: "https://ark-ui.com/docs/components/textarea"
+---
+
+
+<ComponentPreview name="textarea-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/textarea" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="textarea" title="components/ui/textarea.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Textarea from "@/components/ui/textarea"
+```
+
+Read exported parts in `src/components/ui/textarea.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+<ComponentPreview name="textarea-demo" />
+
+### Editable Textarea
+
+<ComponentPreview name="textarea-editable-textarea" />
+
+### Field Textarea
+
+<ComponentPreview name="textarea-field-textarea" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/textarea) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/textarea#accessibility) for clarification.

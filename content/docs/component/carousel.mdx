@@ -1,0 +1,102 @@
+---
+id: 13
+title: "Carousel"
+description: "A shadcn-style carousel component built with Ark UI primitives."
+url: "/component/carousel"
+referenceLink: "https://ark-ui.com/docs/components/carousel"
+---
+
+
+<ComponentPreview name="carousel-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/carousel" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="carousel" title="components/ui/carousel.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Carousel from "@/components/ui/carousel"
+```
+
+Read exported parts in `src/components/ui/carousel.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic carousel
+
+<ComponentPreview name="carousel-demo" />
+
+### Autoplay with controls
+
+<ComponentPreview name="carousel-autoplay" />
+
+### Controlled page
+
+<ComponentPreview name="carousel-controlled" />
+
+### Pause on hover
+
+<ComponentPreview name="carousel-pause-on-hover" />
+
+### Vertical carousel
+
+<ComponentPreview name="carousel-vertical" />
+
+### Scroll to specific slide
+
+<ComponentPreview name="carousel-scroll-to" />
+
+### Dynamic slides
+
+<ComponentPreview name="carousel-dynamic-slides" />
+
+
+### Slides per page
+
+<ComponentPreview name="carousel-slides-per-page" />
+
+### Custom spacing
+
+<ComponentPreview name="carousel-spacing" />
+
+### Variable size items
+
+<ComponentPreview name="carousel-variable-size" />
+
+### Thumbnail indicators
+
+<ComponentPreview name="carousel-thumbnail-indicator" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/carousel) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/carousel#accessibility) for clarification.

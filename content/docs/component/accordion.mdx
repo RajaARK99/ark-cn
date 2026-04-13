@@ -1,6 +1,113 @@
 ---
-id: 3
+id: 4
 title: "Accordion"
 description: "A shadcn-style accordion component built with Ark UI primitives."
 url: "/component/accordion"
+referenceLink: "https://ark-ui.com/docs/components/accordion"
 ---
+
+
+<ComponentPreview name="accordion-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/accordion" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the following dependency:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component into your project (for example under `components/ui`):
+        <ComponentSource name="accordion" title="components/ui/accordion.tsx" />
+      </DocStep>
+      <DocStep>
+        Ensure Tailwind CSS v4, `class-variance-authority`, and your `cn` helper match this repo (see the Installation page). Update import paths (`@/components/...`) to match your app.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+```
+
+```tsx
+<Accordion collapsible defaultValue={["item-1"]}>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionPanel>
+      Yes. It follows the WAI-ARIA accordion pattern via Ark UI.
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Single item open
+
+`multiple` defaults to `false`, so only one section is expanded at a time (unless you set `multiple`).
+
+<ComponentPreview name="accordion-single" />
+
+### Multiple items open
+
+Set **`multiple`** so more than one panel can stay open.
+
+<ComponentPreview name="accordion-multiple" />
+
+### Controlled
+
+Drive the open items with **`value`** and **`onValueChange`**.
+
+<ComponentPreview name="accordion-controlled" />
+
+### Horizontal
+
+Set **`orientation="horizontal"`** on the root for a row of triggers and side-by-side panels. Height is constrained by the styled root so width-based animations can run. Inner layout uses **`containerClassName`** on **`AccordionPanel`** so borders and padding stay on the content wrapper.
+
+<ComponentPreview name="accordion-horizontal"  />
+
+### Lazy mount
+
+Combine **`lazyMount`** with **`unmountOnExit`** to defer rendering panel content until an item opens and remove it when it closes.
+
+<ComponentPreview name="accordion-lazy"  />
+
+### Custom indicator
+
+**`AccordionTrigger`** accepts an **`indicator`** prop that is not part of Ark’s **`ItemTrigger`** API—it replaces the default chevron. **`AccordionPanel`** supports **`containerClassName`** for the inner wrapper (see API reference).
+
+<ComponentPreview name="accordion-custom-indicator"  />
+
+## API reference
+
+`Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionPanel`, `AccordionContext`, `AccordionProvider`, and **`useAccordion`** mirror **`@ark-ui/react/accordion`**. All props and DOM behavior are defined by Ark unless you see an **ark-cn-only** row below.
+
+### Props in ARK CN
+
+**`AccordionTrigger`** and **`AccordionPanel`** add optional props on top of Ark’s **`ItemTrigger`** / **`ItemContent`**:
+
+<AccordionDocSupplement section="extension-props" />
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/accordion) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/accordion#accessibility) for clarification (WAI-ARIA pattern, keyboard support, and orientation-specific notes).

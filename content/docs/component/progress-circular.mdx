@@ -1,0 +1,59 @@
+---
+id: 39
+title: "Progress Circular"
+description: "A shadcn-style progress circular component built with Ark UI primitives."
+url: "/component/progress-circular"
+referenceLink: "https://ark-ui.com/docs/components/progress-circular"
+---
+
+
+<ComponentPreview name="progress-circular-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/progress-circular" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="progress-circular" title="components/ui/progress-circular.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ProgressCircular from "@/components/ui/progress-circular"
+```
+
+Read exported parts in `src/components/ui/progress-circular.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+<ComponentPreview name="progress-circular-demo" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/progress-circular) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/progress-circular#accessibility) for clarification.

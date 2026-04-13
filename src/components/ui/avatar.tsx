@@ -8,16 +8,19 @@ import { cn } from "@/lib/utils";
 
 export const Avatar = ({
   className,
+  radius = "full",
   size = "default",
   ...props
 }: AvatarPrimitive.RootProps & {
+  radius?: "full" | "lg" | "md" | "none";
   size?: "default" | "sm" | "lg";
 }) => (
   <AvatarPrimitive.Root
+    data-radius={radius}
     data-slot="avatar"
     data-size={size}
     className={cn(
-      "group/avatar relative flex size-8 shrink-0 overflow-hidden rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
+      "group/avatar relative flex size-8 shrink-0 overflow-hidden select-none after:absolute after:inset-0 after:border after:border-border after:mix-blend-darken data-[radius=full]:rounded-full data-[radius=full]:after:rounded-full data-[radius=lg]:rounded-lg data-[radius=lg]:after:rounded-lg data-[radius=md]:rounded-md data-[radius=md]:after:rounded-md data-[radius=none]:rounded-none data-[radius=none]:after:rounded-none data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
       className,
     )}
     {...props}
@@ -42,7 +45,7 @@ export const AvatarFallback = ({
   <AvatarPrimitive.Fallback
     data-slot="avatar-fallback"
     className={cn(
-      "flex size-full items-center justify-center rounded-full bg-muted text-sm text-muted-foreground group-data-[size=sm]/avatar:text-xs",
+      "flex size-full items-center justify-center bg-muted text-sm text-muted-foreground group-data-[radius=full]/avatar:rounded-full group-data-[radius=lg]/avatar:rounded-lg group-data-[radius=md]/avatar:rounded-md group-data-[radius=none]/avatar:rounded-none group-data-[size=sm]/avatar:text-xs",
       className,
     )}
     {...props}

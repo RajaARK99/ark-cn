@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A shadcn-style spinner component built with Ark UI primitives.",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/spinner.tsx",
+      "content": "\"use client\";\n\nimport { Loader2Icon } from \"lucide-react\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Spinner = ({\n  className,\n  ...props\n}: ComponentProps<typeof Loader2Icon>) => {\n  return (\n    <Loader2Icon\n      aria-label=\"Loading\"\n      className={cn(\"animate-spin\", className)}\n      role=\"status\"\n      {...props}\n    />\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "src/components/ui/spinner.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

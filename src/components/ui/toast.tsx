@@ -133,16 +133,18 @@ export const ToastIndicator = ({
   );
 };
 
-// ─── Stacked Toaster (global) ───────────────────────────────────────────────
-
 export const toaster = createToaster({
   placement: "bottom-end",
   overlap: true,
   gap: 16,
   max: 5,
 });
+type ToasterProps = Omit<
+  ComponentProps<typeof Toaster>,
+  "toaster" | "children"
+>;
 
-export const ToastProvider = ({ className, ...props }: ToastProviderProps) => (
+export const ToastProvider = ({ className, ...props }: ToasterProps) => (
   <Portal>
     <Toaster
       toaster={toaster}
@@ -171,44 +173,6 @@ export const ToastProvider = ({ className, ...props }: ToastProviderProps) => (
     </Toaster>
   </Portal>
 );
-
-// ─── Anchored Toaster ───────────────────────────────────────────────────────
-
-export const anchoredToaster = createToaster({
-  placement: "top",
-  overlap: true,
-  gap: 8,
-  max: 1,
-  duration: 2000,
-});
-
-export const AnchoredToastProvider = ({
-  className,
-  ...props
-}: AnchoredToastProviderProps) => (
-  <Portal>
-    <Toaster
-      toaster={anchoredToaster}
-      className={cn("fixed! z-100", className)}
-      data-slot="anchored-toast-provider"
-      {...props}
-    >
-      {(toast) => (
-        <ToastPrimitive.Root
-          key={toast.id}
-          className="pointer-events-auto rounded-md border border-border/80 bg-popover px-3 py-2 text-popover-foreground shadow-md transition-[opacity,transform] duration-200 ease-out data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95 data-[placement^=top]:data-[state=open]:slide-in-from-bottom-2 data-[placement^=bottom]:data-[state=open]:slide-in-from-top-2 data-[placement^=top]:data-[state=closed]:slide-out-to-bottom-2 data-[placement^=bottom]:data-[state=closed]:slide-out-to-top-2"
-          data-slot="anchored-toast"
-        >
-          <ToastPrimitive.Title className="font-medium text-xs">
-            {toast.title}
-          </ToastPrimitive.Title>
-        </ToastPrimitive.Root>
-      )}
-    </Toaster>
-  </Portal>
-);
-
-// ─── Context & re-exports ───────────────────────────────────────────────────
 
 export const ToastContext = ToastPrimitive.Context;
 

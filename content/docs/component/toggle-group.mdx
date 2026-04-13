@@ -1,0 +1,79 @@
+---
+id: 63
+title: "Toggle Group"
+description: "A shadcn-style toggle group component built with Ark UI primitives."
+url: "/component/toggle-group"
+referenceLink: "https://ark-ui.com/docs/components/toggle-group"
+---
+
+
+<ComponentPreview name="toggle-group-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/toggle-group" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="toggle-group" title="components/ui/toggle-group.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ToggleGroup from "@/components/ui/toggle-group"
+```
+
+Read exported parts in `src/components/ui/toggle-group.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="toggle-group-basic" />
+
+### Controlled
+
+<ComponentPreview name="toggle-group-controlled" />
+
+<ComponentPreview name="toggle-group-demo" />
+
+### Large
+
+<ComponentPreview name="toggle-group-large" />
+
+### Root Provider
+
+<ComponentPreview name="toggle-group-root-provider" />
+
+### Small
+
+<ComponentPreview name="toggle-group-small" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/toggle-group) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/toggle-group#accessibility) for clarification.

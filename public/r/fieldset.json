@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fieldset",
+  "title": "Fieldset",
+  "description": "A shadcn-style fieldset component built with Ark UI primitives.",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/fieldset.tsx",
+      "content": "\"use client\";\n\nimport {\n  FieldsetContext,\n  Fieldset as FieldsetPrimitive,\n  FieldsetRootProvider,\n  useFieldset,\n  useFieldsetContext,\n} from \"@ark-ui/react/fieldset\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Fieldset = ({\n  className,\n  ...props\n}: FieldsetPrimitive.RootProps) => (\n  <FieldsetPrimitive.Root\n    className={cn(\n      \"flex w-full min-w-0 flex-col gap-3 border-0 p-0 text-foreground\",\n      className,\n    )}\n    data-slot=\"fieldset\"\n    {...props}\n  />\n);\n\nexport const FieldsetLegend = (props: FieldsetPrimitive.LegendProps) => {\n  const { className, ...rest } = props;\n  return (\n    <FieldsetPrimitive.Legend\n      data-slot=\"fieldset-legend\"\n      className={cn(\n        \"mb-1 p-0 font-semibold text-base text-foreground leading-normal\",\n        \"data-disabled:pointer-events-none data-disabled:opacity-50\",\n        className,\n      )}\n      {...rest}\n    />\n  );\n};\n\nexport const FieldsetDescription = ({\n  className,\n  ...props\n}: FieldsetPrimitive.HelperTextProps) => (\n  <FieldsetPrimitive.HelperText\n    data-slot=\"fieldset-description\"\n    className={cn(\n      \"text-muted-foreground text-xs\",\n      \"data-disabled:pointer-events-none data-disabled:opacity-50\",\n      className,\n    )}\n    {...props}\n  />\n);\n\nexport const FieldsetError = ({\n  className,\n  ...props\n}: FieldsetPrimitive.ErrorTextProps) => (\n  <FieldsetPrimitive.ErrorText\n    data-slot=\"fieldset-error\"\n    className={cn(\n      \"text-destructive text-xs\",\n      \"data-disabled:pointer-events-none data-disabled:opacity-50\",\n      className,\n    )}\n    {...props}\n  />\n);\n\nexport type {\n  FieldsetRootProviderProps,\n  UseFieldsetProps,\n  UseFieldsetReturn,\n} from \"@ark-ui/react/fieldset\";\nexport {\n  FieldsetContext,\n  FieldsetRootProvider,\n  useFieldset,\n  useFieldsetContext,\n};\n",
+      "type": "registry:ui",
+      "target": "src/components/ui/fieldset.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

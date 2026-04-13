@@ -2,6 +2,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { THEME_STORAGE_KEY, ThemeProvider } from "@/components/theme-provider";
+import { ToastProvider } from "@/components/ui/toast";
 import appCss from "../styles.css?url";
 
 const themeBootstrapScript = `
@@ -58,6 +59,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <ThemeProvider defaultTheme="system" storageKey={THEME_STORAGE_KEY}>
           {children}
+          <ToastProvider />
           <TanStackDevtools
             config={{
               position: "bottom-right",

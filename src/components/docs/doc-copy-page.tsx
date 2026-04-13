@@ -1,5 +1,3 @@
-"use client";
-
 import { Check, ChevronDown, Copy } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import {

@@ -6,6 +6,12 @@ export const DOCS_CODE_THEMES = {
   dark: "github-dark-dimmed",
 } as const;
 
+/** Stronger token contrast for live `ComponentSource` panels on `muted` backgrounds. */
+export const COMPONENT_SOURCE_SHIKI_THEMES = {
+  light: "github-light-high-contrast",
+  dark: "github-dark-high-contrast",
+} as const;
+
 /** `rehype-pretty-code` `theme` option — keep in sync with `content-collections.ts` options. */
 export const rehypePrettyCodeTheme = {
   dark: DOCS_CODE_THEMES.dark,

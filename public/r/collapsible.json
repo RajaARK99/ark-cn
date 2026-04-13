@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "title": "Collapsible",
+  "description": "A shadcn-style collapsible component built with Ark UI primitives.",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/collapsible.tsx",
+      "content": "\"use client\";\n\nimport { Collapsible as CollapsiblePrimitive } from \"@ark-ui/react/collapsible\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport const Collapsible = ({\n  className,\n  ...props\n}: CollapsiblePrimitive.RootProps) => {\n  return (\n    <CollapsiblePrimitive.Root\n      data-slot=\"collapsible\"\n      className={cn(\"flex w-full flex-col gap-2\", className)}\n      {...props}\n    />\n  );\n};\n\nexport const CollapsibleTrigger = CollapsiblePrimitive.Trigger;\n\nexport const CollapsibleContent = ({\n  className,\n  children,\n  ...props\n}: CollapsiblePrimitive.ContentProps) => {\n  return (\n    <CollapsiblePrimitive.Content\n      data-slot=\"collapsible-content\"\n      className={cn(\n        \"overflow-hidden text-sm [--radix-collapsible-content-height:var(--height)] data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </CollapsiblePrimitive.Content>\n  );\n};\n\nexport const CollapsibleIndicator = CollapsiblePrimitive.Indicator;\n\nexport const CollapsibleContext = CollapsiblePrimitive.Context;\n",
+      "type": "registry:ui",
+      "target": "src/components/ui/collapsible.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

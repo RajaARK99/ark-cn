@@ -1,0 +1,59 @@
+---
+id: 41
+title: "Qr Code"
+description: "A shadcn-style qr code component built with Ark UI primitives."
+url: "/component/qr-code"
+referenceLink: "https://ark-ui.com/docs/components/qr-code"
+---
+
+
+<ComponentPreview name="qr-code-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/qr-code" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="qr-code" title="components/ui/qr-code.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as QrCode from "@/components/ui/qr-code"
+```
+
+Read exported parts in `src/components/ui/qr-code.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+<ComponentPreview name="qr-code-demo" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/qr-code) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/qr-code#accessibility) for clarification.

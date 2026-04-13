@@ -188,6 +188,10 @@
   --warning-foreground: var(--color-amber-400);
 }
 
+[id] {
+  scroll-margin-top: 80px; /* Adjust this value to match your header height */
+}
+
 @layer base {
   /* Ark UI scroll-area: hide native scrollbar on the viewport (custom thumbs + JS thumb offset). */
   [data-scope="scroll-area"][data-part="viewport"] {

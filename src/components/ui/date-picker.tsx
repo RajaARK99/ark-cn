@@ -13,13 +13,21 @@ import {
   Select,
 } from "@ark-ui/react/select";
 import {
+  Calendar,
   CheckIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  XIcon,
 } from "lucide-react";
+import type { ReactNode } from "react";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "./button";
 
 export const DatePicker = ({
   children,
@@ -54,13 +62,83 @@ export const DatePickerLabel = ({
   />
 );
 
+export const DatePickerInput = ({
+  startAddon,
+  endAddon,
+  showClear = true,
+  size = "default",
+  className,
+  placeholder,
+  variant = "input",
+  containerClassName,
+  separator = " - ",
+}: {
+  startAddon?: ReactNode;
+  endAddon?: ReactNode;
+  showClear?: boolean;
+  showIndicator?: boolean;
+  size?: "default" | "sm" | "lg";
+  className?: string;
+  placeholder?: string;
+  variant?: "button" | "input";
+  containerClassName?: string;
+  separator?: string;
+}) => {
+  if (variant === "button") {
+    return (
+      <DatePickerPrimitive.Control className={cn("w-full", containerClassName)}>
+        <DatePickerPrimitive.Trigger asChild>
+          <Button variant="outline" className={cn("w-full", className)}>
+            {startAddon}
+            <DatePickerPrimitive.ValueText
+              placeholder={placeholder}
+              separator={separator}
+              className="text-start flex-1"
+            />
+            {endAddon}
+            <Calendar className="size-4" />
+          </Button>
+        </DatePickerPrimitive.Trigger>
+      </DatePickerPrimitive.Control>
+    );
+  }
+
+  return (
+    <DatePickerPrimitive.Control asChild>
+      <InputGroup className={cn("w-full", containerClassName)}>
+        {startAddon && (
+          <InputGroupAddon align={"inline-start"}>{startAddon}</InputGroupAddon>
+        )}
+        <DatePickerPrimitive.Input asChild placeholder={placeholder}>
+          <InputGroupInput size={size} className={cn("w-full", className)} />
+        </DatePickerPrimitive.Input>
+        <InputGroupAddon align={"inline-end"}>
+          {endAddon}
+          {showClear && (
+            <DatePickerPrimitive.ClearTrigger asChild>
+              <Button variant="ghost" size={"icon-sm"}>
+                <XIcon />
+              </Button>
+            </DatePickerPrimitive.ClearTrigger>
+          )}
+          <DatePickerPrimitive.Trigger asChild>
+            <Button variant="ghost" size={"icon-sm"}>
+              <Calendar />
+            </Button>
+          </DatePickerPrimitive.Trigger>
+        </InputGroupAddon>
+      </InputGroup>
+    </DatePickerPrimitive.Control>
+  );
+};
+
 export const DatePickerControl = ({
   ...props
 }: DatePickerPrimitive.ControlProps) => (
   <DatePickerPrimitive.Control data-slot="date-picker-control" {...props} />
 );
 
-export const DatePickerInput = ({
+export const DatePickerInputInput = ({
   ...props
 }: DatePickerPrimitive.InputProps) => (
   <DatePickerPrimitive.Input data-slot="date-picker-input" {...props} />

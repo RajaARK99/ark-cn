@@ -1,0 +1,79 @@
+---
+id: 58
+title: "Tags Input"
+description: "A shadcn-style tags input component built with Ark UI primitives."
+url: "/component/tags-input"
+referenceLink: "https://ark-ui.com/docs/components/tags-input"
+---
+
+
+<ComponentPreview name="tags-input-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/tags-input" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="tags-input" title="components/ui/tags-input.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as TagsInput from "@/components/ui/tags-input"
+```
+
+Read exported parts in `src/components/ui/tags-input.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="tags-input-basic" />
+
+### Controlled Input Value
+
+<ComponentPreview name="tags-input-controlled-input-value" />
+
+### Controlled
+
+<ComponentPreview name="tags-input-controlled" />
+
+<ComponentPreview name="tags-input-demo" />
+
+### Invalid
+
+<ComponentPreview name="tags-input-invalid" />
+
+### Root Provider
+
+<ComponentPreview name="tags-input-root-provider" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/tags-input) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/tags-input#accessibility) for clarification.

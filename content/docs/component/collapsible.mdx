@@ -1,0 +1,74 @@
+---
+id: 16
+title: "Collapsible"
+description: "A shadcn-style collapsible component built with Ark UI primitives."
+url: "/component/collapsible"
+referenceLink: "https://ark-ui.com/docs/components/collapsible"
+---
+
+
+<ComponentPreview name="collapsible-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/collapsible" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="collapsible" title="components/ui/collapsible.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Collapsible from "@/components/ui/collapsible"
+```
+
+Read exported parts in `src/components/ui/collapsible.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+<ComponentPreview name="collapsible-demo" />
+
+### Partial Collapse
+
+<ComponentPreview name="collapsible-partial-collapse" previewClassName="items-start" />
+
+Use `collapsedHeight` or `collapsedWidth` to build a "show more/less" pattern.  
+When set, the content collapses to that dimension instead of `0px`.
+
+Ark exposes CSS variables `--collapsed-height` and `--collapsed-width` so you can tune open/close animations without layout jerk.
+
+### Nested Collapsibles
+
+<ComponentPreview name="collapsible-nested" />
+
+Ark UI also supports additional collapsible patterns such as `initial-open`, `lazy-mount`, `disabled`, and `root-provider` composition.
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/collapsible) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/collapsible#accessibility) for clarification.
