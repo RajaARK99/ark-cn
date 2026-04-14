@@ -1,0 +1,77 @@
+---
+id: 64
+title: "Toggle"
+description: "A shadcn-style toggle component built with Ark UI primitives."
+url: "/components/toggle"
+referenceLink: "https://ark-ui.com/docs/components/toggle"
+---
+
+
+<ComponentPreview name="toggle-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/toggle" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="toggle" title="components/ui/toggle.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Toggle from "@/components/ui/toggle"
+```
+
+Read exported parts in `src/components/ui/toggle.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="toggle-basic" />
+
+### Controlled
+
+<ComponentPreview name="toggle-controlled" />
+
+### Disabled
+
+<ComponentPreview name="toggle-disabled" />
+
+### Indicator
+
+<ComponentPreview name="toggle-indicator" />
+
+### Context
+
+<ComponentPreview name="toggle-context" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/toggle) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/toggle#accessibility) for clarification.

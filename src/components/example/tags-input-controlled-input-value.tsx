@@ -2,58 +2,12 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  TagsInput,
-  TagsInputClearTrigger,
-  TagsInputContext,
-  TagsInputControl,
-  TagsInputHiddenInput,
-  TagsInputInput,
-  TagsInputItem,
-  TagsInputItemDeleteTrigger,
-  TagsInputItemInput,
-  TagsInputItemPreview,
-  TagsInputItemText,
-  TagsInputLabel,
-} from "@/components/ui/tags-input";
-
-const TagsInputScaffold = ({
-  label = "Frameworks",
-  placeholder = "Add framework",
-}: {
-  label?: string;
-  placeholder?: string;
-}) => (
-  <TagsInputContext>
-    {(api) => (
-      <>
-        <TagsInputLabel>{label}</TagsInputLabel>
-        <TagsInputControl>
-          {api.value.map((value, index) => (
-            <TagsInputItem
-              key={`${value}-${index}`}
-              index={index}
-              value={value}
-            >
-              <TagsInputItemPreview>
-                <TagsInputItemText>{value}</TagsInputItemText>
-                <TagsInputItemDeleteTrigger />
-              </TagsInputItemPreview>
-              <TagsInputItemInput />
-            </TagsInputItem>
-          ))}
-          <TagsInputInput placeholder={placeholder} />
-          <TagsInputClearTrigger />
-        </TagsInputControl>
-      </>
-    )}
-  </TagsInputContext>
-);
+import { TagsInput, TagsInputScaffold } from "@/components/ui/tags-input";
 
 const TagsInputControlledInputValueDemo = () => {
   const [inputValue, setInputValue] = useState("");
   return (
-    <div className="flex flex-col gap-2">
+    <div className="mx-auto flex w-full max-w-sm flex-col gap-2">
       <div className="flex flex-wrap gap-2">
         <Button
           onClick={() => setInputValue("React")}
@@ -69,9 +23,9 @@ const TagsInputControlledInputValueDemo = () => {
       <TagsInput
         inputValue={inputValue}
         onInputValueChange={(d) => setInputValue(d.inputValue)}
+        className="w-full"
       >
         <TagsInputScaffold />
-        <TagsInputHiddenInput />
       </TagsInput>
     </div>
   );

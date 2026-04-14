@@ -7,7 +7,6 @@ import {
   InfoIcon,
   Loader2Icon,
   MicIcon,
-  MinusIcon,
   MoreHorizontalIcon,
   PauseIcon,
   PlayIcon,
@@ -16,7 +15,7 @@ import {
   SearchIcon,
   XIcon,
 } from "lucide-react";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 import {
   Accordion,
@@ -61,12 +60,9 @@ import {
   InputGroupTextarea,
 } from "@/components/ui/input-group";
 import {
-  NumberInput,
-  NumberInputControl,
-  NumberInputDecrementTrigger,
-  NumberInputIncrementTrigger,
-  NumberInputRoot,
-} from "@/components/ui/number-input";
+  NumberFieldInput,
+  NumberFieldRoot,
+} from "@/components/ui/number-field";
 import {
   Pagination,
   PaginationItems,
@@ -112,36 +108,6 @@ const CHECKOUT_YEAR_ITEMS = [2026, 2027, 2028].map((y) => ({
   label: String(y),
   value: String(y),
 }));
-
-const NI_INPUT_CLASS =
-  "order-2 min-h-8.5 border-0 bg-transparent px-3 text-base leading-8.5 shadow-none sm:min-h-7.5 sm:text-sm sm:leading-7.5";
-
-const NiGroupInput = ({
-  className,
-  ...props
-}: ComponentProps<typeof InputGroupInput>) => {
-  return (
-    <NumberInput asChild>
-      <InputGroupInput className={cn(NI_INPUT_CLASS, className)} {...props} />
-    </NumberInput>
-  );
-};
-
-const NiGroup = ({
-  children,
-  className: controlClassName,
-  groupClassName,
-}: {
-  children: ReactNode;
-  className?: string;
-  groupClassName?: string;
-}) => {
-  return (
-    <NumberInputControl asChild className={controlClassName}>
-      <InputGroup className={groupClassName}>{children}</InputGroup>
-    </NumberInputControl>
-  );
-};
 
 const BentoShell = ({
   title,
@@ -452,25 +418,9 @@ export const LandingBentoDemos = () => {
           </RadioGroup>
           <div className="mt-3">
             <p className="mb-2 text-muted-foreground text-xs">GPUs</p>
-            <NumberInputRoot defaultValue="8" max={16} min={1}>
-              <NiGroup>
-                <InputGroupAddon align="inline-start">
-                  <NumberInputDecrementTrigger asChild>
-                    <Button size="icon-sm" type="button" variant="ghost">
-                      <MinusIcon className="size-4" aria-hidden />
-                    </Button>
-                  </NumberInputDecrementTrigger>
-                </InputGroupAddon>
-                <NiGroupInput className="text-center" />
-                <InputGroupAddon align="inline-end">
-                  <NumberInputIncrementTrigger asChild>
-                    <Button size="icon-sm" type="button" variant="ghost">
-                      <PlusIcon className="size-4" aria-hidden />
-                    </Button>
-                  </NumberInputIncrementTrigger>
-                </InputGroupAddon>
-              </NiGroup>
-            </NumberInputRoot>
+            <NumberFieldRoot defaultValue="8" max={16} min={1}>
+              <NumberFieldInput />
+            </NumberFieldRoot>
           </div>
         </BentoShell>
       </BentoColumn>

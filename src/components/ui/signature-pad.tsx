@@ -6,6 +6,7 @@ import {
   useSignaturePadContext,
 } from "@ark-ui/react/signature-pad";
 import type { VariantProps } from "class-variance-authority";
+import { XIcon } from "lucide-react";
 import type { ComponentProps, CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./button";
@@ -222,7 +223,7 @@ export const SignaturePadField = ({
       type="button"
       {...clearTriggerProps}
     >
-      {children ?? "Clear"}
+      {children ?? <XIcon className="size-4" />}
     </SignaturePadClearTrigger>
     {hideGuide ? null : <SignaturePadGuide {...guideProps} />}
   </SignaturePadControl>

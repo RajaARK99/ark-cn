@@ -1,0 +1,107 @@
+---
+id: 30
+title: "Input Group"
+description: "A shadcn-style input group component built with Ark UI primitives."
+url: "/components/input-group"
+referenceLink: "https://ark-ui.com/docs/components/input-group"
+---
+
+
+<ComponentPreview name="input-group-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/input-group" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="input-group" title="components/ui/input-group.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as InputGroup from "@/components/ui/input-group"
+```
+
+Read exported parts in `src/components/ui/input-group.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Disabled
+
+<ComponentPreview name="input-group-disabled" />
+
+### Start Text
+
+<ComponentPreview name="input-group-start-text" />
+
+### End Text
+
+<ComponentPreview name="input-group-end-text" />
+
+### Start + End Text
+
+<ComponentPreview name="input-group-start-end-text" />
+
+### End Icon
+
+<ComponentPreview name="input-group-end-icon" />
+
+### Icon Button
+
+<ComponentPreview name="input-group-icon-button" />
+
+### Button
+
+<ComponentPreview name="input-group-button" />
+
+### Badge
+
+<ComponentPreview name="input-group-badge" />
+
+### Keyboard Shortcut
+
+<ComponentPreview name="input-group-keyboard-shortcut" />
+
+### Tooltip
+
+<ComponentPreview name="input-group-tooltip" />
+
+### Inner Label
+
+<ComponentPreview name="input-group-inner-label" />
+
+### Loading
+
+<ComponentPreview name="input-group-loading" />
+
+### Small Size
+
+<ComponentPreview name="input-group-small-size" />
+
+### Large Size
+
+<ComponentPreview name="input-group-large-size" />
+
+### Textarea
+
+<ComponentPreview name="input-group-textarea" />

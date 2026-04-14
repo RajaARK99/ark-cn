@@ -28,6 +28,7 @@ const docs = defineCollection({
     description: z.string(),
     url: z.string(),
     referenceLink: z.url().optional(),
+    content: z.string(),
   }),
   transform: async (document, context) => {
     const headings = extractHeadingsFromMarkdown(document.content);

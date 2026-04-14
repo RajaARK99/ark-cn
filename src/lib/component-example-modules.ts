@@ -14,7 +14,8 @@ export const exampleRawModules = import.meta.glob(
   "../components/example/*.tsx",
   {
     eager: true,
-    as: "raw",
+    query: "?raw",
+    import: "default",
   },
 ) as Record<string, string>;
 

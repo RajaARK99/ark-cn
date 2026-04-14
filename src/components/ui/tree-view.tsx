@@ -1,7 +1,21 @@
 "use client";
 
-import { TreeView as TreeViewPrimitive } from "@ark-ui/react/tree-view";
+import {
+  createTreeCollection,
+  TreeView as TreeViewPrimitive,
+} from "@ark-ui/react/tree-view";
+import {
+  CheckIcon,
+  ChevronRight,
+  FileIcon,
+  GlobeIcon,
+  LayersIcon,
+  MinusIcon,
+  PlusIcon,
+  TrashIcon,
+} from "lucide-react";
 import { forwardRef } from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export type TreeViewProps<T> = TreeViewPrimitive.RootProps<T>;
@@ -189,6 +203,244 @@ export const TreeViewNodeRenameInput = ({
 export const TreeViewNodeProvider = TreeViewPrimitive.NodeProvider;
 export const TreeViewNodeContext = TreeViewPrimitive.NodeContext;
 export const TreeViewRootProvider = TreeViewPrimitive.RootProvider;
+
+export type ShowcaseTreeNode = {
+  id: string;
+  name: string;
+  href?: string;
+  children?: ShowcaseTreeNode[];
+};
+
+export const TREE_VIEW_SHOWCASE_ROOT: ShowcaseTreeNode = {
+  id: "ROOT",
+  name: "",
+  children: [
+    {
+      id: "node_modules",
+      name: "node_modules",
+      children: [
+        { id: "node_modules/zag-js", name: "zag-js" },
+        { id: "node_modules/panda", name: "panda" },
+        {
+          id: "node_modules/@types",
+          name: "@types",
+          children: [
+            { id: "node_modules/@types/react", name: "react" },
+            { id: "node_modules/@types/react-dom", name: "react-dom" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "src",
+      name: "src",
+      children: [
+        { id: "src/app.tsx", name: "app.tsx", href: "/docs/introduction" },
+        { id: "src/index.ts", name: "index.ts", href: "/docs/installation" },
+      ],
+    },
+    { id: "package.json", name: "package.json" },
+    {
+      id: "README.md",
+      name: "README.md",
+      href: "https://ark-ui.com/docs/components/tree-view",
+    },
+  ],
+};
+
+export const createShowcaseTreeCollection = () =>
+  createTreeCollection<ShowcaseTreeNode>({
+    nodeToValue: (node) => node.id,
+    nodeToString: (node) => node.name,
+    rootNode: structuredClone(TREE_VIEW_SHOWCASE_ROOT),
+  });
+
+export const TreeViewShowcaseNodeCheckboxControl = () => (
+  <TreeViewNodeCheckbox
+    className={cn(
+      "cursor-pointer peer relative flex size-4 shrink-0 items-center justify-center rounded border transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-3 data-invalid:ring-destructive/20 data-invalid:data-[state='checked']:border-primary dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 data-[state='checked']:border-primary data-[state='checked']:bg-primary data-[state='checked']:text-primary-foreground dark:data-[state='checked']:bg-primary",
+    )}
+  >
+    <TreeViewNodeCheckboxIndicator
+      className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
+      indeterminate={<MinusIcon />}
+    >
+      <CheckIcon />
+    </TreeViewNodeCheckboxIndicator>
+  </TreeViewNodeCheckbox>
+);
+
+type TreeViewShowcaseNodeActionsProps = {
+  node: ShowcaseTreeNode;
+  indexPath: number[];
+  onAdd?: (node: ShowcaseTreeNode, indexPath: number[]) => void;
+  onRemove?: (indexPath: number[]) => void;
+};
+
+export const TreeViewShowcaseNodeActions = ({
+  node,
+  indexPath,
+  onAdd,
+  onRemove,
+}: TreeViewShowcaseNodeActionsProps) => {
+  if (!onAdd && !onRemove) return null;
+
+  return (
+    <div className="ms-auto inline-flex items-center gap-1">
+      {onRemove ? (
+        <Button
+          className="h-6 px-2 text-xs"
+          onClick={(event) => {
+            event.stopPropagation();
+            onRemove(indexPath);
+          }}
+          variant="outline"
+          size="icon-sm"
+        >
+          <TrashIcon className="size-3.5 text-muted-foreground" />
+        </Button>
+      ) : null}
+      {onAdd && node.children ? (
+        <Button
+          className="h-6 px-2 text-xs"
+          onClick={(event) => {
+            event.stopPropagation();
+            onAdd(node, indexPath);
+          }}
+          variant="outline"
+          size="icon-sm"
+        >
+          <PlusIcon className="size-3.5 text-muted-foreground" />
+        </Button>
+      ) : null}
+    </div>
+  );
+};
+
+export type TreeViewShowcaseNodeRendererProps = {
+  node: ShowcaseTreeNode;
+  indexPath: number[];
+  checkbox?: boolean;
+  links?: boolean;
+  rename?: boolean;
+  onAdd?: (node: ShowcaseTreeNode, indexPath: number[]) => void;
+  onRemove?: (indexPath: number[]) => void;
+};
+
+export const TreeViewShowcaseNodeRenderer = ({
+  node,
+  indexPath,
+  checkbox,
+  links,
+  rename,
+  onAdd,
+  onRemove,
+}: TreeViewShowcaseNodeRendererProps) => (
+  <TreeViewNodeProvider indexPath={indexPath} node={node}>
+    <TreeViewNodeContext>
+      {(nodeState) =>
+        node.children ? (
+          <TreeViewBranch>
+            <TreeViewBranchControl
+              data-depth={nodeState.depth}
+              style={{
+                paddingInlineStart: "calc((var(--depth) - 1) * 22px)",
+              }}
+            >
+              <TreeViewBranchIndicator className="group/indicator">
+                <ChevronRight className="size-4 transition-transform group-data-[state=open]/indicator:rotate-90" />
+              </TreeViewBranchIndicator>
+              {checkbox ? <TreeViewShowcaseNodeCheckboxControl /> : null}
+              {rename && nodeState.renaming ? (
+                <TreeViewNodeRenameInput />
+              ) : (
+                <TreeViewBranchText>
+                  <LayersIcon className="size-3.5 text-muted-foreground" />
+                  {node.name}
+                </TreeViewBranchText>
+              )}
+              <TreeViewShowcaseNodeActions
+                indexPath={indexPath}
+                node={node}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              />
+            </TreeViewBranchControl>
+            <TreeViewBranchContent>
+              <TreeViewBranchIndentGuide />
+              {node.children.map((child, childIndex) => (
+                <TreeViewShowcaseNodeRenderer
+                  checkbox={checkbox}
+                  indexPath={[...indexPath, childIndex]}
+                  key={child.id}
+                  links={links}
+                  node={child}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  rename={rename}
+                />
+              ))}
+            </TreeViewBranchContent>
+          </TreeViewBranch>
+        ) : (
+          <TreeViewItem
+            asChild={Boolean(links && node.href)}
+            data-depth={nodeState.depth}
+            style={{
+              paddingInlineStart: "calc(((var(--depth) - 1) * 22px) + 22px)",
+            }}
+          >
+            {links && node.href ? (
+              <a
+                className="flex w-full items-center gap-2"
+                href={node.href}
+                rel={node.href.startsWith("http") ? "noreferrer" : undefined}
+                target={node.href.startsWith("http") ? "_blank" : undefined}
+              >
+                {checkbox ? <TreeViewShowcaseNodeCheckboxControl /> : null}
+                {rename && nodeState.renaming ? (
+                  <TreeViewNodeRenameInput />
+                ) : (
+                  <TreeViewItemText>
+                    <FileIcon className="size-3.5 text-muted-foreground" />
+                    {node.name}
+                  </TreeViewItemText>
+                )}
+                {node.href.startsWith("http") ? (
+                  <GlobeIcon className="ms-auto size-3 text-muted-foreground" />
+                ) : null}
+                <TreeViewShowcaseNodeActions
+                  indexPath={indexPath}
+                  node={node}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                />
+              </a>
+            ) : (
+              <>
+                {checkbox ? <TreeViewShowcaseNodeCheckboxControl /> : null}
+                {rename && nodeState.renaming ? (
+                  <TreeViewNodeRenameInput />
+                ) : (
+                  <TreeViewItemText>
+                    <FileIcon className="size-3.5 text-muted-foreground" />
+                    {node.name}
+                  </TreeViewItemText>
+                )}
+                <TreeViewShowcaseNodeActions
+                  indexPath={indexPath}
+                  node={node}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                />
+              </>
+            )}
+          </TreeViewItem>
+        )
+      }
+    </TreeViewNodeContext>
+  </TreeViewNodeProvider>
+);
 
 export {
   createTreeCollection,

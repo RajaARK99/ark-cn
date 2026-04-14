@@ -1,0 +1,52 @@
+---
+id: 31
+title: "Kbd"
+description: "A shadcn-style keyboard key component for shortcuts and key combinations."
+url: "/components/kbd"
+---
+
+
+<ComponentPreview name="kbd-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/kbd" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="kbd" title="components/ui/kbd.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Kbd, KbdGroup } from "@/components/ui/kbd"
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="kbd-demo" />
+
+### Inline Shortcut
+
+<ComponentPreview name="kbd-inline" />

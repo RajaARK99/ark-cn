@@ -51,11 +51,14 @@ export const ToastRoot = ({ className, ...props }: ToastProps) => (
   <ToastPrimitive.Root
     className={cn(
       "group pointer-events-auto relative flex w-full flex-col gap-1 overflow-hidden rounded-lg border border-border/80 bg-popover p-4 pe-10 text-popover-foreground shadow-lg",
-      "transition-[opacity,transform] duration-200 ease-out",
-      "data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:zoom-in-95",
-      "data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95",
-      "data-[placement^=top]:data-[state=open]:slide-in-from-bottom-2 data-[placement^=bottom]:data-[state=open]:slide-in-from-top-2",
-      "data-[placement^=top]:data-[state=closed]:slide-out-to-bottom-2 data-[placement^=bottom]:data-[state=closed]:slide-out-to-top-2",
+      "data-[placement=top]:mx-auto data-[placement=bottom]:mx-auto",
+      "data-[placement=top]:w-fit data-[placement=bottom]:w-fit",
+      "data-[placement=top]:max-w-[min(26rem,calc(100vw-2rem))] data-[placement=bottom]:max-w-[min(26rem,calc(100vw-2rem))]",
+      "will-change-transform",
+      "data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:duration-300 data-[state=open]:ease-out",
+      "data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:duration-250 data-[state=closed]:ease-in",
+      "data-[placement^=top]:data-[state=open]:slide-in-from-top-2 data-[placement^=bottom]:data-[state=open]:slide-in-from-bottom-2",
+      "data-[placement^=top]:data-[state=closed]:slide-out-to-top-2 data-[placement^=bottom]:data-[state=closed]:slide-out-to-bottom-2",
       className,
     )}
     data-slot="toast"

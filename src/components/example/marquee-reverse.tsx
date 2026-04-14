@@ -7,18 +7,30 @@ import {
   MarqueeViewport,
 } from "@/components/ui/marquee";
 
-const REVERSE_ITEMS = ["One", "Two", "Three", "Four"] as const;
+const MARQUEE_FRUITS = [
+  { name: "Apple", logo: "🍎" },
+  { name: "Banana", logo: "🍌" },
+  { name: "Cherry", logo: "🍒" },
+  { name: "Grape", logo: "🍇" },
+  { name: "Watermelon", logo: "🍉" },
+  { name: "Strawberry", logo: "🍓" },
+] as const;
 
 const MarqueeReverseExample = () => (
-  <Marquee className="w-full max-w-2xl">
-    <MarqueeViewport>
-      <MarqueeContent className="direction-[reverse]">
-        {REVERSE_ITEMS.map((item) => (
-          <MarqueeItem key={item}>{item}</MarqueeItem>
-        ))}
-      </MarqueeContent>
-    </MarqueeViewport>
-  </Marquee>
+  <div className="w-full max-w-xl">
+    <Marquee reverse translations={{ root: "Reversed direction" }}>
+      <MarqueeViewport>
+        <MarqueeContent>
+          {MARQUEE_FRUITS.map((item, index) => (
+            <MarqueeItem key={`${item.name}-${index}`}>
+              <span className="text-2xl leading-none">{item.logo}</span>
+              <span className="font-medium">{item.name}</span>
+            </MarqueeItem>
+          ))}
+        </MarqueeContent>
+      </MarqueeViewport>
+    </Marquee>
+  </div>
 );
 
 export default MarqueeReverseExample;

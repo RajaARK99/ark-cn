@@ -1,0 +1,52 @@
+---
+id: 32
+title: "Label"
+description: "A shadcn-style label component for form controls."
+url: "/components/label"
+---
+
+
+<ComponentPreview name="label-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/label" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="label" title="components/ui/label.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Label } from "@/components/ui/label"
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="label-demo" />
+
+### Required Field
+
+<ComponentPreview name="label-required" />

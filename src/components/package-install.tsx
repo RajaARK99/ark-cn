@@ -102,7 +102,7 @@ const PackageInstall = ({
           <TabsList
             className={cn(
               "min-h-9 w-full min-w-0 flex-1 flex-nowrap items-stretch justify-start gap-0.5 overflow-x-auto overscroll-x-contain group-data-[variant=default]:px-1 group-data-[variant=default]:py-0",
-              "group-data-[variant=default]:bg-transparent group-data-[variant=default]:shadow-none",
+              "data-[variant=default]:bg-transparent data-[variant=default]:shadow-none",
             )}
           >
             {MANAGERS.map((id) => (

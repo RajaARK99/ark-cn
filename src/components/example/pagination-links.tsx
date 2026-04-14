@@ -12,7 +12,7 @@ import {
 const PaginationLinksDemo = () => (
   <Pagination
     count={60}
-    getPageUrl={({ page }) => `#pagination-page-${page}`}
+    getPageUrl={({ page }) => `#page-${page}`}
     pageSize={10}
     type="link"
   >
@@ -23,7 +23,7 @@ const PaginationLinksDemo = () => (
           Previous
         </Button>
       </PaginationPrevTrigger>
-      <PaginationItems />
+      <PaginationItems itemType="link" />
       <PaginationNextTrigger asChild>
         <Button variant="outline">Next</Button>
       </PaginationNextTrigger>

@@ -7,23 +7,30 @@ import {
   MarqueeViewport,
 } from "@/components/ui/marquee";
 
-const VERTICAL_ITEMS = [
-  "Vertical marquee",
-  "Scrollable feed",
-  "Smooth transitions",
-  "Ark primitives",
+const MARQUEE_FRUITS = [
+  { name: "Apple", logo: "🍎" },
+  { name: "Banana", logo: "🍌" },
+  { name: "Cherry", logo: "🍒" },
+  { name: "Grape", logo: "🍇" },
+  { name: "Watermelon", logo: "🍉" },
+  { name: "Strawberry", logo: "🍓" },
 ] as const;
 
 const MarqueeVerticalExample = () => (
-  <Marquee className="max-w-md [--direction:column]">
-    <MarqueeViewport>
-      <MarqueeContent>
-        {VERTICAL_ITEMS.map((item) => (
-          <MarqueeItem key={item}>{item}</MarqueeItem>
-        ))}
-      </MarqueeContent>
-    </MarqueeViewport>
-  </Marquee>
+  <div className="w-full max-w-xl">
+    <Marquee side="bottom" translations={{ root: "Vertical marquee" }}>
+      <MarqueeViewport>
+        <MarqueeContent>
+          {MARQUEE_FRUITS.map((item, index) => (
+            <MarqueeItem key={`${item.name}-${index}`}>
+              <span className="text-2xl leading-none">{item.logo}</span>
+              <span className="font-medium">{item.name}</span>
+            </MarqueeItem>
+          ))}
+        </MarqueeContent>
+      </MarqueeViewport>
+    </Marquee>
+  </div>
 );
 
 export default MarqueeVerticalExample;

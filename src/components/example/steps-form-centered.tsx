@@ -23,7 +23,7 @@ const CENTERED_FORM_STEPS = [
   { title: "Your details", description: "Provide your name and email" },
   { title: "Your password", description: "Choose a password" },
   { title: "Your Favorite Drink", description: "Choose a drink" },
-];
+] as const;
 
 const StepsFormCenteredDemo = () => {
   const [step, setStep] = useState(0);
@@ -31,8 +31,8 @@ const StepsFormCenteredDemo = () => {
   return (
     <Steps
       count={CENTERED_FORM_STEPS.length}
+      onStepChange={(details) => setStep(details.step)}
       step={step}
-      onStepChange={(d) => setStep(d.step)}
     >
       <StepsContext>
         {(api) => (
@@ -42,15 +42,15 @@ const StepsFormCenteredDemo = () => {
                 const state = api.getItemState({ index });
                 return (
                   <StepsItem
-                    key={item.title}
                     index={index}
+                    key={item.title}
                     className="flex-col items-center justify-center gap-0"
                   >
                     <StepsSeparator
                       className={cn(
                         "z-0 absolute left-[calc(50%+16px)] -right-[calc(50%-8px)] top-3.75 data-[orientation=horizontal]:mx-0",
                         index === CENTERED_FORM_STEPS.length - 2 &&
-                          "-right-[calc(25%-56px)]",
+                          "-right-[calc(25%-16px)]",
                       )}
                     />
                     <StepsTrigger asChild>
@@ -65,7 +65,7 @@ const StepsFormCenteredDemo = () => {
                           "z-10 shrink-0 rounded-full text-foreground before:content-[''] before:absolute before:inset-0 before:rounded-full",
                           state.current &&
                             "ring-2 ring-ring ring-offset-2 ring-offset-background",
-                          state.completed && "text-background bg-primary",
+                          state.completed && "bg-primary text-background",
                         )}
                       >
                         {state.completed ? (
@@ -106,16 +106,8 @@ const StepsFormCenteredDemo = () => {
                   <label className="font-medium text-sm">Full Name</label>
                   <input
                     className="h-9 rounded-md border border-input bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    type="text"
                     placeholder="John Doe"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="font-medium text-sm">Email</label>
-                  <input
-                    className="h-9 rounded-md border border-input bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    type="email"
-                    placeholder="john@example.com"
+                    type="text"
                   />
                 </div>
               </div>
@@ -126,18 +118,8 @@ const StepsFormCenteredDemo = () => {
                   <label className="font-medium text-sm">Password</label>
                   <input
                     className="h-9 rounded-md border border-input bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    placeholder="********"
                     type="password"
-                    placeholder="••••••••"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="font-medium text-sm">
-                    Confirm Password
-                  </label>
-                  <input
-                    className="h-9 rounded-md border border-input bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    type="password"
-                    placeholder="••••••••"
                   />
                 </div>
               </div>

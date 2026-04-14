@@ -12,7 +12,6 @@ const TooltipContextDemo = () => (
   <Tooltip>
     <TooltipTrigger>
       <Button variant="outline">Hover me</Button>
-      Hover me
     </TooltipTrigger>
     <TooltipPopup>
       <TooltipContext>

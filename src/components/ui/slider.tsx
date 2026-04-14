@@ -41,7 +41,7 @@ export const Slider = ({
   <SliderPrimitive.Root
     className={cn(
       "group/slider flex w-full flex-col gap-2 text-foreground",
-      "data-disabled:opacity-50",
+      "data-disabled:opacity-50 data-invalid:text-destructive",
       className,
     )}
     data-slot="slider"
@@ -60,7 +60,7 @@ export const SliderRootProvider = ({
   <SliderPrimitive.RootProvider
     className={cn(
       "group/slider flex w-full flex-col gap-2 text-foreground",
-      "data-disabled:opacity-50",
+      "data-disabled:opacity-50 data-invalid:text-destructive",
       className,
     )}
     data-slot="slider-root-provider"
@@ -119,6 +119,7 @@ export const SliderTrack = ({ className, ...props }: SliderTrackProps) => (
   <SliderPrimitive.Track
     className={cn(
       "relative h-2 w-full grow overflow-hidden rounded-full bg-muted",
+      "group-data-invalid/slider:bg-destructive/15 dark:group-data-invalid/slider:bg-destructive/24",
       "data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2 data-[orientation=vertical]:shrink-0",
       className,
     )}
@@ -133,6 +134,7 @@ export const SliderRange = ({ className, ...props }: SliderRangeProps) => (
   <SliderPrimitive.Range
     className={cn(
       "absolute h-full rounded-full bg-primary",
+      "group-data-invalid/slider:bg-destructive",
       "data-[orientation=vertical]:w-full",
       className,
     )}
@@ -148,6 +150,7 @@ export const SliderThumb = ({ className, ...props }: SliderThumbProps) => (
     className={cn(
       "relative block size-5 shrink-0 cursor-grab rounded-full border-2 border-primary bg-background shadow-sm outline-none",
       "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+      "group-data-invalid/slider:border-destructive group-data-invalid/slider:focus-visible:ring-destructive/24 dark:group-data-invalid/slider:focus-visible:ring-destructive/40",
       "data-dragging:cursor-grabbing",
       "data-disabled:pointer-events-none data-disabled:opacity-50",
       className,

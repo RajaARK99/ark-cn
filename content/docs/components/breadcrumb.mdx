@@ -1,0 +1,54 @@
+---
+id: 10
+title: "Breadcrumb"
+description: "A shadcn-style breadcrumb component built with Ark UI primitives."
+url: "/components/breadcrumb"
+---
+
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/breadcrumb" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="breadcrumb" title="components/ui/breadcrumb.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Breadcrumb from "@/components/ui/breadcrumb"
+```
+
+Read exported parts in `src/components/ui/breadcrumb.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="breadcrumb-demo" />
+
+### With custom separator
+
+<ComponentPreview name="breadcrumb-custom-separator" />

@@ -1,0 +1,150 @@
+---
+id: 51
+title: "Sidebar"
+description: "A shadcn-style sidebar component built with Ark UI primitives."
+url: "/components/sidebar"
+referenceLink: "https://ark-ui.com/docs/components/sidebar"
+---
+
+<ComponentPreview
+  name="sidebar-demo"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/sidebar" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="sidebar" title="components/ui/sidebar.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Sidebar from "@/components/ui/sidebar"
+```
+
+Read exported parts in `src/components/ui/sidebar.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+The API surface and composition (provider, inset, groups, menu, rail, etc.) follow the same mental model as [shadcn/ui’s Sidebar](https://ui.shadcn.com/docs/components/radix/sidebar). For full-page layouts and copy-paste blocks, see the [shadcn sidebar blocks](https://ui.shadcn.com/blocks/sidebar) (sidebar-01 … sidebar-16).
+
+## Examples
+
+Previews use `previewClassName` so the layout is not squeezed into the default preview height (`h-80`), the shell fills the panel edge-to-edge, and the default preview panel border/background are removed (`border-0 bg-transparent rounded-none`).
+
+### Grouped navigation with search
+
+Roughly matches [shadcn sidebar-01](https://ui.shadcn.com/blocks/sidebar) (“simple sidebar with navigation grouped by section”).
+
+<ComponentPreview
+  name="sidebar-01"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Collapsible groups
+
+Roughly matches [shadcn sidebar-02](https://ui.shadcn.com/blocks/sidebar) (collapsible sections).
+
+<ComponentPreview
+  name="sidebar-02"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Nested submenus
+
+Roughly matches [shadcn sidebar-03](https://ui.shadcn.com/blocks/sidebar) (submenus).
+
+<ComponentPreview
+  name="sidebar-03"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Floating variant
+
+`variant="floating"` adds padding around the rail and a rounded, bordered surface. Similar to [shadcn sidebar-04](https://ui.shadcn.com/blocks/sidebar).
+
+<ComponentPreview
+  name="sidebar-04"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Custom width
+
+Set `--sidebar-width` on `SidebarProvider` (e.g. `19rem`) like [shadcn’s floating block example](https://ui.shadcn.com/blocks/sidebar).
+
+<ComponentPreview
+  name="sidebar-custom-width"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Collapse to icons
+
+`collapsible="icon"` — use `tooltip` on `SidebarMenuButton` for collapsed labels. See [shadcn sidebar-07](https://ui.shadcn.com/blocks/sidebar).
+
+<ComponentPreview
+  name="sidebar-icon"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Inset variant
+
+`variant="inset"` with `SidebarInset` for the main column. See [shadcn sidebar-08](https://ui.shadcn.com/blocks/sidebar) (inset + secondary nav).
+
+<ComponentPreview
+  name="sidebar-inset"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Right side
+
+`side="right"` — render `SidebarInset` first, then `Sidebar`. See [shadcn sidebar-14](https://ui.shadcn.com/blocks/sidebar).
+
+<ComponentPreview
+  name="sidebar-right"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Non-collapsible
+
+`collapsible="none"` keeps a fixed-width rail (no off-canvas or icon collapse). See [shadcn Sidebar props](https://ui.shadcn.com/docs/components/radix/sidebar#sidebar).
+
+<ComponentPreview
+  name="sidebar-none"
+  previewClassName="min-h-[520px] h-auto w-full max-w-none items-stretch justify-stretch overflow-hidden border-0 bg-transparent p-0 sm:p-0 rounded-none"
+/>
+
+### Controlled open state
+
+Use `SidebarProvider` with `open` and `onOpenChange` when an external control should drive the sidebar (desktop) or sheet (mobile). Same idea as [shadcn’s controlled sidebar](https://ui.shadcn.com/docs/components/radix/sidebar#controlled-sidebar).
+
+<ComponentPreview
+  name="sidebar-controlled"
+  previewClassName="min-h-[600px] h-auto w-full max-w-none items-start justify-start gap-0 overflow-x-hidden overflow-y-auto border-0 bg-transparent py-4 sm:py-6 rounded-none"
+/>
+
+## API reference
+
+This implementation is **Ark UI–based** but follows **shadcn/ui’s Sidebar API and composition** for props, context, and layout parts. For conceptual docs, props tables, and patterns (keyboard shortcut, `useSidebar`, theming, styling), use:
+
+- [shadcn/ui Sidebar — documentation](https://ui.shadcn.com/docs/components/base/sidebar)
+- [shadcn/ui — sidebar blocks](https://ui.shadcn.com/blocks/sidebar)

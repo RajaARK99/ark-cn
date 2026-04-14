@@ -3,8 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { toaster } from "@/components/ui/toast";
 
-// ─── Toast demos ────────────────────────────────────────────────────────────
-
 const ToastBasicDemo = () => (
   <Button
     onClick={() =>

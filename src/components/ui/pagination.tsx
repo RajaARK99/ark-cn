@@ -3,7 +3,7 @@
 import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination";
 import type { VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { Button, type buttonVariants } from "./button";
+import { Button, buttonVariants } from "./button";
 
 export type PaginationProps = PaginationPrimitive.RootProps;
 
@@ -101,11 +101,14 @@ export const PaginationContext = (props: PaginationContextProps) => (
   <PaginationPrimitive.Context {...props} />
 );
 
-export type PaginationItemsProps = VariantProps<typeof buttonVariants>;
+export type PaginationItemsProps = VariantProps<typeof buttonVariants> & {
+  itemType?: "button" | "link";
+};
 
 export const PaginationItems = ({
   size = "icon",
   variant = "ghost",
+  itemType = "button",
 }: PaginationItemsProps) => {
   return (
     <PaginationContext>
@@ -113,12 +116,24 @@ export const PaginationItems = ({
         pagination.pages.map((page, index) =>
           page.type === "page" ? (
             <PaginationItem key={index} {...page} asChild>
-              <Button
-                size={size}
-                variant={pagination?.page === page.value ? "outline" : variant}
-              >
-                {page.value}
-              </Button>
+              {itemType === "button" ? (
+                <Button
+                  size={size}
+                  variant={
+                    pagination?.page === page.value ? "outline" : variant
+                  }
+                >
+                  {page.value}
+                </Button>
+              ) : (
+                <a
+                  key={index}
+                  className={buttonVariants({ size, variant })}
+                  {...pagination.getItemProps(page)}
+                >
+                  {page.value}
+                </a>
+              )}
             </PaginationItem>
           ) : (
             <PaginationEllipsis key={index} index={index} />

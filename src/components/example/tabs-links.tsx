@@ -3,7 +3,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TabsLinksDemo = () => (
-  <Tabs defaultValue="account" variant="underline">
+  <Tabs
+    defaultValue="account"
+    variant="underline"
+    className="w-full max-w-md justify-center gap-3"
+  >
     <TabsList className="w-full justify-start">
       <TabsTrigger asChild value="account">
         <a className="no-underline" href="#account">

@@ -1,0 +1,79 @@
+---
+id: 22
+title: "Editable"
+description: "A shadcn-style editable component built with Ark UI primitives."
+url: "/components/editable"
+referenceLink: "https://ark-ui.com/docs/components/editable"
+---
+
+
+<ComponentPreview name="editable-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/editable" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="editable" title="components/ui/editable.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Editable from "@/components/ui/editable"
+```
+
+Read exported parts in `src/components/ui/editable.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="editable-basic" />
+
+### Context Hints
+
+<ComponentPreview name="editable-context-hints" />
+
+### Controlled
+
+<ComponentPreview name="editable-controlled" />
+
+### Textarea
+
+<ComponentPreview name="textarea-editable-textarea" />
+
+
+### Invalid
+
+<ComponentPreview name="editable-invalid" />
+
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/editable) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/editable#accessibility) for clarification.

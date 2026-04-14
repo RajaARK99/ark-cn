@@ -102,14 +102,6 @@ export const RatingGroupContext = (props: RatingGroupContextProps) => (
   <RatingGroupPrimitive.Context {...props} />
 );
 
-// export type RatingGroupHiddenInputProps = ComponentProps<
-//   typeof RatingGroupPrimitive.HiddenInput
-// >;
-
-// export const RatingGroupHiddenInput = (props: RatingGroupHiddenInputProps) => (
-//   <RatingGroupPrimitive.HiddenInput {...props} />
-// );
-
 export type RatingGroupRootProviderProps = ComponentProps<
   typeof RatingGroupPrimitive.RootProvider
 >;

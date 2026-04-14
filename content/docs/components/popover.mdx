@@ -1,0 +1,123 @@
+---
+id: 40
+title: "Popover"
+description: "A shadcn-style popover component built with Ark UI primitives."
+url: "/components/popover"
+referenceLink: "https://ark-ui.com/docs/components/popover"
+---
+
+
+<ComponentPreview name="popover-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/popover" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="popover" title="components/ui/popover.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Popover from "@/components/ui/popover"
+```
+
+Read exported parts in `src/components/ui/popover.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+
+### Close button
+
+<ComponentPreview name="popover-close-button" />
+
+### Controlled
+
+<ComponentPreview name="popover-controlled" />
+
+
+### Placement
+
+<ComponentPreview name="popover-placement" />
+
+### Close behavior
+
+<ComponentPreview name="popover-close-behavior" />
+
+### Modal
+
+<ComponentPreview name="popover-modal" />
+
+### Anchor
+
+<ComponentPreview name="popover-anchor" />
+
+### Same width
+
+<ComponentPreview name="popover-same-width" />
+
+### Lazy mount
+
+<ComponentPreview name="popover-lazy-mount" />
+
+### Nested
+
+<ComponentPreview name="popover-nested" />
+
+### In dialog
+
+<ComponentPreview name="popover-dialog" />
+
+### Context
+
+<ComponentPreview name="popover-context" />
+
+### Indicator only
+
+<ComponentPreview name="popover-indicator-only" />
+
+### No arrow
+
+<ComponentPreview name="popover-no-arrow" />
+
+### Initial focus
+
+<ComponentPreview name="popover-initial-focus" />
+
+### With field
+
+<ComponentPreview name="popover-with-field" />
+
+### usePopoverContext hook
+
+<ComponentPreview name="popover-use-context-hook" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/popover) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/popover#accessibility) for clarification.

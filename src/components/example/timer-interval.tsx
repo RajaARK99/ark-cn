@@ -5,29 +5,19 @@ import { Button } from "@/components/ui/button";
 import {
   Timer,
   TimerActionTrigger,
-  TimerArea,
   TimerControl,
-  TimerItem,
-  TimerSeparator,
+  TimerDigits,
 } from "@/components/ui/timer";
 
 const TimerIntervalDemo = () => (
   <Timer interval={100} targetMs={60 * 1000}>
-    <TimerArea>
-      <div className="flex flex-col items-center">
-        <TimerItem type="seconds" />
-        <span className="text-[11px] uppercase tracking-wider text-muted-foreground">
-          seconds
-        </span>
-      </div>
-      <TimerSeparator>.</TimerSeparator>
-      <div className="flex flex-col items-center">
-        <TimerItem type="milliseconds" />
-        <span className="text-[11px] uppercase tracking-wider text-muted-foreground">
-          ms
-        </span>
-      </div>
-    </TimerArea>
+    <TimerDigits
+      parts={[
+        { type: "seconds", label: "seconds" },
+        { type: "milliseconds", label: "ms" },
+      ]}
+      separator="."
+    />
     <TimerControl>
       <TimerActionTrigger action="start" asChild>
         <Button size="sm" type="button" variant="outline">

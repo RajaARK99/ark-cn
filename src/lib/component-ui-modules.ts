@@ -8,7 +8,8 @@ const basenameExtFromPath = (path: string) => {
 
 export const uiRawModules = import.meta.glob("../components/ui/*.tsx", {
   eager: true,
-  as: "raw",
+  query: "?raw",
+  import: "default",
 }) as Record<string, string>;
 
 export const resolveUiSource = (

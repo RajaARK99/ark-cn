@@ -1,0 +1,73 @@
+---
+id: 14
+title: "Checkbox"
+description: "A shadcn-style checkbox component built with Ark UI primitives."
+url: "/components/checkbox"
+referenceLink: "https://ark-ui.com/docs/components/checkbox"
+---
+
+
+<ComponentPreview name="checkbox-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/checkbox" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="checkbox" title="components/ui/checkbox.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Checkbox from "@/components/ui/checkbox"
+```
+
+Read exported parts in `src/components/ui/checkbox.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="checkbox-demo" />
+
+### Description
+
+<ComponentPreview name="checkbox-description" />
+
+### Disabled
+
+<ComponentPreview name="checkbox-disabled" />
+
+### Group
+
+<ComponentPreview name="checkbox-group" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/checkbox) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/checkbox#accessibility) for clarification.

@@ -1,0 +1,70 @@
+---
+id: 5
+title: "Alert"
+description: "A shadcn-style alert component built with Ark UI primitives."
+url: "/components/alert"
+---
+
+
+<ComponentPreview name="alert-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/alert" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="alert" title="components/ui/alert.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Alert from "@/components/ui/alert"
+```
+
+Read exported parts in `src/components/ui/alert.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Alert
+
+<ComponentPreview name="alert-demo" />
+
+### With Icon
+
+<ComponentPreview name="alert-with-icon" />
+
+### With Icon and Action Buttons
+
+<ComponentPreview name="alert-with-icon-action-buttons" />
+
+### Success Alert
+
+<ComponentPreview name="alert-success" />
+
+### Warning Alert
+
+<ComponentPreview name="alert-warning" />
+
+### Error Alert
+
+<ComponentPreview name="alert-error" />

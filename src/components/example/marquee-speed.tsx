@@ -7,24 +7,25 @@ import {
   MarqueeViewport,
 } from "@/components/ui/marquee";
 
-const SPEED_ITEMS = ["Fast lane", "Normal lane", "Slow lane"] as const;
+const MARQUEE_FRUITS = [
+  { name: "Apple", logo: "🍎" },
+  { name: "Banana", logo: "🍌" },
+  { name: "Cherry", logo: "🍒" },
+  { name: "Grape", logo: "🍇" },
+  { name: "Watermelon", logo: "🍉" },
+  { name: "Strawberry", logo: "🍓" },
+] as const;
 
 const MarqueeSpeedExample = () => (
-  <div className="space-y-3">
-    <Marquee className="w-full max-w-2xl">
+  <div className="w-full max-w-xl">
+    <Marquee speed={120} translations={{ root: "Faster scroll" }}>
       <MarqueeViewport>
-        <MarqueeContent className="animation-duration-[10s]">
-          {SPEED_ITEMS.map((item) => (
-            <MarqueeItem key={`fast-${item}`}>{item}</MarqueeItem>
-          ))}
-        </MarqueeContent>
-      </MarqueeViewport>
-    </Marquee>
-    <Marquee className="w-full max-w-2xl">
-      <MarqueeViewport>
-        <MarqueeContent className="animation-duration-[24s]">
-          {SPEED_ITEMS.map((item) => (
-            <MarqueeItem key={`slow-${item}`}>{item}</MarqueeItem>
+        <MarqueeContent>
+          {MARQUEE_FRUITS.map((item, index) => (
+            <MarqueeItem key={`${item.name}-${index}`}>
+              <span className="text-2xl leading-none">{item.logo}</span>
+              <span className="font-medium">{item.name}</span>
+            </MarqueeItem>
           ))}
         </MarqueeContent>
       </MarqueeViewport>

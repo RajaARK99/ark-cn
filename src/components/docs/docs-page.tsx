@@ -4,6 +4,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import ComponentPreview from "@/components/component-preview";
 import ComponentSource from "@/components/component-source";
+import { ComponentsNavigation } from "@/components/docs/components-navigation";
 import { DocStep, DocSteps } from "@/components/docs/doc-install-steps";
 import { DataAttributesTable } from "@/components/docs/docs-data-attributes-table";
 import { KeyboardShortcutsTable } from "@/components/docs/docs-keyboard-shortcuts-table";
@@ -131,6 +132,7 @@ const DocsPage = ({
             KeyboardShortcutsTable,
             DataAttributesTable,
             DocPropsTable,
+            ComponentsNavigation,
             AccordionDocSupplement,
           }}
         />

@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import {
-  createGridCollection,
+  createListCollection,
   Listbox,
   ListboxContent,
   ListboxItem,
@@ -11,24 +11,22 @@ import {
   ListboxLabel,
 } from "@/components/ui/listbox";
 
-const LISTBOX_GRID_CELLS = Array.from({ length: 9 }, (_, i) => ({
-  label: `Cell ${i + 1}`,
-  value: `c${i + 1}`,
-}));
-
-const ListboxGridDemo = () => {
+const ListboxDemo = () => {
   const collection = useMemo(
     () =>
-      createGridCollection({
-        columnCount: 3,
-        items: LISTBOX_GRID_CELLS,
+      createListCollection({
+        items: [
+          { label: "React", value: "react" },
+          { label: "Vue", value: "vue" },
+          { label: "Svelte", value: "svelte" },
+        ],
       }),
     [],
   );
   return (
     <div className="w-full max-w-sm">
-      <Listbox collection={collection} defaultValue={["c1"]}>
-        <ListboxLabel>Grid (3 columns)</ListboxLabel>
+      <Listbox collection={collection} defaultValue={["react"]}>
+        <ListboxLabel>Framework</ListboxLabel>
         <ListboxContent>
           {collection.items.map((item) => (
             <ListboxItem key={item.value} item={item}>
@@ -42,4 +40,4 @@ const ListboxGridDemo = () => {
   );
 };
 
-export default ListboxGridDemo;
+export default ListboxDemo;

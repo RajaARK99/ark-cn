@@ -7,7 +7,10 @@ import {
   usePinInputContext,
 } from "@ark-ui/react/pin-input";
 import { type ComponentProps, Fragment } from "react";
-import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+} from "@/components/ui/button-group";
 import { cn } from "@/lib/utils";
 
 export { usePinInput, usePinInputContext };

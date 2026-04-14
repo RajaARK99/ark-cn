@@ -1,0 +1,105 @@
+---
+id: 20
+title: "Date Picker"
+description: "A shadcn-style date picker component built with Ark UI primitives."
+url: "/components/date-picker"
+referenceLink: "https://ark-ui.com/docs/components/date-picker"
+---
+
+
+<ComponentPreview name="date-picker-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/date-picker" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="date-picker" title="components/ui/date-picker.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as DatePicker from "@/components/ui/date-picker"
+```
+
+Read exported parts in `src/components/ui/date-picker.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Single
+
+<ComponentPreview name="date-picker-single" />
+
+### Multiple
+
+<ComponentPreview name="date-picker-multiple" />
+
+### Range 
+
+<ComponentPreview name="date-picker-range" />
+
+### Range Multiple Months
+
+<ComponentPreview name="date-picker-range-multiple-months" />
+
+### Preset
+
+<ComponentPreview name="date-picker-preset" />
+
+### Month Year Picker
+
+<ComponentPreview name="date-picker-month-year-picker" />
+
+### Calendar
+
+<ComponentPreview name="date-picker-calendar" />
+
+### Unavailable Dates
+
+<ComponentPreview name="date-picker-unavailable-dates" />
+
+### Min Max Dates
+
+<ComponentPreview name="date-picker-min-max-dates" />
+
+### Max Selection
+
+<ComponentPreview name="date-picker-max-selection" />
+
+### Month Picker
+
+<ComponentPreview name="date-picker-month-picker" />
+
+### Year Picker
+
+<ComponentPreview name="date-picker-year-picker" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/date-picker) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/date-picker#accessibility) for clarification.

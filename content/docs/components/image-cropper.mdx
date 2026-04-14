@@ -1,0 +1,121 @@
+---
+id: 28
+title: "Image Cropper"
+description: "A shadcn-style image cropper component built with Ark UI primitives."
+url: "/components/image-cropper"
+referenceLink: "https://ark-ui.com/docs/components/image-cropper"
+---
+
+
+<ComponentPreview name="image-cropper-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/image-cropper" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="image-cropper" title="components/ui/image-cropper.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ImageCropper from "@/components/ui/image-cropper"
+```
+
+Read exported parts in `src/components/ui/image-cropper.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Aspect Ratio
+
+<ComponentPreview name="image-cropper-aspect-ratio" />
+
+### Basic
+
+<ComponentPreview name="image-cropper-basic" />
+
+### Circle
+
+<ComponentPreview name="image-cropper-circle" />
+
+### Controlled Zoom
+
+<ComponentPreview name="image-cropper-controlled-zoom" />
+
+### Context
+
+<ComponentPreview name="image-cropper-context" />
+
+### Crop Preview
+
+<ComponentPreview name="image-cropper-crop-preview" />
+
+### Events
+
+<ComponentPreview name="image-cropper-events" />
+
+### Fixed Crop Area
+
+<ComponentPreview name="image-cropper-fixed" />
+
+### Flip
+
+<ComponentPreview name="image-cropper-flip" />
+
+### Initial Crop
+
+<ComponentPreview name="image-cropper-initial-crop" />
+
+### Min Max Size
+
+<ComponentPreview name="image-cropper-min-max-size" />
+
+### Reset
+
+<ComponentPreview name="image-cropper-reset" />
+
+### Root Provider
+
+<ComponentPreview name="image-cropper-root-provider" />
+
+### Root Provider Zoom
+
+<ComponentPreview name="image-cropper-root-provider-zoom" />
+
+### Rotation
+
+<ComponentPreview name="image-cropper-rotation" />
+
+### Zoom Limits
+
+<ComponentPreview name="image-cropper-zoom-limits" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/image-cropper) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/image-cropper#accessibility) for clarification.

@@ -1,0 +1,109 @@
+---
+id: 42
+title: "Progress Linear"
+description: "A shadcn-style progress linear component built with Ark UI primitives."
+url: "/components/progress-linear"
+referenceLink: "https://ark-ui.com/docs/components/progress-linear"
+---
+
+
+<ComponentPreview name="progress-linear-default" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/progress-linear" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="progress-linear" title="components/ui/progress-linear.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ProgressLinear from "@/components/ui/progress-linear"
+```
+
+Read exported parts in `src/components/ui/progress-linear.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="progress-linear-default" />
+
+### Min and max
+
+<ComponentPreview name="progress-linear-min-max" />
+
+### Indeterminate
+
+<ComponentPreview name="progress-linear-indeterminate" />
+
+### Value text translations
+
+<ComponentPreview name="progress-linear-value-text" />
+
+### Vertical
+
+<ComponentPreview name="progress-linear-vertical" />
+
+### Root provider
+
+<ComponentPreview name="progress-linear-root-provider" />
+
+### Composed anatomy
+
+<ComponentPreview name="progress-linear-composed" />
+
+### Controlled
+
+<ComponentPreview name="progress-linear-controlled" />
+
+### View states
+
+<ComponentPreview name="progress-linear-view" />
+
+### Context
+
+<ComponentPreview name="progress-linear-context" />
+
+### With field
+
+<ComponentPreview name="progress-linear-with-field" />
+
+### Sizes
+
+<ComponentPreview name="progress-linear-sizes" />
+
+### Complete
+
+<ComponentPreview name="progress-linear-complete" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/progress-linear) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/progress-linear#accessibility) for clarification.

@@ -132,7 +132,7 @@ const ComponentPreview = ({
       data-slot="component-preview"
     >
       <Tabs onValueChange={(details) => setTab(details.value)} value={tab}>
-        <TabsList className="group-data-[variant=default]:bg-transparent">
+        <TabsList className="data-[variant=default]:bg-transparent">
           <TabsTrigger className="rounded-lg" value="preview">
             Preview
           </TabsTrigger>

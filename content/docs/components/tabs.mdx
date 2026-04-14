@@ -1,0 +1,97 @@
+---
+id: 59
+title: "Tabs"
+description: "A shadcn-style tabs component built with Ark UI primitives."
+url: "/components/tabs"
+referenceLink: "https://ark-ui.com/docs/components/tabs"
+---
+
+
+<ComponentPreview name="tabs-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/tabs" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="tabs" title="components/ui/tabs.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Tabs from "@/components/ui/tabs"
+```
+
+Read exported parts in `src/components/ui/tabs.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="tabs-basic" />
+
+### Underline (vertical)
+
+<ComponentPreview name="tabs-underline-vertical" />
+
+### Controlled
+
+<ComponentPreview name="tabs-controlled" />
+
+### Disabled
+
+<ComponentPreview name="tabs-disabled" />
+
+### Vertical
+
+<ComponentPreview name="tabs-vertical" />
+
+### Lazy mount
+
+<ComponentPreview name="tabs-lazy-mount" />
+
+### Manual activation
+
+<ComponentPreview name="tabs-manual-activation" />
+
+### Links
+
+<ComponentPreview name="tabs-links" />
+
+### Root provider
+
+<ComponentPreview name="tabs-root-provider" />
+
+### Nested
+
+<ComponentPreview name="tabs-nested" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/tabs) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/tabs#accessibility) for clarification.

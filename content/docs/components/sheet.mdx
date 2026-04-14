@@ -1,0 +1,91 @@
+---
+id: 50
+title: "Sheet"
+description: "A shadcn-style sheet component built with Ark UI primitives."
+url: "/components/sheet"
+referenceLink: "https://ark-ui.com/docs/components/sheet"
+---
+
+
+<ComponentPreview name="sheet-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/sheet" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="sheet" title="components/ui/sheet.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Sheet from "@/components/ui/sheet"
+```
+
+Read exported parts in `src/components/ui/sheet.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+Edge sheets use the default `variant` (full edge). Pass `variant="inset"` for rounded panels that sit inset from each edge.
+
+### Side: Right
+
+<ComponentPreview name="sheet-side-right" />
+
+### Side: Left
+
+<ComponentPreview name="sheet-side-left" />
+
+### Side: Top
+
+<ComponentPreview name="sheet-side-top" />
+
+### Side: Bottom
+
+<ComponentPreview name="sheet-side-bottom" />
+
+### Inset: Right
+
+<ComponentPreview name="sheet-inset-right" />
+
+### Inset: Left
+
+<ComponentPreview name="sheet-inset-left" />
+
+### Inset: Top
+
+<ComponentPreview name="sheet-inset-top" />
+
+### Inset: Bottom
+
+<ComponentPreview name="sheet-inset-bottom" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/sheet) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/sheet#accessibility) for clarification.

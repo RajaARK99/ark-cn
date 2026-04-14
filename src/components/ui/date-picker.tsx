@@ -161,7 +161,14 @@ export const DatePickerInput = ({
               className={cn("w-full", containerClassName)}
             >
               <DatePickerPrimitive.Trigger asChild>
-                <Button variant="outline" className={cn("w-full", className)}>
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "w-full",
+                    value?.length <= 0 ? "text-muted-foreground/72" : "",
+                    className,
+                  )}
+                >
                   {startAddon}
                   <DatePickerPrimitive.ValueText
                     placeholder={placeholder}
@@ -409,7 +416,7 @@ export const DatePickerViewTrigger = ({
   }
 
   if (viewTriggerTextOnly) {
-    return <DatePickerRangeText />;
+    return <DatePickerRangeText className="text-center min-w-36" />;
   }
 
   return (
@@ -856,6 +863,7 @@ export const DatePickerCalendar = ({
               view="month"
               columns={monthColumns}
               monthFormat={monthFormat}
+              viewTriggerTextOnly={viewTriggerTextOnly}
             />
             <DatePickerCalendarView view="year" columns={yearColumns} />
             <Presets />

@@ -1,0 +1,105 @@
+---
+id: 56
+title: "Steps"
+description: "A shadcn-style steps component built with Ark UI primitives."
+url: "/components/steps"
+referenceLink: "https://ark-ui.com/docs/components/steps"
+---
+
+
+<ComponentPreview name="steps-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/steps" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="steps" title="components/ui/steps.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Steps from "@/components/ui/steps"
+```
+
+Read exported parts in `src/components/ui/steps.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="steps-basic" />
+
+### Controlled
+
+<ComponentPreview name="steps-controlled" />
+
+### Root provider
+
+<ComponentPreview name="steps-root-provider" />
+
+### Vertical
+
+<ComponentPreview name="steps-vertical" />
+
+### Form wizard
+
+<ComponentPreview name="steps-form-wizard" />
+
+### Personal form
+
+<ComponentPreview name="steps-personal-form" />
+
+### Context
+
+<ComponentPreview name="steps-context" />
+
+### Linear
+
+<ComponentPreview name="steps-linear" />
+
+### Nested
+
+<ComponentPreview name="steps-nested" />
+
+### Horizontal centered
+
+<ComponentPreview name="steps-horizontal-centered" />
+
+### Vertical buttons
+
+<ComponentPreview name="steps-vertical-buttons" />
+
+### Form centered
+
+<ComponentPreview name="steps-form-centered" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/steps) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/steps#accessibility) for clarification.

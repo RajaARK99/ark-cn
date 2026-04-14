@@ -5,6 +5,7 @@ import {
   useTimer,
   useTimerContext,
 } from "@ark-ui/react/timer";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type TimerProps = TimerPrimitive.RootProps;
@@ -74,6 +75,34 @@ export const TimerActionTrigger = ({
     data-slot="timer-action-trigger"
     {...props}
   />
+);
+
+export type TimerDigitsPart = {
+  type: NonNullable<TimerPrimitive.ItemProps["type"]>;
+  label: string;
+};
+
+export type TimerDigitsProps = {
+  parts: TimerDigitsPart[];
+  separator?: ReactNode;
+};
+
+export const TimerDigits = ({ parts, separator = ":" }: TimerDigitsProps) => (
+  <TimerArea>
+    {parts.map((part, index) => (
+      <div className="flex items-center gap-2" key={`${part.type}-${index}`}>
+        <div className="flex flex-col items-center">
+          <TimerItem type={part.type} />
+          <span className="text-[11px] uppercase tracking-wider text-muted-foreground">
+            {part.label}
+          </span>
+        </div>
+        {index < parts.length - 1 ? (
+          <TimerSeparator>{separator}</TimerSeparator>
+        ) : null}
+      </div>
+    ))}
+  </TimerArea>
 );
 
 export const TimerContext = TimerPrimitive.Context;

@@ -1,0 +1,75 @@
+---
+id: 37
+title: "Pagination"
+description: "A shadcn-style pagination component built with Ark UI primitives."
+url: "/components/pagination"
+referenceLink: "https://ark-ui.com/docs/components/pagination"
+---
+
+
+<ComponentPreview name="pagination-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/pagination" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="pagination" title="components/ui/pagination.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Pagination from "@/components/ui/pagination"
+```
+
+Read exported parts in `src/components/ui/pagination.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Context Info
+
+<ComponentPreview name="pagination-context-info" />
+
+### Controlled
+
+<ComponentPreview name="pagination-controlled" />
+
+### Default
+
+<ComponentPreview name="pagination-default" />
+
+
+### Links
+
+<ComponentPreview name="pagination-links" />
+
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/pagination) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/pagination#accessibility) for clarification.

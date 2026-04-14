@@ -1,0 +1,81 @@
+---
+id: 36
+title: "Number Field"
+description: "A shadcn-style number field component built with Ark UI primitives."
+url: "/components/number-field"
+referenceLink: "https://ark-ui.com/docs/components/number-input"
+---
+
+
+<ComponentPreview name="number-field-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/number-field" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="number-field" title="components/ui/number-field.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as NumberField from "@/components/ui/number-field"
+```
+
+Read exported parts in `src/components/ui/number-field.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Step
+
+<ComponentPreview name="number-field-step" />
+
+### Variant
+
+<ComponentPreview name="number-field-variant" />
+
+### Scrubber
+
+<ComponentPreview name="number-field-scrubber" />
+
+### Label
+
+<ComponentPreview name="number-field-label" />
+
+### Disabled
+
+<ComponentPreview name="number-field-disabled" />
+
+### Format
+
+<ComponentPreview name="number-field-format" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/number-input) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/number-input#accessibility) for clarification.

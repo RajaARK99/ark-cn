@@ -3,13 +3,13 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 
-export function MainNav({
+export const MainNav = ({
   items,
   className,
   ...props
 }: ComponentProps<"nav"> & {
   items: { href: string; label: string }[];
-}) {
+}) => {
   const location = useLocation();
 
   return (
@@ -19,6 +19,7 @@ export function MainNav({
     >
       {items.map((item) => (
         <Link
+          key={item.href}
           to={item.href}
           data-active={location.href === item.href}
           className={buttonVariants({ variant: "ghost", size: "sm" })}
@@ -28,4 +29,4 @@ export function MainNav({
       ))}
     </nav>
   );
-}
+};

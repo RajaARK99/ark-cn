@@ -1,0 +1,123 @@
+---
+id: 11
+title: "Button"
+description: "A shadcn-style button component built with Ark UI primitives."
+url: "/components/button"
+---
+
+
+<ComponentPreview name="button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/button" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="button" title="components/ui/button.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Button from "@/components/ui/button"
+```
+
+Read exported parts in `src/components/ui/button.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="button-demo" />
+
+### Outline
+
+<ComponentPreview name="button-outline" />
+
+### Secondary
+
+<ComponentPreview name="button-secondary" />
+
+### Destructive
+
+<ComponentPreview name="button-destructive" />
+
+### Destructive Outline
+
+<ComponentPreview name="button-destructive-outline" />
+
+### Ghost
+
+<ComponentPreview name="button-ghost" />
+
+### Link
+
+<ComponentPreview name="button-link" />
+
+### Extra-small Size
+
+<ComponentPreview name="button-extra-small" />
+
+### Small Size
+
+<ComponentPreview name="button-small" />
+
+### Large Size
+
+<ComponentPreview name="button-large" />
+
+### Extra-large Size
+
+<ComponentPreview name="button-extra-large" />
+
+### Disabled
+
+<ComponentPreview name="button-disabled" />
+
+### Icon
+
+<ComponentPreview name="button-icon" />
+
+### Icon Small Size
+
+<ComponentPreview name="button-icon-small" />
+
+### Icon Large Size
+
+<ComponentPreview name="button-icon-large" />
+
+### With Icon
+
+<ComponentPreview name="button-with-icon" />
+
+### With Link
+
+<ComponentPreview name="button-with-link" />
+
+### Loading (Built-in Prop)
+
+<ComponentPreview name="button-loading-built-in" />
+
+### Loading (Custom Composition)
+
+<ComponentPreview name="button-loading-custom-composition" />
+

@@ -1,0 +1,96 @@
+---
+id: 12
+title: "Button Group"
+description: "A shadcn-style button group component built with Ark UI primitives."
+url: "/components/button-group"
+referenceLink: "https://ark-ui.com/docs/components/button-group"
+---
+
+
+<ComponentPreview name="button-group-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/button-group" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="button-group" title="components/ui/button-group.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ButtonGroup from "@/components/ui/button-group"
+```
+
+Read exported parts in `src/components/ui/button-group.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### With Default Buttons
+
+<ComponentPreview name="button-group-demo" />
+
+### With Input
+
+<ComponentPreview name="button-group-with-input" />
+
+### Small Size
+
+<ComponentPreview name="button-group-small-size" />
+
+### Large Size
+
+<ComponentPreview name="button-group-large-size" />
+
+### With Disabled Button
+
+<ComponentPreview name="button-group-with-disabled-button" />
+
+### With Start Labeled Text
+
+<ComponentPreview name="button-group-with-start-labeled-text" />
+
+### With End Text
+
+<ComponentPreview name="button-group-with-end-text" />
+
+### Vertical
+
+<ComponentPreview name="button-group-vertical" />
+
+### Nested Groups
+
+<ComponentPreview name="button-group-nested-groups" />
+
+### With Popup
+
+<ComponentPreview name="button-group-with-popup" />
+
+### With Input Group
+
+<ComponentPreview name="button-group-with-input-group" />
+
+### With Menu
+
+<ComponentPreview name="button-group-with-menu" />
+

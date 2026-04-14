@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Slider, SliderField, SliderLabel } from "@/components/ui/slider";
 
-const SliderFormDemo = () => {
+const SliderForm = () => {
   const [out, setOut] = useState<string | null>(null);
+
   return (
     <form
-      className="flex max-w-xs flex-col gap-2"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const fd = new FormData(e.currentTarget);
-        setOut(String(fd.get("volume") ?? ""));
+      className="flex max-w-xs flex-col gap-2 w-full"
+      onSubmit={(event) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        setOut(String(formData.get("volume") ?? ""));
       }}
     >
       <Slider defaultValue={72} name="volume">
@@ -32,4 +34,4 @@ const SliderFormDemo = () => {
   );
 };
 
-export default SliderFormDemo;
+export default SliderForm;

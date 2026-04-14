@@ -45,7 +45,7 @@ export const Radio = ({ className, children, ...props }: RadioProps) => (
   <RadioGroupPrimitive.Item
     className={cn(
       "flex cursor-pointer items-center gap-2 rounded-md outline-none",
-      "data-disabled:cursor-not-allowed data-disabled:opacity-50",
+      "data-disabled:cursor-not-allowed data-disabled:opacity-50 data-readonly:cursor-default",
       className,
     )}
     data-slot="radio-group-item"
@@ -64,7 +64,7 @@ export const Radio = ({ className, children, ...props }: RadioProps) => (
           "group/radio-control relative flex size-4 shrink-0 items-center justify-center rounded-full border border-input bg-background shadow-xs/5 outline-none transition-[color,box-shadow]",
           "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
           "data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50",
-          "data-disabled:cursor-not-allowed data-disabled:opacity-50",
+          "data-readonly:cursor-default data-disabled:cursor-not-allowed data-disabled:opacity-50",
           "data-invalid:border-destructive data-invalid:ring-destructive/20 dark:bg-input/30",
           "data-[state=checked]:border-primary",
         )}

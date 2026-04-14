@@ -1,9 +1,14 @@
 "use client";
 
-import { PasswordInput } from "@/components/ui/password-input";
+import {
+  PasswordInput,
+  PasswordInputRoot,
+} from "@/components/ui/password-input";
 
 const PasswordInputDemo = () => (
-  <PasswordInput className="w-full max-w-md" placeholder="Enter password" />
+  <PasswordInputRoot className="w-full max-w-xs">
+    <PasswordInput placeholder="Enter password" />
+  </PasswordInputRoot>
 );
 
 export default PasswordInputDemo;

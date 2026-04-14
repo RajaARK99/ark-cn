@@ -1,0 +1,79 @@
+---
+id: 26
+title: "Floating Panel"
+description: "A shadcn-style floating panel component built with Ark UI primitives."
+url: "/components/floating-panel"
+referenceLink: "https://ark-ui.com/docs/components/floating-panel"
+---
+
+
+<ComponentPreview name="floating-panel-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/floating-panel" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="floating-panel" title="components/ui/floating-panel.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as FloatingPanel from "@/components/ui/floating-panel"
+```
+
+Read exported parts in `src/components/ui/floating-panel.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="floating-panel-basic" />
+
+### Context
+
+<ComponentPreview name="floating-panel-context" />
+
+### Controlled Open
+
+<ComponentPreview name="floating-panel-controlled-open" />
+
+### Controlled Position
+
+<ComponentPreview name="floating-panel-controlled-position" />
+
+### Controlled Size
+
+<ComponentPreview name="floating-panel-controlled-size" />
+
+<ComponentPreview name="floating-panel-demo" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/floating-panel) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/floating-panel#accessibility) for clarification.

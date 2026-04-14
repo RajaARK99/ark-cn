@@ -10,25 +10,36 @@ import { cn } from "@/lib/utils";
 
 export type TagsInputProps = TagsInputPrimitive.RootProps;
 
-export const TagsInput = ({ className, ...props }: TagsInputProps) => (
+export const TagsInput = ({
+  className,
+  children,
+  ...props
+}: TagsInputProps) => (
   <TagsInputPrimitive.Root
     className={cn("flex w-full flex-col gap-1.5", className)}
     data-slot="tags-input"
     {...props}
-  />
+  >
+    {children}
+    <TagsInputPrimitive.HiddenInput />
+  </TagsInputPrimitive.Root>
 );
 
 export type TagsInputRootProviderProps = TagsInputPrimitive.RootProviderProps;
 
 export const TagsInputRootProvider = ({
   className,
+  children,
   ...props
 }: TagsInputRootProviderProps) => (
   <TagsInputPrimitive.RootProvider
     className={cn("flex w-full flex-col gap-1.5", className)}
     data-slot="tags-input-root-provider"
     {...props}
-  />
+  >
+    {children}
+    <TagsInputPrimitive.HiddenInput />
+  </TagsInputPrimitive.RootProvider>
 );
 
 export const TagsInputLabel = ({
@@ -160,15 +171,41 @@ export const TagsInputClearTrigger = ({
   </TagsInputPrimitive.ClearTrigger>
 );
 
-export const TagsInputHiddenInput = (
-  props: TagsInputPrimitive.HiddenInputProps,
-) => (
-  <TagsInputPrimitive.HiddenInput
-    data-slot="tags-input-hidden-input"
-    {...props}
-  />
-);
-
 export const TagsInputContext = TagsInputPrimitive.Context;
+
+export type TagsInputScaffoldProps = {
+  label?: string;
+  placeholder?: string;
+};
+
+export const TagsInputScaffold = ({
+  label = "Frameworks",
+  placeholder = "Add framework",
+}: TagsInputScaffoldProps) => (
+  <TagsInputContext>
+    {(api) => (
+      <>
+        <TagsInputLabel>{label}</TagsInputLabel>
+        <TagsInputControl>
+          {api.value.map((value, index) => (
+            <TagsInputItem
+              key={`${value}-${index}`}
+              index={index}
+              value={value}
+            >
+              <TagsInputItemPreview>
+                <TagsInputItemText>{value}</TagsInputItemText>
+                <TagsInputItemDeleteTrigger />
+              </TagsInputItemPreview>
+              <TagsInputItemInput />
+            </TagsInputItem>
+          ))}
+          <TagsInputInput placeholder={placeholder} />
+          <TagsInputClearTrigger />
+        </TagsInputControl>
+      </>
+    )}
+  </TagsInputContext>
+);
 
 export { useTagsInput, useTagsInputContext };

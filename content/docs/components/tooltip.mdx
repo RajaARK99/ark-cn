@@ -1,0 +1,93 @@
+---
+id: 66
+title: "Tooltip"
+description: "A shadcn-style tooltip component built with Ark UI primitives."
+url: "/components/tooltip"
+referenceLink: "https://ark-ui.com/docs/components/tooltip"
+---
+
+
+<ComponentPreview name="tooltip-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/tooltip" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="tooltip" title="components/ui/tooltip.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Tooltip from "@/components/ui/tooltip"
+```
+
+Read exported parts in `src/components/ui/tooltip.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="tooltip-basic" />
+
+### Arrow
+
+<ComponentPreview name="tooltip-arrow" />
+
+### Context
+
+<ComponentPreview name="tooltip-context" />
+
+### Controlled
+
+<ComponentPreview name="tooltip-controlled" />
+
+### Delay
+
+<ComponentPreview name="tooltip-delay" />
+
+### Positioning
+
+<ComponentPreview name="tooltip-positioning" />
+
+### Different Placements
+
+<ComponentPreview name="tooltip-placements" />
+
+### Root Provider
+
+<ComponentPreview name="tooltip-root-provider" />
+
+### Within Fixed Container
+
+<ComponentPreview name="tooltip-within-fixed" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/tooltip) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/tooltip#accessibility) for clarification.

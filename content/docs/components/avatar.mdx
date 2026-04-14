@@ -1,0 +1,76 @@
+---
+id: 8
+title: "Avatar"
+description: "A shadcn-style avatar component built with Ark UI primitives."
+url: "/components/avatar"
+referenceLink: "https://ark-ui.com/docs/components/avatar"
+---
+
+<ComponentPreview name="avatar-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/avatar" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="avatar" title="components/ui/avatar.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Avatar from "@/components/ui/avatar"
+```
+
+Read exported parts in `src/components/ui/avatar.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Main demo
+
+<ComponentPreview name="avatar-demo" />
+
+### Fallback Only
+
+<ComponentPreview name="avatar-fallback-only" />
+
+### Different Sizes
+
+<ComponentPreview name="avatar-different-sizes" />
+
+### Different Radius
+
+<ComponentPreview name="avatar-different-radius" />
+
+### Group Avatars
+
+<ComponentPreview name="avatar-group-avatars" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/avatar) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/avatar#accessibility) for clarification.

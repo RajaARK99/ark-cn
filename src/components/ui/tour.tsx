@@ -7,6 +7,8 @@ import {
   waitForElement,
   waitForEvent,
 } from "@ark-ui/react/tour";
+import { PlayIcon, XIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export type TourProps = TourPrimitive.RootProps;
@@ -238,6 +240,104 @@ export const TourArrowTip = ({ className, ...props }: TourArrowTipProps) => (
     data-slot="tour-arrow-tip-raw"
     {...props}
   />
+);
+
+export const tourStageClass = "mx-auto flex w-full max-w-md flex-col gap-3";
+
+export const tourTargetClass =
+  "flex min-h-20 items-center justify-center rounded-xl border border-border/70 bg-muted/20 px-4 py-3 text-center font-medium text-foreground text-sm";
+
+export type TourLaunchButtonProps = {
+  label?: string;
+  onClick: () => void;
+};
+
+export const TourLaunchButton = ({
+  label = "Start tour",
+  onClick,
+}: TourLaunchButtonProps) => (
+  <Button
+    className="w-fit gap-2"
+    onClick={onClick}
+    type="button"
+    variant="outline"
+  >
+    <PlayIcon className="size-4" />
+    {label}
+  </Button>
+);
+
+export const TourActionButtons = () => (
+  <TourActions>
+    {(actions) =>
+      actions.map((action, index) => (
+        <TourActionTrigger
+          action={action}
+          asChild
+          key={`${action.label}-${index}`}
+        >
+          <Button
+            size="sm"
+            type="button"
+            variant={
+              action.action === "next" || action.action === "dismiss"
+                ? "default"
+                : "outline"
+            }
+          >
+            {action.label}
+          </Button>
+        </TourActionTrigger>
+      ))
+    }
+  </TourActions>
+);
+
+export type TourFrameProps = {
+  showProgressBar?: boolean;
+  tour: ReturnType<typeof useTour>;
+};
+
+export const TourFrame = ({
+  tour,
+  showProgressBar = false,
+}: TourFrameProps) => (
+  <Tour tour={tour}>
+    <Portal>
+      <TourBackdrop />
+      <TourSpotlight />
+    </Portal>
+    <TourPopup className={cn("space-y-2", showProgressBar && "pb-6")}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0 flex-1 space-y-2">
+          <TourProgressText />
+          <TourTitle />
+        </div>
+        <TourCloseTrigger asChild>
+          <Button
+            aria-label="Close tour"
+            size="icon-sm"
+            type="button"
+            variant="ghost"
+          >
+            <XIcon className="size-4" />
+          </Button>
+        </TourCloseTrigger>
+      </div>
+      <TourDescription />
+      <TourControl>
+        <TourActionButtons />
+      </TourControl>
+      {showProgressBar ? (
+        <div className="absolute inset-x-0 bottom-0 h-1 overflow-hidden rounded-b-xl bg-muted">
+          <div
+            className="h-full bg-primary transition-[width] duration-200"
+            style={{ width: `${tour.getProgressPercent()}%` }}
+          />
+        </div>
+      ) : null}
+    </TourPopup>
+  </Tour>
 );
 
 export { useTour, waitForElement, waitForEvent };

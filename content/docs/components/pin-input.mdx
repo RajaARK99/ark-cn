@@ -1,0 +1,134 @@
+---
+id: 39
+title: "Pin Input"
+description: "A shadcn-style pin input component built with Ark UI primitives."
+url: "/components/pin-input"
+referenceLink: "https://ark-ui.com/docs/components/pin-input"
+---
+
+
+<ComponentPreview name="pin-input-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/pin-input" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="pin-input" title="components/ui/pin-input.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as PinInput from "@/components/ui/pin-input"
+```
+
+Read exported parts in `src/components/ui/pin-input.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+
+### Separated
+
+<ComponentPreview name="pin-input-separated" />
+
+### Grouped
+
+<ComponentPreview name="pin-input-grouped" />
+
+### Grouped 3-3
+
+<ComponentPreview name="pin-input-grouped-three-three" />
+
+### Grouped 1-4-1
+
+<ComponentPreview name="pin-input-grouped-one-four-one" />
+
+### Grouped pairs 2-2-2
+
+<ComponentPreview name="pin-input-grouped-pairs" />
+
+### Placeholder
+
+<ComponentPreview name="pin-input-placeholder" />
+
+### Blur on complete
+
+<ComponentPreview name="pin-input-blur-on-complete" />
+
+### OTP autocomplete
+
+<ComponentPreview name="pin-input-otp" />
+
+### Masked
+
+<ComponentPreview name="pin-input-mask" />
+
+### Root provider
+
+<ComponentPreview name="pin-input-root-provider" />
+
+### With field
+
+<ComponentPreview name="pin-input-with-field" />
+
+### Field invalid
+
+<ComponentPreview name="pin-input-field-invalid" />
+
+### Controlled
+
+<ComponentPreview name="pin-input-controlled" />
+
+### Invalid entry
+
+<ComponentPreview name="pin-input-invalid-entry" />
+
+### Alphanumeric
+
+<ComponentPreview name="pin-input-alphanumeric" />
+
+### Disabled
+
+<ComponentPreview name="pin-input-disabled" />
+
+### Read only
+
+<ComponentPreview name="pin-input-read-only" />
+
+### Context
+
+<ComponentPreview name="pin-input-context" />
+
+### Four digits
+
+<ComponentPreview name="pin-input-four-digits" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/pin-input) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/pin-input#accessibility) for clarification.

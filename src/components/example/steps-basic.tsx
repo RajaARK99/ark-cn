@@ -18,22 +18,22 @@ import {
   StepsTrigger,
 } from "@/components/ui/steps";
 
-const STEP_ITEMS = [
+const STEPS_ITEMS = [
   { title: "First", description: "Contact Info" },
   { title: "Second", description: "Date & Time" },
   { title: "Third", description: "Select Rooms" },
-];
+] as const;
 
 const StepsBasicDemo = () => (
-  <Steps count={STEP_ITEMS.length}>
+  <Steps count={STEPS_ITEMS.length}>
     <StepsContext>
       {(api) => (
         <>
           <StepsList>
-            {STEP_ITEMS.map((item, index) => {
+            {STEPS_ITEMS.map((item, index) => {
               const state = api.getItemState({ index });
               return (
-                <StepsItem key={item.title} index={index}>
+                <StepsItem index={index} key={item.title}>
                   <StepsTrigger>
                     <StepsIndicator>
                       {state.completed ? (
@@ -42,7 +42,7 @@ const StepsBasicDemo = () => (
                         index + 1
                       )}
                     </StepsIndicator>
-                    <div className="flex flex-col">
+                    <div className="flex min-w-0 flex-col">
                       <StepsTitle>{item.title}</StepsTitle>
                       <StepsDescription>{item.description}</StepsDescription>
                     </div>
@@ -53,8 +53,8 @@ const StepsBasicDemo = () => (
             })}
           </StepsList>
 
-          {STEP_ITEMS.map((item, index) => (
-            <StepsContent key={item.title} index={index}>
+          {STEPS_ITEMS.map((item, index) => (
+            <StepsContent index={index} key={item.title}>
               <p className="text-muted-foreground">
                 {item.title} &ndash; {item.description}
               </p>
@@ -65,7 +65,7 @@ const StepsBasicDemo = () => (
             Steps Complete &mdash; Thank you for filling out the form!
           </StepsCompletedContent>
 
-          <div className="flex items-center justify-between">
+          <div className="mt-4 flex w-full items-center justify-between">
             <StepsPrevTrigger asChild>
               <Button variant="outline" size="sm">
                 Previous

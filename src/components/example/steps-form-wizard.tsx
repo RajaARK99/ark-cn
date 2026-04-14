@@ -22,7 +22,7 @@ const FORM_STEPS = [
   { title: "Account Setup", description: "Create your account" },
   { title: "Profile Info", description: "Complete your profile" },
   { title: "Review", description: "Review your information" },
-];
+] as const;
 
 const StepsFormWizardDemo = () => (
   <Steps count={FORM_STEPS.length}>
@@ -33,7 +33,7 @@ const StepsFormWizardDemo = () => (
             {FORM_STEPS.map((item, index) => {
               const state = api.getItemState({ index });
               return (
-                <StepsItem key={item.title} index={index}>
+                <StepsItem index={index} key={item.title}>
                   <StepsTrigger>
                     <StepsIndicator>
                       {state.completed ? (
@@ -42,7 +42,7 @@ const StepsFormWizardDemo = () => (
                         index + 1
                       )}
                     </StepsIndicator>
-                    <div className="flex flex-col">
+                    <div className="flex min-w-0 flex-col">
                       <StepsTitle>{item.title}</StepsTitle>
                       <StepsDescription>{item.description}</StepsDescription>
                     </div>

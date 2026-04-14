@@ -12,6 +12,7 @@ const TabsControlledDemo = () => {
       value={value}
       onValueChange={(e) => setValue(e.value)}
       variant="default"
+      className="w-full max-w-md justify-center gap-3"
     >
       <div className="flex flex-wrap items-center gap-2">
         <Button
@@ -42,7 +43,7 @@ const TabsControlledDemo = () => {
           current: <span className="font-medium text-foreground">{value}</span>
         </div>
       </div>
-      <TabsList>
+      <TabsList className="w-full justify-start">
         <TabsTrigger value="account">Account</TabsTrigger>
         <TabsTrigger value="password">Password</TabsTrigger>
         <TabsTrigger value="billing">Billing</TabsTrigger>

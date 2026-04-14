@@ -1,0 +1,97 @@
+---
+id: 67
+title: "Tour"
+description: "A shadcn-style tour component built with Ark UI primitives."
+url: "/components/tour"
+referenceLink: "https://ark-ui.com/docs/components/tour"
+---
+
+
+<ComponentPreview name="tour-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/tour" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="tour" title="components/ui/tour.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as Tour from "@/components/ui/tour"
+```
+
+Read exported parts in `src/components/ui/tour.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="tour-basic" />
+
+### Mixed Types
+
+<ComponentPreview name="tour-mixed-types" />
+
+### Progress Bar
+
+<ComponentPreview name="tour-progress-bar" />
+
+### Skip
+
+<ComponentPreview name="tour-skip" />
+
+### Keyboard Navigation
+
+<ComponentPreview name="tour-keyboard-navigation" />
+
+### Events
+
+<ComponentPreview name="tour-events" />
+
+### Wait For Click
+
+<ComponentPreview name="tour-wait-for-click" />
+
+### Wait For Input
+
+<ComponentPreview name="tour-wait-for-input" />
+
+### Wait For Element
+
+<ComponentPreview name="tour-wait-for-element" />
+
+### Async
+
+<ComponentPreview name="tour-async" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/tour) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/tour#accessibility) for clarification.

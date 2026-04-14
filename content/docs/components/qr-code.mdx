@@ -1,0 +1,89 @@
+---
+id: 43
+title: "Qr Code"
+description: "A shadcn-style qr code component built with Ark UI primitives."
+url: "/components/qr-code"
+referenceLink: "https://ark-ui.com/docs/components/qr-code"
+---
+
+
+<ComponentPreview name="qr-code-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/qr-code" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="qr-code" title="components/ui/qr-code.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as QrCode from "@/components/ui/qr-code"
+```
+
+Read exported parts in `src/components/ui/qr-code.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="qr-code-basic" />
+
+### Controlled
+
+<ComponentPreview name="qr-code-controlled" />
+
+### Download
+
+<ComponentPreview name="qr-code-download" />
+
+### Error correction
+
+<ComponentPreview name="qr-code-error-correction" />
+
+### Fill
+
+<ComponentPreview name="qr-code-fill" />
+
+### Overlay
+
+<ComponentPreview name="qr-code-overlay" />
+
+### Root provider
+
+<ComponentPreview name="qr-code-root-provider" />
+
+### Context
+
+<ComponentPreview name="qr-code-context" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/qr-code) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/qr-code#accessibility) for clarification.

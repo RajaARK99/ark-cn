@@ -63,13 +63,13 @@ const popupVariants = cva(
       },
       {
         className:
-          "inset-x-3 top-3 max-h-[min(88dvh,30rem)] rounded-xl border data-[state=closed]:-translate-y-full data-[state=open]:translate-y-0 sm:inset-x-6 sm:top-6",
+          "left-3 right-3 top-3 w-auto max-w-none min-w-0 max-h-[min(88dvh,30rem)] overflow-hidden rounded-xl border data-[state=closed]:-translate-y-full data-[state=open]:translate-y-0 sm:left-6 sm:right-6 sm:top-6",
         side: "top",
         variant: "inset",
       },
       {
         className:
-          "inset-x-3 bottom-3 max-h-[min(88dvh,30rem)] rounded-xl border data-[state=closed]:translate-y-full data-[state=open]:translate-y-0 sm:inset-x-6 sm:bottom-6",
+          "left-3 right-3 bottom-3 w-auto max-w-none min-w-0 max-h-[min(88dvh,30rem)] overflow-hidden rounded-xl border data-[state=closed]:translate-y-full data-[state=open]:translate-y-0 sm:left-6 sm:right-6 sm:bottom-6",
         side: "bottom",
         variant: "inset",
       },

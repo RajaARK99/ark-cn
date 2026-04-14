@@ -12,13 +12,13 @@ const TabsRootProviderDemo = () => {
   const api = useTabs({ defaultValue: "account" });
 
   return (
-    <div className="flex w-full flex-col gap-3">
+    <div className="flex w-full flex-col gap-3 max-w-md justify-center">
       <div className="text-muted-foreground text-xs">
         selected:{" "}
         <span className="font-medium text-foreground">{api.value}</span>
       </div>
       <TabsRootProvider value={api} variant="default">
-        <TabsList>
+        <TabsList className="w-full justify-start">
           <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
           <TabsTrigger value="billing">Billing</TabsTrigger>

@@ -1,0 +1,97 @@
+---
+id: 46
+title: "Scroll Area"
+description: "A shadcn-style scroll area component built with Ark UI primitives."
+url: "/components/scroll-area"
+referenceLink: "https://ark-ui.com/docs/components/scroll-area"
+---
+
+
+<ComponentPreview name="scroll-area-basic" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/scroll-area" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="scroll-area" title="components/ui/scroll-area.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as ScrollArea from "@/components/ui/scroll-area"
+```
+
+Read exported parts in `src/components/ui/scroll-area.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Basic
+
+<ComponentPreview name="scroll-area-basic" />
+
+### Horizontal
+
+<ComponentPreview name="scroll-area-horizontal" />
+
+### Both directions
+
+<ComponentPreview name="scroll-area-both-directions" />
+
+### Nested
+
+<ComponentPreview name="scroll-area-nested" />
+
+### Root provider
+
+<ComponentPreview name="scroll-area-root-provider" />
+
+### Tags
+
+<ComponentPreview name="scroll-area-tags" />
+
+### Scroll fade
+
+<ComponentPreview name="scroll-area-scroll-fade" />
+
+### Horizontal items
+
+<ComponentPreview name="scroll-area-horizontal-items" />
+
+### Scrollbar gutter
+
+<ComponentPreview name="scroll-area-scrollbar-gutter" />
+
+### Scroll context
+
+<ComponentPreview name="scroll-area-context" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/scroll-area) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/scroll-area#accessibility) for clarification.

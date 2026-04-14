@@ -1,0 +1,129 @@
+---
+id: 47
+title: "Segment Group"
+description: "A shadcn-style segment group component built with Ark UI primitives."
+url: "/components/segment-group"
+referenceLink: "https://ark-ui.com/docs/components/segment-group"
+---
+
+
+<ComponentPreview name="segment-group-underline-tabs" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/segment-group" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="segment-group" title="components/ui/segment-group.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import * as SegmentGroup from "@/components/ui/segment-group"
+```
+
+Read exported parts in `src/components/ui/segment-group.tsx` and compose the primitive according to the Ark UI pattern for this component.
+
+## Examples
+
+### Underline tabs
+
+<ComponentPreview name="segment-group-underline-tabs" />
+
+### Underline vertical tabs
+
+<ComponentPreview name="segment-group-underline-vertical-tabs" />
+
+### Default
+
+<ComponentPreview name="segment-group-default" />
+
+### Controlled
+
+<ComponentPreview name="segment-group-controlled" />
+
+### Root provider
+
+<ComponentPreview name="segment-group-root-provider" />
+
+### Disabled group
+
+<ComponentPreview name="segment-group-disabled-group" />
+
+### Disabled item
+
+<ComponentPreview name="segment-group-disabled-item" />
+
+### Orientation
+
+<ComponentPreview name="segment-group-orientation" />
+
+### Label
+
+<ComponentPreview name="segment-group-with-label" />
+
+### Form
+
+<ComponentPreview name="segment-group-form" />
+
+### Read-only
+
+<ComponentPreview name="segment-group-read-only" />
+
+### Invalid
+
+<ComponentPreview name="segment-group-invalid" />
+
+### With field
+
+<ComponentPreview name="segment-group-with-field" />
+
+### useSegmentGroupContext hook
+
+<ComponentPreview name="segment-group-context-hook" />
+
+### SegmentGroupContext render prop
+
+<ComponentPreview name="segment-group-context-render" />
+
+### Rich item text
+
+<ComponentPreview name="segment-group-with-description" />
+
+### Items shortcut
+
+<ComponentPreview name="segment-group-items-shortcut" />
+
+### Anatomy
+
+<ComponentPreview name="segment-group-anatomy" />
+
+## API reference
+
+This component mirrors the upstream Ark UI primitive.
+
+See the [ARK UI documentation](https://ark-ui.com/docs/components/segment-group) for the full API.
+
+## Accessibility
+
+See the [Ark UI documentation](https://ark-ui.com/docs/components/segment-group#accessibility) for clarification.

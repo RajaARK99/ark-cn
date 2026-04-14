@@ -3,8 +3,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TabsDisabledDemo = () => (
-  <Tabs defaultValue="account" variant="default">
-    <TabsList>
+  <Tabs
+    defaultValue="account"
+    variant="default"
+    className="w-full max-w-md justify-center gap-3"
+  >
+    <TabsList className="w-full justify-start">
       <TabsTrigger value="account">Account</TabsTrigger>
       <TabsTrigger disabled value="password">
         Password (disabled)

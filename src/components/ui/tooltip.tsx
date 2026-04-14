@@ -11,8 +11,15 @@ import { cn } from "@/lib/utils";
 
 export type TooltipProps = TooltipPrimitive.RootProps;
 
-export const Tooltip = (props: TooltipProps) => (
-  <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+export const Tooltip = ({
+  positioning = { placement: "top" },
+  ...props
+}: TooltipProps) => (
+  <TooltipPrimitive.Root
+    data-slot="tooltip"
+    {...props}
+    positioning={positioning}
+  />
 );
 
 export type TooltipPopupProps = TooltipPrimitive.ContentProps & {
@@ -30,7 +37,7 @@ export const TooltipPopup = ({
   className,
   disablePortal,
   positionerClassName,
-  showArrow = false,
+  showArrow = true,
   ...contentProps
 }: TooltipPopupProps) => {
   const inner = (
