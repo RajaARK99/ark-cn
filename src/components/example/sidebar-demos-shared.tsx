@@ -24,7 +24,7 @@ export const DemoFrame = ({
 }) => (
   <div
     className={cn(
-      "relative overflow-hidden rounded-xl border border-border bg-background [--sidebar:oklch(0.18_0_0)]",
+      "relative overflow-hidden rounded-xl border border-border bg-background dark:[--sidebar:oklch(0.18_0_0)]",
       "**:data-[slot=sidebar-wrapper]:min-h-full",
       "**:data-[slot=sidebar-container]:absolute **:data-[slot=sidebar-container]:h-full",
       className,
