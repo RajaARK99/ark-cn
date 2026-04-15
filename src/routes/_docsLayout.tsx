@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 
 const RouteComponent = () => {
   return (
-    <main className="[--header-height:calc(--spacing(14))]">
+    <main className="[--header-height:calc(--spacing(14))] overflow-x-clip">
       <SidebarProvider className="flex flex-col">
         <Header
           className="border-b"
           containerClassName={cn(
             "min-[1600px]:border-x min-[1600px]:relative",
-            "before:absolute before:top-[calc(var(--header-height)-4.5px)] before:left-0 before:z-1 before:-ml-1 min-[1600px]:before:size-2 before:rounded-xs before:border before:border-border before:bg-popover before:bg-clip-padding before:shadow-xs/5 after:absolute after:top-[calc(var(--header-height)-4.5px)] after:right-0 after:z-1 after:-mr-1 min-[1600px]:after:size-2 after:rounded-xs after:border after:border-border after:bg-background after:bg-clip-padding after:shadow-xs/5 dark:after:bg-clip-border dark:before:bg-clip-border",
+            "min-[1600px]:before:absolute min-[1600px]:before:top-[calc(var(--header-height)-4.5px)] min-[1600px]:before:left-0 min-[1600px]:before:z-1 min-[1600px]:before:-ml-1 min-[1600px]:before:size-2 min-[1600px]:before:rounded-xs min-[1600px]:before:border min-[1600px]:before:border-border min-[1600px]:before:bg-popover min-[1600px]:before:bg-clip-padding min-[1600px]:before:shadow-xs/5 min-[1600px]:after:absolute min-[1600px]:after:top-[calc(var(--header-height)-4.5px)] min-[1600px]:after:right-0 min-[1600px]:after:z-1 min-[1600px]:after:-mr-1 min-[1600px]:after:size-2 min-[1600px]:after:rounded-xs min-[1600px]:after:border min-[1600px]:after:border-border min-[1600px]:after:bg-background min-[1600px]:after:bg-clip-padding min-[1600px]:after:shadow-xs/5 min-[1600px]:dark:after:bg-clip-border min-[1600px]:dark:before:bg-clip-border",
           )}
           mobileMenu={<MobileMenu />}
         />
