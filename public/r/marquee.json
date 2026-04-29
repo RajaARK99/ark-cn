@@ -3,9 +3,7 @@
   "name": "marquee",
   "title": "Marquee",
   "description": "A shadcn-style marquee component built with Ark UI primitives.",
-  "dependencies": [
-    "@ark-ui/react"
-  ],
+  "dependencies": ["@ark-ui/react"],
   "files": [
     {
       "path": "src/components/ui/marquee.tsx",
@@ -60,14 +58,8 @@
     "[data-slot=\"marquee-edge\"][data-orientation=\"horizontal\"][data-side=\"start\"]": {
       "background": "linear-gradient(to right, var(--background), transparent)"
     },
-    "[dir=\"rtl\"] [data-slot=\"marquee-edge\"][data-orientation=\"horizontal\"][data-side=\"start\"]": {
-      "background": "linear-gradient(to left, var(--background), transparent)"
-    },
     "[data-slot=\"marquee-edge\"][data-orientation=\"horizontal\"][data-side=\"end\"]": {
       "background": "linear-gradient(to left, var(--background), transparent)"
-    },
-    "[dir=\"rtl\"] [data-slot=\"marquee-edge\"][data-orientation=\"horizontal\"][data-side=\"end\"]": {
-      "background": "linear-gradient(to right, var(--background), transparent)"
     },
     "[data-slot=\"marquee-edge\"][data-orientation=\"vertical\"][data-side=\"top\"]": {
       "height": "20%",

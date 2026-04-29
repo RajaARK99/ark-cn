@@ -20,9 +20,13 @@ import {
   useEffect,
   useMemo,
 } from "react";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
 /** Default item shape when you omit an explicit generic on list helpers. */
 export type DefaultComboboxItem = { label: string; value: string };
@@ -60,46 +64,41 @@ export type ComboboxProps<T extends CollectionItem = CollectionItem> = Omit<
     | { collection: ListCollection<T> }
   );
 
-export const Combobox = <T extends CollectionItem = CollectionItem>({
-  onInputValueChange,
-  positioning,
-  children,
-  ...props
-}: ComboboxProps<T>) => {
-  const items = useMemo(() => {
-    return "items" in props ? props.items : [];
-  }, [props]);
+/** Optional keys for `items`/`collection` branches; used only to destructure off `ComboboxPrimitive.Root` props. */
+type ComboboxListCollectionKeys<T extends CollectionItem> = {
+  items?: readonly T[];
+  groupBy?: (item: T, index: number) => string;
+  groupSort?: string[] | "asc" | "desc" | ((a: string, b: string) => number);
+  limit?: number;
+  itemToString?: (item: T) => string;
+  itemToValue?: (item: T) => string;
+  isItemDisabled?: (item: T) => boolean;
+  filterType?: "contains" | "endsWith" | "startsWith";
+  collection?: ListCollection<T>;
+};
 
-  const groupBy = useMemo(() => {
-    return "groupBy" in props ? props.groupBy : undefined;
-  }, [props]);
-
-  const groupSort = useMemo(() => {
-    return "groupSort" in props ? props.groupSort : undefined;
-  }, [props]);
-
-  const limit = useMemo(() => {
-    return "limit" in props ? props.limit : undefined;
-  }, [props]);
-
-  const itemToString = useMemo(() => {
-    return "itemToString" in props ? props.itemToString : undefined;
-  }, [props]);
-
-  const itemToValue = useMemo(() => {
-    return "itemToValue" in props ? props.itemToValue : undefined;
-  }, [props]);
-
-  const isItemDisabled = useMemo(() => {
-    return "isItemDisabled" in props ? props.isItemDisabled : undefined;
-  }, [props]);
-
-  const filterType = useMemo(() => {
-    return "filterType" in props ? props.filterType : "contains";
-  }, [props]);
-  const collection = useMemo(() => {
-    return "collection" in props ? props.collection : undefined;
-  }, [props]);
+export const Combobox = <T extends CollectionItem = CollectionItem>(
+  props: ComboboxProps<T>,
+) => {
+  const {
+    onInputValueChange,
+    positioning,
+    children,
+    items: itemsFromProps,
+    groupBy,
+    groupSort,
+    limit,
+    itemToString,
+    itemToValue,
+    isItemDisabled,
+    filterType = "contains",
+    collection: collectionFromProps,
+    ...rootProps
+  } = props as ComboboxProps<T> & ComboboxListCollectionKeys<T>;
+  const items = useMemo(
+    () => (itemsFromProps !== undefined ? itemsFromProps : []),
+    [itemsFromProps],
+  );
 
   const { contains, endsWith, startsWith } = useFilter({ sensitivity: "base" });
 
@@ -126,7 +125,7 @@ export const Combobox = <T extends CollectionItem = CollectionItem>({
   const itemsKey = useMemo(
     () =>
       items
-        .map((item) =>
+        .map((item: T) =>
           String(
             itemToValue?.(item) ?? (item as { value?: string }).value ?? "",
           ),
@@ -149,14 +148,14 @@ export const Combobox = <T extends CollectionItem = CollectionItem>({
 
   return (
     <ComboboxPrimitive.Root
-      collection={collection ?? defaultCollection}
+      collection={collectionFromProps ?? defaultCollection}
       onInputValueChange={
-        collection ? onInputValueChange : handleInputValueChange
+        collectionFromProps ? onInputValueChange : handleInputValueChange
       }
       positioning={
         positioning ?? { placement: "bottom-start", sameWidth: true }
       }
-      {...props}
+      {...rootProps}
     >
       <ComboboxPrimitive.Context>
         {(api) => {
@@ -297,7 +296,10 @@ export const ComboboxGroupedList = <T extends CollectionItem = CollectionItem>({
   const groups = collection.group();
   return (
     <div
-      className={cn("flex flex-col gap-1 p-0.5", className)}
+      className={cn(
+        "flex min-h-0 w-full min-w-0 flex-col gap-1 p-0.5",
+        className,
+      )}
       data-slot="combobox-grouped-list"
     >
       {groups.map((tuple: readonly [string, (typeof items)[number][]]) => (

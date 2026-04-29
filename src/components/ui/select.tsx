@@ -23,9 +23,9 @@ import {
   useEffect,
   useMemo,
 } from "react";
-import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { cn } from "@/lib/utils";
 
 export type {
   CollectionItem,
@@ -62,18 +62,33 @@ export type SelectProps<T extends CollectionItem = CollectionItem> = Omit<
     | { collection: ListCollection<T> }
   );
 
-export const Select = <T extends CollectionItem = CollectionItem>({
-  positioning,
-  children,
-  ...props
-}: SelectProps<T>) => {
-  const items = "items" in props ? props.items : [];
-  const groupBy = "items" in props ? props.groupBy : undefined;
-  const groupSort = "items" in props ? props.groupSort : undefined;
-  const itemToString = "items" in props ? props.itemToString : undefined;
-  const itemToValue = "items" in props ? props.itemToValue : undefined;
-  const isItemDisabled = "items" in props ? props.isItemDisabled : undefined;
-  const collectionProp = "collection" in props ? props.collection : undefined;
+/** Strip `useListCollection` helpers from the root spread so they are not passed to a DOM node. */
+type SelectListCollectionKeys<T extends CollectionItem> = {
+  items?: readonly T[];
+  groupBy?: (item: T, index: number) => string;
+  groupSort?: string[] | "asc" | "desc" | ((a: string, b: string) => number);
+  itemToString?: (item: T) => string;
+  itemToValue?: (item: T) => string;
+  isItemDisabled?: (item: T) => boolean;
+  collection?: ListCollection<T>;
+};
+
+export const Select = <T extends CollectionItem = CollectionItem>(
+  props: SelectProps<T>,
+) => {
+  const {
+    positioning,
+    children,
+    items: itemsFromProps,
+    groupBy,
+    groupSort,
+    itemToString,
+    itemToValue,
+    isItemDisabled,
+    collection: collectionProp,
+    ...rootProps
+  } = props as SelectProps<T> & SelectListCollectionKeys<T>;
+  const items = itemsFromProps !== undefined ? itemsFromProps : [];
 
   const { collection: defaultCollection, set } = useListCollection<T>({
     initialItems: items,
@@ -87,7 +102,7 @@ export const Select = <T extends CollectionItem = CollectionItem>({
   const itemsKey = useMemo(
     () =>
       items
-        .map((item) =>
+        .map((item: T) =>
           String(
             itemToValue?.(item) ?? (item as { value?: string }).value ?? "",
           ),
@@ -109,7 +124,7 @@ export const Select = <T extends CollectionItem = CollectionItem>({
       positioning={
         positioning ?? { placement: "bottom-start", sameWidth: true }
       }
-      {...props}
+      {...rootProps}
     >
       {typeof children === "function" ? (
         <SelectPrimitive.Context>

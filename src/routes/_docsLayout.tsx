@@ -3,9 +3,7 @@ import DocProvider from "@/components/docs/doc-provider";
 import DocsTOC from "@/components/docs/doc-toc";
 import DocsSidebar from "@/components/docs/docs-sidebar";
 import Header from "@/components/header";
-import { DocsLayoutPage } from "@/components/loading-page";
 import MobileMenu from "@/components/mobile-menu";
-import { DocsNotFoundPage } from "@/components/not-found-page";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +35,4 @@ const RouteComponent = () => {
 
 export const Route = createFileRoute("/_docsLayout")({
   component: RouteComponent,
-  notFoundComponent: DocsNotFoundPage,
-  pendingComponent: DocsLayoutPage,
 });
