@@ -1,10 +1,4 @@
-import {
-  converter,
-  formatHex,
-  formatHsl,
-  formatRgb,
-  parse,
-} from "culori";
+import { converter, formatHex, formatHsl, formatRgb, parse } from "culori";
 
 const toOklch = converter("oklch");
 

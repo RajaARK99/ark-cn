@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "ARK CN",
-  url: "https://ark-cn.com",
+  url: "https://ark-cn.vercel.app",
   description:
     "ARK CN is a platform for creating and sharing beautiful designs.",
   navItems: [

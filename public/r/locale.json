@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "src/components/ui/locale.tsx",
-      "content": "\"use client\";\n\nimport {\n  LocaleProvider as LocaleProviderPrimitive,\n  type LocaleProviderProps as LocaleProviderPrimitiveProps,\n  useCollator,\n  useDateFormatter,\n  useFilter,\n  useLocaleContext,\n} from \"@ark-ui/react/locale\";\n\nexport type LocaleProviderProps = LocaleProviderPrimitiveProps;\n\nexport const LocaleProvider = (props: LocaleProviderProps) => (\n  <LocaleProviderPrimitive {...props} />\n);\n\nexport {\n  useCollator,\n  useDateFormatter,\n  useFilter,\n  useLocaleContext,\n};\n\nexport type {\n  UseCollatorProps,\n  UseDateFormatterProps,\n  UseFilterProps,\n  UseFilterReturn,\n  UseLocaleContext,\n} from \"@ark-ui/react/locale\";\n",
+      "content": "\"use client\";\n\nimport {\n  LocaleProvider as LocaleProviderPrimitive,\n  type LocaleProviderProps as LocaleProviderPrimitiveProps,\n  useCollator,\n  useDateFormatter,\n  useFilter,\n  useLocaleContext,\n} from \"@ark-ui/react/locale\";\n\nexport type LocaleProviderProps = LocaleProviderPrimitiveProps;\n\nexport const LocaleProvider = (props: LocaleProviderProps) => (\n  <LocaleProviderPrimitive {...props} />\n);\n\nexport type {\n  UseCollatorProps,\n  UseDateFormatterProps,\n  UseFilterProps,\n  UseFilterReturn,\n  UseLocaleContext,\n} from \"@ark-ui/react/locale\";\nexport { useCollator, useDateFormatter, useFilter, useLocaleContext };\n",
       "type": "registry:ui",
       "target": "src/components/ui/locale.tsx"
     }

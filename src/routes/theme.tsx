@@ -3,5 +3,5 @@ import { ThemeCustomize } from "@/components/theme-customizer";
 
 export const Route = createFileRoute("/theme")({
   component: ThemeCustomize,
-  head: () => ({ meta: [{ title: "Theme Customizer — ARK CN" }] }),
+  head: () => ({ meta: [{ title: "Theme Customizer — Ark CN" }] }),
 });

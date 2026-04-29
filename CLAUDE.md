@@ -85,4 +85,4 @@ referenceLink: https://ark-ui.com/...  # Optional link to Ark docs
 
 ## Skill Reference
 
-For detailed component authoring patterns (Ark composition, accessibility, CVA variants, TypeScript idioms), see `.cursor/skills/ark-cn-ui/SKILL.md`.
+For detailed component authoring patterns (Ark composition, accessibility, CVA variants, TypeScript idioms), see `.cursor/skills/ark-cn/SKILL.md`.

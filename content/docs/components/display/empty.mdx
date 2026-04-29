@@ -1,0 +1,79 @@
+---
+id: 79
+title: "Empty"
+description: "Empty state placeholder with icon, title, description, and action slots."
+url: "/components/empty"
+---
+
+<ComponentPreview name="empty-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/empty" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react class-variance-authority" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="empty" title="components/ui/empty.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty"
+```
+
+```tsx
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant="icon">
+      <FolderOpenIcon />
+    </EmptyMedia>
+    <EmptyTitle>No results</EmptyTitle>
+    <EmptyDescription>Try adjusting your search.</EmptyDescription>
+  </EmptyHeader>
+  <EmptyContent>
+    <Button size="sm">Take action</Button>
+  </EmptyContent>
+</Empty>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="empty-demo" />
+
+### Icon Variant
+
+<ComponentPreview name="empty-icon-variant" />
+
+## API reference
+
+This component is an ark-cn composition. All props and DOM behavior are defined by the underlying `ark` factory elements.
+
+<ComponentDocSupplement component="empty" section="extension-props" />

@@ -25,7 +25,6 @@ const FONT_SANS_OPTIONS = [
   { label: "Roboto", value: "Roboto, sans-serif" },
 ];
 
-
 export const TypographyTab = () => {
   const { config, updateTypography } = useThemeCustomize();
   const { typography } = config;
@@ -46,7 +45,7 @@ export const TypographyTab = () => {
             updateTypography("fontMono", d.value[0]);
           }}
         >
-          <SelectTriggerField >
+          <SelectTriggerField>
             <SelectValue placeholder="Select font…" />
           </SelectTriggerField>
           <SelectPopup>
@@ -84,4 +83,4 @@ export const TypographyTab = () => {
       </Slider>
     </div>
   );
-}
+};

@@ -1,14 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  BookOpen,
-  Box,
-  Layers,
-  LayoutGrid,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Layers } from "lucide-react";
 import type { ComponentProps } from "react";
-// import mailHero from "@/assets/mail2.webp";
 import { LandingBentoDemos } from "@/components/landing-bento-demos";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
@@ -40,19 +32,16 @@ const pillars = [
     title: "Accessible by default",
     description:
       "Keyboard routes, focus, and ARIA come wired in. You decide hierarchy, rhythm, and how loud the interface should feel.",
-    icon: Sparkles,
   },
   {
     title: "Primitives in-repo",
     description:
       "The shadcn way: copy, adapt, and own the source. No mystery package standing between you and a hotfix.",
-    icon: Box,
   },
   {
     title: "Docs that ship",
     description:
       "Guides and references live beside the UI they describe—fewer mismatches between what you read and what you ship.",
-    icon: BookOpen,
   },
 ] as const;
 
@@ -176,50 +165,29 @@ export const LandingPage = () => {
             />
           </div>
 
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-16 md:gap-12 md:px-6 md:py-24 lg:py-28">
-            <p className="max-w-prose font-mono text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-16 md:gap-12 md:px-6 md:py-24 lg:py-32">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
               <span translate="no">{siteConfig.name}</span>
             </p>
 
-            <div className="grid gap-8  lg:gap-12">
-              <div className="min-w-0 space-y-6">
-                <h1
-                  id="landing-hero-heading"
-                  className="text-balance font-semibold text-4xl leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
-                >
-                  Interfaces built on{" "}
-                  <span className="font-serif font-normal italic text-chart-2">
-                    craft
-                  </span>
-                  , styled like you mean it.
-                </h1>
-                <p className="max-w-prose text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                  Copy-paste friendly building blocks, tokens you control, and
-                  documentation that stays honest with the product—so polished
-                  screens ship without fighting the kit.
-                </p>
-              </div>
-
-              {/* <aside className="min-w-0 lg:justify-self-end">
-                <figure className="relative overflow-hidden rounded-xl border border-border/80 bg-muted/30 shadow-lg ring-1 ring-border/30 dark:bg-muted/20">
-                  <img
-                    src={mailHero}
-                    alt="ARK CN interface preview with mail and dashboard surfaces"
-                    width={960}
-                    height={720}
-                    className="aspect-video h-auto w-full object-cover object-center"
-                    decoding="async"
-                    fetchPriority="high"
-                  />
-                  <figcaption className="sr-only">
-                    Marketing preview highlighting mail and workspace chrome for{" "}
-                    <span translate="no">{siteConfig.name}</span>
-                  </figcaption>
-                </figure>
-              </aside> */}
+            <div className="max-w-3xl space-y-5">
+              <h1
+                id="landing-hero-heading"
+                className="text-balance font-semibold text-4xl leading-[1.06] tracking-tight text-foreground sm:text-5xl lg:text-[3.75rem]"
+              >
+                Interfaces built on{" "}
+                <span className="font-serif font-normal italic text-chart-2">
+                  craft
+                </span>
+                , styled like you mean it.
+              </h1>
+              <p className="max-w-[52ch] text-pretty text-lg leading-relaxed text-muted-foreground">
+                Copy-paste primitives, tokens you control, and docs that live
+                beside the components they describe.
+              </p>
             </div>
 
-            <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <LandingLink
                 href="/docs/installation"
                 className={cn(
@@ -230,7 +198,7 @@ export const LandingPage = () => {
                 <BookOpen className="shrink-0" aria-hidden="true" />
                 Read the docs
                 <ArrowRight
-                  className="shrink-0 opacity-80"
+                  className="shrink-0 opacity-60"
                   aria-hidden="true"
                 />
               </LandingLink>
@@ -274,7 +242,7 @@ export const LandingPage = () => {
           className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20"
           aria-labelledby="landing-pillars-heading"
         >
-          <div className="flex max-w-2xl flex-col gap-3">
+          <div className="flex max-w-xl flex-col gap-2">
             <h2
               id="landing-pillars-heading"
               className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
@@ -287,121 +255,72 @@ export const LandingPage = () => {
             </p>
           </div>
 
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
-            {pillars.map(({ title, description, icon: Icon }) => (
-              <li key={title}>
-                <article className="group relative flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-6 shadow-xs transition-[box-shadow,transform,border-color] duration-200 ease-out motion-reduce:transition-none hover:-translate-y-0.5 hover:border-border hover:shadow-md motion-reduce:hover:transform-none">
-                  <div
-                    className="mb-4 inline-flex size-11 items-center justify-center rounded-xl border border-border bg-muted/50 text-foreground transition-colors duration-200 group-hover:border-chart-2/40 group-hover:text-chart-2"
-                    aria-hidden="true"
-                  >
-                    <Icon className="size-5" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+          <ul className="mt-10 divide-y divide-border/60">
+            {pillars.map(({ title, description }, index) => (
+              <li key={title} className="flex gap-6 py-7 md:gap-10 lg:gap-16">
+                <span
+                  className="shrink-0 pt-px font-mono text-xs tabular-nums text-muted-foreground/50 select-none"
+                  aria-hidden="true"
+                >
+                  0{index + 1}
+                </span>
+                <div className="min-w-0 grid gap-1 md:grid-cols-[1fr_1.5fr] md:gap-8">
+                  <h3 className="text-base font-medium text-foreground">
                     {title}
                   </h3>
-                  <p className="mt-2 min-w-0 text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {description}
                   </p>
-                </article>
+                </div>
               </li>
             ))}
           </ul>
         </section>
 
         <section
-          className="border-y border-border/80 bg-muted/30 py-16 dark:bg-muted/15 md:py-20"
+          className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24"
           aria-labelledby="landing-workflow-heading"
         >
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-center md:gap-14 md:px-6">
-            <div className="min-w-0 space-y-4">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-start md:gap-16">
+            <div className="space-y-4">
               <h2
                 id="landing-workflow-heading"
                 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
               >
                 From kit to screen, without losing the plot
               </h2>
-              <p className="text-pretty text-muted-foreground">
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                 Keep shared components calm and reusable. Push expressive
                 layout, illustration, and motion to the pages where the story
                 lives.
               </p>
               <LandingLink
                 href="/docs/introduction"
-                className={cn(
-                  buttonVariants({ variant: "secondary", size: "default" }),
-                  "mt-2 inline-flex w-fit gap-2",
-                )}
+                className="mt-1 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                <LayoutGrid className="size-4" aria-hidden="true" />
                 See how the kit is organized
+                <ArrowRight className="size-3.5" aria-hidden="true" />
               </LandingLink>
             </div>
             <figure className="min-w-0">
-              <blockquote className="border-l-4 border-chart-2 pl-6 font-serif text-xl italic leading-snug text-foreground sm:text-2xl">
+              <blockquote className="border-l-2 border-chart-2/50 pl-5 font-serif text-xl italic leading-snug text-foreground sm:text-2xl">
                 {
-                  "\u201cShip the behavior layer once. Iterate on the surface until it feels inevitable.\u201d"
+                  "“Ship the behavior layer once. Iterate on the surface until it feels inevitable.”"
                 }
               </blockquote>
-              <figcaption className="mt-4 pl-6 font-mono text-xs text-muted-foreground">
+              <figcaption className="mt-4 pl-5 font-mono text-xs text-muted-foreground/50">
                 Working agreement for{" "}
-                <span translate="no">{siteConfig.name}</span> UI work
+                <span translate="no">{siteConfig.name}</span>
               </figcaption>
             </figure>
           </div>
         </section>
-
-        <section
-          className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20"
-          aria-labelledby="landing-cta-heading"
-        >
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-linear-to-br from-card via-card to-muted/40 p-8 shadow-sm dark:to-muted/20 md:p-10">
-            <div
-              className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full blur-2xl motion-reduce:blur-none"
-              style={{
-                background:
-                  "radial-gradient(circle, oklch(0.55 0.22 264 / 0.2), transparent 65%)",
-              }}
-              aria-hidden="true"
-            />
-            <div className="relative flex min-w-0 flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div className="min-w-0 space-y-2">
-                <h2
-                  id="landing-cta-heading"
-                  className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
-                >
-                  Ready when you are
-                </h2>
-                <p className="max-w-prose text-pretty text-sm text-muted-foreground sm:text-base">
-                  Start with installation, then thread components into your own
-                  pages and flows.
-                </p>
-              </div>
-              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-                <LandingLink
-                  href="/docs/installation"
-                  className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "inline-flex justify-center gap-2",
-                  )}
-                >
-                  Get started
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </LandingLink>
-                <LandingLink
-                  href="/blocks"
-                  className={cn(
-                    buttonVariants({ variant: "outline", size: "lg" }),
-                    "inline-flex justify-center",
-                  )}
-                >
-                  Explore blocks
-                </LandingLink>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
+      <footer className="border-t border-border/40 py-8 text-center">
+        <p className="text-xs text-muted-foreground/60">
+          &copy; {new Date().getFullYear()} Ark CN. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 };

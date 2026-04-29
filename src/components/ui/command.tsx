@@ -97,7 +97,7 @@ export const CommandDialogPopup = ({
     >
       <Dialog.Content
         className={cn(
-          "relative z-50 flex max-h-[min(calc(100dvh-2rem),32rem)] w-full max-w-xl flex-col overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg outline-none transition-[opacity,transform] duration-150 data-[state=closed]:scale-[0.98] data-[state=closed]:opacity-0 data-[state=open]:scale-100 data-[state=open]:opacity-100",
+          "relative z-50 flex max-h-[min(calc(100dvh-2rem),32rem)] min-h-0 min-w-0 w-full max-w-xl flex-col overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg outline-none transition-[opacity,transform] duration-150 data-[state=closed]:scale-[0.98] data-[state=closed]:opacity-0 data-[state=open]:scale-100 data-[state=open]:opacity-100",
           className,
         )}
         {...contentProps}
@@ -120,7 +120,10 @@ export const Command = <T extends CollectionItem = CollectionItem>({
 }: ComboboxProps<T>) => (
   <Combobox
     autoFocus={autoFocus}
-    className={cn("flex min-h-0 flex-1 flex-col", className)}
+    className={cn(
+      "flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden",
+      className,
+    )}
     closeOnSelect={closeOnSelect}
     disableLayer={disableLayer}
     inputBehavior={inputBehavior}
@@ -145,7 +148,7 @@ export const CommandInput = ({
 }: ComboboxInputProps) => (
   <ComboboxInput
     className={cn(
-      "rounded-none border-0 border-border border-b shadow-none has-focus-within:border-border has-focus-within:ring-0 has-focus-within:ring-offset-0",
+      "shrink-0 rounded-none border-0 border-border border-b shadow-none has-focus-within:border-border has-focus-within:ring-0 has-focus-within:ring-offset-0",
       className,
     )}
     showClear={showClear}
@@ -163,7 +166,7 @@ export const CommandPopup = ({
   <ComboboxPopup
     disablePortal
     className={cn(
-      "max-h-none min-h-0 w-full flex-1 rounded-none border-0 bg-transparent p-0 shadow-none",
+      "max-h-none min-h-0 w-full min-w-0 flex-1 overflow-x-hidden overflow-y-auto rounded-none border-0 bg-transparent p-0 pb-1 shadow-none",
       className,
     )}
     {...props}
@@ -216,7 +219,7 @@ export const CommandItem = ({
 }: ComponentProps<typeof ComboboxItem>) => (
   <ComboboxItem
     className={cn(
-      "rounded-md px-2 py-2 hover:bg-accent hover:text-accent-foreground",
+      "min-w-0 rounded-md px-2 py-2 hover:bg-accent hover:text-accent-foreground",
       className,
     )}
     {...props}
@@ -238,7 +241,7 @@ export const CommandShortcut = ({
 }: ComponentProps<"span">) => (
   <span
     className={cn(
-      "ml-auto shrink-0 text-muted-foreground text-xs tracking-wide tabular-nums",
+      "ml-auto max-w-[45%] shrink-0 truncate text-end text-muted-foreground text-xs tracking-wide tabular-nums",
       className,
     )}
     data-slot="command-shortcut"
@@ -252,7 +255,7 @@ export const CommandFooter = ({
 }: ComponentProps<"div">) => (
   <div
     className={cn(
-      "flex flex-wrap items-center justify-between gap-3 border-border border-t bg-muted/30 px-3 py-2 text-muted-foreground text-xs",
+      "shrink-0 flex flex-wrap items-center justify-between gap-3 border-border border-t bg-muted/30 px-3 py-2 text-muted-foreground text-xs",
       className,
     )}
     data-slot="command-footer"

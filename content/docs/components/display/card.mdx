@@ -1,0 +1,113 @@
+---
+id: 78
+title: "Card"
+description: "A flexible container for grouping related content and actions."
+url: "/components/card"
+---
+
+<ComponentPreview name="card-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/card" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="card" title="components/ui/card.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card"
+```
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader>
+  <CardContent>Content goes here.</CardContent>
+  <CardFooter>Footer</CardFooter>
+</Card>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="card-demo" />
+
+### Simple
+
+<ComponentPreview name="card-simple" />
+
+### With Action
+
+<ComponentPreview name="card-with-action" />
+
+### Small
+
+<ComponentPreview name="card-small" />
+
+## API Reference
+
+This component is an ark-cn composition. All parts render as `ark.div` elements.
+
+### Card
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"default" \| "sm"` | `"default"` | Controls spacing density across all child parts via `group-data-[size=sm]`. |
+| `className` | `string` | — | Additional class names merged via `cn()`. |
+
+### CardHeader
+
+Grid container for title, description, and optional action. Adjusts column layout automatically when `CardAction` is present.
+
+### CardTitle
+
+Heading text. Scales with the `size` prop inherited from `Card`.
+
+### CardDescription
+
+Muted secondary text below the title.
+
+### CardAction
+
+Pinned to the top-right of the header grid. Spans two rows to align with both title and description.
+
+### CardContent
+
+Main body area. Horizontal padding matches the card `size`.
+
+### CardFooter
+
+Muted bottom bar with a top border. Padding matches the card `size`.

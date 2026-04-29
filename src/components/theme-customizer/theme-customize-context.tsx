@@ -150,7 +150,9 @@ export function ThemeCustomizeProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
-    setState(buildInitialState({ theme: theme === "system" ? systemTheme : theme }));
+    setState(
+      buildInitialState({ theme: theme === "system" ? systemTheme : theme }),
+    );
   }, [theme, systemTheme]);
 
   const selectPreset = useCallback((presetName: string) => {

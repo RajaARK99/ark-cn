@@ -1,0 +1,128 @@
+---
+id: 80
+title: "Item"
+description: "Composable list item with media, content, title, description, and action slots."
+url: "/components/item"
+---
+
+<ComponentPreview name="item-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/item" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react class-variance-authority" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="item" title="components/ui/item.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
+  ItemGroup,
+  ItemHeader,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "@/components/ui/item"
+```
+
+```tsx
+<ItemGroup>
+  <Item variant="outline">
+    <ItemMedia variant="icon">
+      <FileTextIcon />
+    </ItemMedia>
+    <ItemContent>
+      <ItemTitle>Report.pdf</ItemTitle>
+      <ItemDescription>Modified 2 hours ago</ItemDescription>
+    </ItemContent>
+    <ItemActions>
+      <Button size="sm" variant="ghost">Open</Button>
+    </ItemActions>
+  </Item>
+</ItemGroup>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="item-demo" />
+
+### Icon
+
+<ComponentPreview name="item-icon" />
+
+### Avatar
+
+<ComponentPreview name="item-avatar" />
+
+### Image
+
+<ComponentPreview name="item-image" />
+
+### Group
+
+<ComponentPreview name="item-group" />
+
+### Header
+
+<ComponentPreview name="item-header" />
+
+### Link
+
+Use `asChild` on `Item` to render as any element.
+
+<ComponentPreview name="item-link" />
+
+### Dropdown
+
+<ComponentPreview name="item-dropdown" />
+
+### Sizes
+
+<ComponentPreview name="item-sizes" />
+
+## API reference
+
+This component is an ark-cn composition. All props and DOM behavior are defined by the underlying `ark` factory elements.
+
+### Item variants
+
+| Prop | Values | Default |
+|---|---|---|
+| `variant` | `default` `outline` `muted` | `default` |
+| `size` | `default` `sm` `xs` | `default` |
+
+### ItemMedia variants
+
+| Prop | Values | Default |
+|---|---|---|
+| `variant` | `default` `icon` `image` | `default` |
+
+<ComponentDocSupplement component="item" section="extension-props" />

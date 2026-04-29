@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "src/components/ui/presence.tsx",
-      "content": "\"use client\";\n\nimport {\n  Presence as PresencePrimitive,\n  PresenceProvider,\n  splitPresenceProps,\n  type PresenceProps as PresencePrimitiveProps,\n  usePresence,\n  usePresenceContext,\n} from \"@ark-ui/react/presence\";\nimport { cn } from \"@/lib/utils\";\n\nexport type PresenceProps = PresencePrimitiveProps;\n\nexport const Presence = ({ className, ...props }: PresenceProps) => (\n  <PresencePrimitive\n    className={cn(className)}\n    data-slot=\"presence\"\n    {...props}\n  />\n);\n\nexport { PresenceProvider, splitPresenceProps, usePresence, usePresenceContext };\n\nexport type {\n  PresenceBaseProps,\n  UsePresenceContext,\n  UsePresenceProps,\n  UsePresenceReturn,\n} from \"@ark-ui/react/presence\";\n",
+      "content": "\"use client\";\n\nimport {\n  Presence as PresencePrimitive,\n  type PresenceProps as PresencePrimitiveProps,\n  PresenceProvider,\n  splitPresenceProps,\n  usePresence,\n  usePresenceContext,\n} from \"@ark-ui/react/presence\";\nimport { cn } from \"@/lib/utils\";\n\nexport type PresenceProps = PresencePrimitiveProps;\n\nexport const Presence = ({ className, ...props }: PresenceProps) => (\n  <PresencePrimitive\n    className={cn(className)}\n    data-slot=\"presence\"\n    {...props}\n  />\n);\n\nexport type {\n  PresenceBaseProps,\n  UsePresenceContext,\n  UsePresenceProps,\n  UsePresenceReturn,\n} from \"@ark-ui/react/presence\";\nexport {\n  PresenceProvider,\n  splitPresenceProps,\n  usePresence,\n  usePresenceContext,\n};\n",
       "type": "registry:ui",
       "target": "src/components/ui/presence.tsx"
     }

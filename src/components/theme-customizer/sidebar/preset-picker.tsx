@@ -132,4 +132,4 @@ export const PresetPicker = () => {
       </ComboboxPopup>
     </Combobox>
   );
-}
+};

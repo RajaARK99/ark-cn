@@ -46,9 +46,8 @@ export const ThemeProvider = ({
   storageKey = THEME_STORAGE_KEY,
 }: ThemeProviderProps) => {
   const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [systemTheme, setSystemTheme] = useState<Exclude<Theme, "system">>(
-    "light",
-  );
+  const [systemTheme, setSystemTheme] =
+    useState<Exclude<Theme, "system">>("light");
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(storageKey);

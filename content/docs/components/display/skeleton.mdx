@@ -1,0 +1,55 @@
+---
+id: 78
+title: "Skeleton"
+description: "Placeholder to show a loading state before content loads."
+url: "/components/skeleton"
+---
+
+<ComponentPreview name="skeleton-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <PackageInstall pkg="@ark-cn/skeleton" shadcn />
+  </TabsContent>
+  <TabsContent value="manual">
+    <DocSteps>
+      <DocStep>
+        Install the dependency required by this primitive:
+        <PackageInstall pkg="@ark-ui/react" />
+      </DocStep>
+      <DocStep>
+        Copy the component source into your app:
+        <ComponentSource name="skeleton" title="components/ui/skeleton.tsx" />
+      </DocStep>
+      <DocStep>
+        Update import aliases to match your project setup.
+      </DocStep>
+    </DocSteps>
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton"
+```
+
+```tsx
+<Skeleton className="h-4 w-48" />
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="skeleton-demo" />
+
+### Card
+
+<ComponentPreview name="skeleton-card" />

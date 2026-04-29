@@ -1,9 +1,10 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import DocSearch from "./docs/doc-search";
 import { MainNav } from "./main-nav";
 import ToggleTheme from "./toggle-theme";
+import { buttonVariants } from "./ui/button";
 
 const Header = ({
   className,
@@ -88,6 +89,7 @@ const Header = ({
               "rounded-full border border-border/60 bg-background/72 p-1 shadow-sm backdrop-blur-xl",
           )}
         >
+          <DocSearch />
           <a
             href="https://github.com/RajaARK99/ark-cn"
             target="_blank"

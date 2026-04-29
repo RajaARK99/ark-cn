@@ -32,16 +32,14 @@ const ThemeMainContent = () => {
   );
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex flex-col">
       <div className="flex items-center justify-end border-b border-border px-4 py-2 shrink-0 gap-3">
         <SwitchRoot
           checked={previewMode === "dark"}
           onCheckedChange={() => togglePreviewMode()}
           aria-label={`Switch to ${previewMode === "light" ? "dark" : "light"} preview`}
         >
-          <SwitchLabel>
-            Change mode
-          </SwitchLabel>
+          <SwitchLabel>Change mode</SwitchLabel>
           <Switch />
         </SwitchRoot>
         <Separator orientation="vertical" className="h-6" />
@@ -69,7 +67,7 @@ const ThemeMainContent = () => {
         </Button>
       </div>
       <div
-        className="bg-background text-foreground p-6 overflow-y-auto"
+        className="bg-background text-foreground p-6 overflow-y-auto max-h-[calc(100vh-10rem)]"
         style={previewStyle}
       >
         <LandingBentoDemos />;
